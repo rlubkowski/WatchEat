@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.1.1" />
     <PackageReference Include="MoneyFox.Microcharts" Version="1.0.0.1" />
     <PackageReference Include="MoneyFox.Microcharts.Forms" Version="1.0.0.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
