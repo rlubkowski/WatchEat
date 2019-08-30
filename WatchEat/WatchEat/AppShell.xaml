@@ -8,6 +8,8 @@
        xmlns:fviews="clr-namespace:WatchEat.Views.Food"
        xmlns:aviews="clr-namespace:WatchEat.Views.Activity"
        Title="WatchEat"
+       FlyoutBehavior="Disabled"
+       FlyoutIsPresented="False"
        x:Class="WatchEat.AppShell">
 
     <!-- 

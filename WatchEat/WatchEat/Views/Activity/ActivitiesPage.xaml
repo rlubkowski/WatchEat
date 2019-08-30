@@ -6,10 +6,26 @@
              mc:Ignorable="d"
              x:Class="WatchEat.Views.Activity.ActivitiesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <CollectionView EmptyView="No items to display!" 
+                            SelectionChangedCommand="{Binding ActivitySelected}" 
+                            SelectionMode="Single" 
+                            ItemsSource="{Binding Activities}" 
+                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ActivitiesCollection}}"
+                            x:Name="ActivitiesCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="True">
+                            <Label Text="{Binding Path=Name}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Margin="0,0,5,5" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="End" 
+                    Command="{Binding OpenAddActivityPage}"
+                    Style="{StaticResource NavButton}" Text="+" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

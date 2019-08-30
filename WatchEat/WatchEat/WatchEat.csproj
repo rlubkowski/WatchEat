@@ -21,11 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Activity\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Views\Activity\ActivitiesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Activity\SingleActivityPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Food\FoodProductsPage.xaml">

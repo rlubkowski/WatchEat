@@ -16,9 +16,11 @@ namespace WatchEat
             MainPage = new AppShell();
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             AppCenter.Start("ios=d052f377-ac14-4f09-b175-fea95222709f;android=9d5b0155-9633-438c-b1b1-6beadbd63faf;",typeof(Analytics), typeof(Crashes));
+            var appDataStore = DependencyService.Get<IDataStore>();
+            await appDataStore.InitializeAsync();
         }
 
         protected override void OnSleep()

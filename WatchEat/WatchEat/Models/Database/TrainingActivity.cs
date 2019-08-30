@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Models.Database
 {
-    public class Activity : EntityBase
+    public class TrainingActivity : EntityBase
     {
         string _name = string.Empty;
         public string Name

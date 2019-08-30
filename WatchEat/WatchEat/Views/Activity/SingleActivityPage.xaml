@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Name="PageRef"
+             xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
+             x:Class="WatchEat.Views.Activity.SingleActivityPage" Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
+        <ToolbarItem  Text="Save"  Command="{Binding Save}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Name" FontSize="Medium" />
+                <Entry Text="{Binding Path=Activity.Name}" FontSize="Small" />
+                <Label Text="Calories" FontSize="Medium" />
+                <ctrl:NumericEntry NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
