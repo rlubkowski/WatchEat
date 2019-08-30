@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Shell.NavBarIsVisible="False"
+             xmlns:enums="clr-namespace:WatchEat.Enums"
+             xmlns:effects="clr-namespace:WatchEat.Effects"
+             x:Class="WatchEat.Views.JournalPage">
+    <ContentPage.Content>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid BackgroundColor="Lime" Padding="5,10,5,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" 
+                        Command="{Binding Navigate}" 
+                        CommandParameter="{x:Static enums:NavigationDirection.Backward}" 
+                        Style="{StaticResource NavButton}" Text="&lt;" />
+            <Label Grid.Column="1" TextColor="Green" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center" 
+                       Text="{Binding SelectedDay, StringFormat='{0:dd-MM-yyyy}'}" >
+                <Label.Effects>
+                    <effects:ShadowEffect Color="Green" Radius="10" DistanceX="10" DistanceY="10" />
+                </Label.Effects>
+            </Label>
+            <Button Grid.Column="2" Command="{Binding Navigate}" 
+                        CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
+                        Style="{StaticResource NavButton}" Text="&gt;" />
+        </Grid>
+        <CollectionView ItemsSource="{Binding Activities}" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HasShadow="True">
+                        <Label Text="TEST" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="No activities this day."
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+        <Button Grid.Row="1" Margin="0,0,5,5" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="End" 
+                    Command="{Binding AddActivity}"
+                    Style="{StaticResource NavButton}" Text="+" />
+
+        <ActivityIndicator Color="Green" 
+                               Grid.Row="0"                               
+                               Grid.RowSpan="2" 
+                               IsVisible="{Binding IsBusy}" 
+                               IsRunning="{Binding IsBusy}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="CenterAndExpand"/>
+
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
