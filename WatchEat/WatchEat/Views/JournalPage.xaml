@@ -7,7 +7,13 @@
              Shell.NavBarIsVisible="False"
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:effects="clr-namespace:WatchEat.Effects"
+             xmlns:converter="clr-namespace:WatchEat.Converters"
              x:Class="WatchEat.Views.JournalPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DateToStringConverter x:Key="DateToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
         <Grid.RowDefinitions>
@@ -28,9 +34,9 @@
                        HorizontalOptions="Center" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center" 
-                       Text="{Binding SelectedDay, StringFormat='{0:dd-MM-yyyy}'}" >
+                       Text="{Binding SelectedDay, Converter={StaticResource DateToStringConverter}}" >
                 <Label.Effects>
-                    <effects:ShadowEffect Color="Green" Radius="10" DistanceX="10" DistanceY="10" />
+                    <effects:ShadowEffect Color="Green" Radius="2" DistanceX="2" DistanceY="2" />
                 </Label.Effects>
             </Label>
             <Button Grid.Column="2" Command="{Binding Navigate}" 

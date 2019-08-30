@@ -1,20 +1,20 @@
-﻿using WatchEat.ViewModels;
+﻿using WatchEat.ViewModels.EventSelection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WatchEat.Views
+namespace WatchEat.Views.EventSelection
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class JournalPage : ContentPage
+    public partial class ActivitySelectionPage : ContentPage
     {
-        public JournalPage()
+        public ActivitySelectionPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         protected override async void OnAppearing()
         {
-            var viewModel = new JournalViewModel();
+            var viewModel =  new ActivitySelectionPageViewModel();
             await viewModel.InitializeAsync(Navigation);
             BindingContext = viewModel;
             base.OnAppearing();

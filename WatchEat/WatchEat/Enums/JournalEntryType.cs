@@ -2,7 +2,7 @@
 {
     public enum JournalEntryType
     {
-        Activity,
+        Training,
         Weight,
         Food,
         Water
