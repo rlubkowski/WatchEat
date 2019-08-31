@@ -4,7 +4,16 @@ namespace WatchEat.Models.Database
 {
     public class JournalEntry : EntityBase
     {
-        public int Type { get; set; }
+        int _type = default(int);
+        public int Type
+        {
+            get => _type;
+            set
+            {
+                _type = value;
+                OnPropertyChanged(nameof(Type));
+            }
+        }
 
         DateTime _date = default(DateTime);
         public DateTime Date
@@ -14,6 +23,17 @@ namespace WatchEat.Models.Database
             {
                 _date = value;
                 OnPropertyChanged(nameof(Date));
+            }
+        }
+
+        int _reference = default(int);
+        public int Reference
+        {
+            get => _reference;
+            set
+            {
+                _reference = value;
+                OnPropertyChanged(nameof(Type));
             }
         }
     }

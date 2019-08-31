@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Enums;
 using WatchEat.Helpers;
@@ -46,6 +47,25 @@ namespace WatchEat.ViewModels
         {
             get => _activities;
             set => SetProperty(ref _activities, value);
+        }
+        public override async Task InitializeAsync(INavigation navigation)
+        {
+            MessagingCenter.Subscribe<FoodSelectionPageViewModel, FoodSelectionModel>(this, CommandNames.FoodProductSelected, async (obj, item) =>
+            {
+                Activities.Add(new JournalEntryModel(item));
+                //Activities.Add(item);
+                //await DataStore.Activities.Insert(item);
+            });
+
+            MessagingCenter.Subscribe<TrainingActivitySelectionPageViewModel, TrainingActivitySelectionModel>(this, CommandNames.TrainingActivitySelected, async (obj, item) =>
+            {
+                Activities.Add(new JournalEntryModel(item));
+                //Activities.Add(item);
+                //await DataStore.Activities.Insert(item);
+            });
+
+
+            await base.InitializeAsync(navigation);
         }
 
         private DateTime _selectedDay;

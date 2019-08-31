@@ -8,10 +8,28 @@
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:effects="clr-namespace:WatchEat.Effects"
              xmlns:converter="clr-namespace:WatchEat.Converters"
+             xmlns:tmplsel="clr-namespace:WatchEat.Views.TemplateSelectors"
              x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
+            <DataTemplate x:Key="foodCellTemplate">
+                <Label Text="Food Entry" />
+            </DataTemplate>
+            <DataTemplate x:Key="trainingCellTemplate">
+                <Label Text="Training Entry" />
+            </DataTemplate>
+            <DataTemplate x:Key="weightCellTemplate">
+                <Label Text="Weight Entry" />
+            </DataTemplate>
+            <DataTemplate x:Key="waterCellTemplate">
+                <Label Text="Water Entry" />
+            </DataTemplate>
+            <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
+                                                      TrainingTemplate="{StaticResource trainingCellTemplate}" 
+                                                      WeightTemplate="{StaticResource weightCellTemplate}" 
+                                                      WaterTemplate="{StaticResource waterCellTemplate}"
+                                                      FoodTemplate="{StaticResource foodCellTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -43,14 +61,7 @@
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
         </Grid>
-        <CollectionView ItemsSource="{Binding Activities}" Grid.Row="1">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame HasShadow="True">
-                        <Label Text="TEST" />
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding Activities}" ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
             <CollectionView.EmptyView>
                 <Label Text="No activities this day."
                            FontAttributes="Bold"
@@ -64,7 +75,6 @@
                     VerticalOptions="End" 
                     Command="{Binding AddActivity}"
                     Style="{StaticResource NavButton}" Text="+" />
-
         <ActivityIndicator Color="Green" 
                                Grid.Row="0"                               
                                Grid.RowSpan="2" 

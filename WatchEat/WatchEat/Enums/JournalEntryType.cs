@@ -2,7 +2,7 @@
 {
     public enum JournalEntryType : int
     {
-        Training,
+        TrainingActivity,
         Weight,
         Food,
         Water

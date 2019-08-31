@@ -40,7 +40,7 @@ namespace WatchEat.ViewModels.EventSelection
         public ICommand ActivitySelected => new AsyncCommand(async (param) =>
         {
             var activity = (Models.Database.TrainingActivity)param;
-            MessagingCenter.Send(this, CommandNames.ActivitySelected, new ActivitySelectionModel(activity, SelectedDate));
+            MessagingCenter.Send(this, CommandNames.TrainingActivitySelected, new TrainingActivitySelectionModel(activity, SelectedDate));
             await Navigation.PopModalAsync();
         });
 

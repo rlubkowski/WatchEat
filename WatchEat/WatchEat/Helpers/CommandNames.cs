@@ -19,6 +19,6 @@
         public const string RemoveWeightEntry = nameof(RemoveWeightEntry);
 
         public const string FoodProductSelected = nameof(FoodProductSelected);
-        public const string ActivitySelected= nameof(ActivitySelected);
+        public const string TrainingActivitySelected= nameof(TrainingActivitySelected);
     }
 }
