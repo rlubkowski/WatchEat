@@ -9,7 +9,7 @@ namespace WatchEat.Services
 {
     public class DataStore : IDataStore
     {
-        public IRepository<FoodProduct> FoodProducts { get; private set; }
+        public IRepository<Food> FoodProducts { get; private set; }
 
         public IRepository<Notification> Notifications { get; private set; }
 
@@ -24,13 +24,13 @@ namespace WatchEat.Services
         public async Task InitializeAsync()
         {
             var connection = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WatchEat.db3"));
-            await connection.CreateTableAsync<FoodProduct>();            
+            await connection.CreateTableAsync<Food>();            
             await connection.CreateTableAsync<Notification>();
             await connection.CreateTableAsync<TrainingActivity>();
             await connection.CreateTableAsync<JournalEntry>();
             await connection.CreateTableAsync<WeightEntry>();
             await connection.CreateTableAsync<WaterEntry>();
-            FoodProducts = new Repository<FoodProduct>(connection);            
+            FoodProducts = new Repository<Food>(connection);            
             Notifications = new Repository<Notification>(connection);
             Activities = new Repository<TrainingActivity>(connection);
             Entries = new Repository<JournalEntry>(connection);

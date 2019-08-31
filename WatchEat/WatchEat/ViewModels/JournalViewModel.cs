@@ -4,6 +4,7 @@ using System.Windows.Input;
 using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Models;
+using WatchEat.ViewModels.EventSelection;
 using WatchEat.Views.EventSelection;
 using Xamarin.Forms;
 
@@ -14,7 +15,7 @@ namespace WatchEat.ViewModels
         public JournalViewModel()
         {
             SelectedDay = DateTime.Now;
-            Activities = new ObservableCollection<DailyActivityModel>();
+            Activities = new ObservableCollection<JournalEntryModel>();
         }
 
         public ICommand Navigate => new AsyncCommand(async (direction) =>
@@ -37,11 +38,11 @@ namespace WatchEat.ViewModels
         {
             if (IsBusy)
                 return;
-            await Navigation.PushModalAsync(new NavigationPage(new ActivitySelectionPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new ActivitySelectionPage(new ActivitySelectionPageViewModel(SelectedDay))));
         });
 
-        private ObservableCollection<DailyActivityModel> _activities;
-        public ObservableCollection<DailyActivityModel> Activities
+        private ObservableCollection<JournalEntryModel> _activities;
+        public ObservableCollection<JournalEntryModel> Activities
         {
             get => _activities;
             set => SetProperty(ref _activities, value);

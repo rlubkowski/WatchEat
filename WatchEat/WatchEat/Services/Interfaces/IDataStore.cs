@@ -6,7 +6,7 @@ namespace WatchEat.Services.Interfaces
     public interface IDataStore
     {
         Task InitializeAsync();
-        IRepository<FoodProduct> FoodProducts { get; }        
+        IRepository<Food> FoodProducts { get; }        
         IRepository<Notification> Notifications { get; }
         IRepository<TrainingActivity> Activities { get; }
         IRepository<JournalEntry> Entries { get; }

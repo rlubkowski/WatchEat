@@ -6,7 +6,7 @@
        mc:Ignorable="d"
        xmlns:local="clr-namespace:WatchEat.Views"
        xmlns:fviews="clr-namespace:WatchEat.Views.Food"
-       xmlns:aviews="clr-namespace:WatchEat.Views.Activity"
+       xmlns:aviews="clr-namespace:WatchEat.Views.TrainingActivity"
        Title="WatchEat"
        FlyoutBehavior="Disabled"
        FlyoutIsPresented="False"       

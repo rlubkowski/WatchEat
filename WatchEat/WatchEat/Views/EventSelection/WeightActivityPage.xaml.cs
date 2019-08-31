@@ -1,18 +1,13 @@
-﻿using WatchEat.ViewModels.Activity;
+﻿using WatchEat.ViewModels.EventSelection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WatchEat.Views.Activity
+namespace WatchEat.Views.EventSelection
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SingleActivityPage : ContentPage
+    public partial class WeightActivityPage : ContentPage
     {
-        public SingleActivityPage()
-        {
-            InitializeComponent();
-        }
-
-        public SingleActivityPage(SingleActivityPageViewModel viewModel)
+        public WeightActivityPage(WeightActivityPageViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -20,13 +15,13 @@ namespace WatchEat.Views.Activity
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as SingleActivityPageViewModel : new SingleActivityPageViewModel();
+            var viewModel = BindingContext as WeightActivityPageViewModel; 
             await viewModel.InitializeAsync(Navigation, DisplayAlert);
             if (viewModel.IsEditView)
             {
-                ToolbarItem toolbarItem = new ToolbarItem();
+                var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(SingleActivityPageViewModel.Remove)));
+                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(WeightActivityPageViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }
             else

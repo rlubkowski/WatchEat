@@ -1,28 +1,27 @@
 ﻿using System.Windows.Input;
 using WatchEat.Helpers;
-using WatchEat.Models.Database;
 using Xamarin.Forms;
 
-namespace WatchEat.ViewModels.Activity
+namespace WatchEat.ViewModels.TrainingActivity
 {
-    public class SingleActivityPageViewModel : BaseViewModel
+    public class SingleTrainingActivityPageViewModel : BaseViewModel
     {
-        public SingleActivityPageViewModel()
+        public SingleTrainingActivityPageViewModel()
         {
             Title = "New Activity";
             IsEditView = false;
-            Activity = new TrainingActivity();
+            Activity = new Models.Database.TrainingActivity();
         }
 
-        public SingleActivityPageViewModel(TrainingActivity activity)
+        public SingleTrainingActivityPageViewModel(Models.Database.TrainingActivity activity)
         {
             Title = "Edit Activity";
             IsEditView = true;
             Activity = activity;
         }
 
-        TrainingActivity _activity;
-        public TrainingActivity Activity
+        Models.Database.TrainingActivity _activity;
+        public Models.Database.TrainingActivity Activity
         {
             get => _activity;
             set { SetProperty(ref _activity, value); }

@@ -14,7 +14,7 @@ namespace WatchEat.Views.Food
 
         protected override async void OnAppearing()
         {
-            var viewModel = new FoodProductsPageViewModel();
+            var viewModel = new FoodPageViewModel();
             await viewModel.InitializeAsync(Navigation);
             BindingContext = viewModel;
             base.OnAppearing();

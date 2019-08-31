@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using WatchEat.Helpers;
-using WatchEat.Models.Database;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
@@ -11,18 +10,18 @@ namespace WatchEat.ViewModels.Food
         {
             Title = "New Food Product";
             IsEditView = false;
-            Product = new FoodProduct();
+            Product = new Models.Database.Food();
         }
 
-        public SingleFoodProductPageViewModel(FoodProduct product)
+        public SingleFoodProductPageViewModel(Models.Database.Food product)
         {
             Title = "Edit Food Product";
             IsEditView = true;
             Product = product;
         }
 
-        FoodProduct _product;
-        public FoodProduct Product
+        Models.Database.Food _product;
+        public Models.Database.Food Product
         {
             get => _product;
             set { SetProperty(ref _product, value); }
@@ -34,11 +33,11 @@ namespace WatchEat.ViewModels.Food
         {
             if (IsEditView)
             {
-                MessagingCenter.Send(this, CommandNames.EditFoodProduct, Product);
+                MessagingCenter.Send(this, CommandNames.EditFood, Product);
             }
             else
             {
-                MessagingCenter.Send(this, CommandNames.AddFoodProduct, Product);
+                MessagingCenter.Send(this, CommandNames.AddFood, Product);
             }
             await Navigation.PopModalAsync();
         });
@@ -52,7 +51,7 @@ namespace WatchEat.ViewModels.Food
         {
             if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
             {
-                MessagingCenter.Send(this, CommandNames.RemoveFoodProduct, Product);
+                MessagingCenter.Send(this, CommandNames.RemoveFood, Product);
             }
             await Navigation.PopModalAsync();
         });

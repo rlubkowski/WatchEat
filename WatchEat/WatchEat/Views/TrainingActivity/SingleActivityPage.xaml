@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
              xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
-             x:Class="WatchEat.Views.Activity.SingleActivityPage" Title="{Binding Title}">
+             x:Class="WatchEat.Views.TrainingActivity.SingleActivityPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
         <ToolbarItem  Text="Save"  Command="{Binding Save}" />

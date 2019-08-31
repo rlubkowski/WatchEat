@@ -1,8 +1,8 @@
-﻿using WatchEat.ViewModels.Activity;
+﻿using WatchEat.ViewModels.TrainingActivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WatchEat.Views.Activity
+namespace WatchEat.Views.TrainingActivity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActivitiesPage : ContentPage
@@ -14,7 +14,7 @@ namespace WatchEat.Views.Activity
 
         protected override async void OnAppearing()
         {
-            var viewModel = new ActivitiesPageViewModel();
+            var viewModel = new TrainingActivitiesPageViewModel();
             await viewModel.InitializeAsync(Navigation);
             BindingContext = viewModel;
             base.OnAppearing();

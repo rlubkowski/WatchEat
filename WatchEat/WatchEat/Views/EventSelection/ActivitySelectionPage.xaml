@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="WatchEat.Views.EventSelection.ActivitySelectionPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
+        <ToolbarItem Order="Primary" Text="Back"  Command="{Binding Cancel}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

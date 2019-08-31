@@ -26,6 +26,8 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref title, value); }
         }
 
+        protected bool IsInitialized { get; set; }
+
         public INavigation Navigation { get; private set; }
 
         public Func<string, string, string, string, Task<bool>> DisplayAlert { get; private set; }
@@ -33,12 +35,14 @@ namespace WatchEat.ViewModels
         public virtual async Task InitializeAsync(INavigation navigation)
         {
             Navigation = navigation;
+            IsInitialized = true;
         }
 
         public virtual async Task InitializeAsync(INavigation navigation, Func<string, string, string, string, Task<bool>> displayAlert)
         {
             Navigation = navigation;
             DisplayAlert = displayAlert;
+            IsInitialized = true;
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

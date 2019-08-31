@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Enums
 {
-    public enum JournalEntryType
+    public enum JournalEntryType : int
     {
         Training,
         Weight,
