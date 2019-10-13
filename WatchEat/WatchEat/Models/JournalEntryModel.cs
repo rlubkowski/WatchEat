@@ -22,6 +22,20 @@ namespace WatchEat.Models
             TrainingActivity = trainingSelection.TrainingActivity;
         }
 
+        public JournalEntryModel(TrainingActivity trainingActivity, DateTime dateTime)
+        {
+            Date = dateTime;
+            Type = JournalEntryType.TrainingActivity;
+            TrainingActivity = trainingActivity;
+        }
+
+        public JournalEntryModel(Food food, DateTime dateTime)
+        {
+            Date = dateTime;
+            Type = JournalEntryType.Food;
+            Food = food;
+        }
+
         public JournalEntryModel(WaterEntry waterEntry)
         {
             Date = waterEntry.Date;

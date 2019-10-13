@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using System;
+using WatchEat.Enums;
 
 namespace WatchEat.Models.Database
 {
@@ -14,11 +16,23 @@ namespace WatchEat.Models.Database
                 OnPropertyChanged(nameof(Type));
             }
         }
+        
+        JournalEntryType _entryType = default(JournalEntryType);
+        [Ignore]
+        public JournalEntryType EntryType
+        {
+            get => _entryType;
+            set
+            {
+                _entryType = value;
+                OnPropertyChanged(nameof(EntryType));
+            }
+        }
 
         DateTime _date = default(DateTime);
         public DateTime Date
         {
-            get { return _date; }
+            get => _date; 
             set
             {
                 _date = value;

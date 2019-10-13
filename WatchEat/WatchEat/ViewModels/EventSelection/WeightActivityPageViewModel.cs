@@ -12,6 +12,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             Title = "New Weight Entry";
             IsEditView = false;
+            SelectedTime = DateTime.Now.ToTimespan();
             Weight = new WeightEntry            
             {
                 Date = date
@@ -22,6 +23,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             Title = "Edit Weight Entry";
             IsEditView = true;
+            SelectedTime = DateTime.Now.ToTimespan();
             Weight = water;
         }
 
@@ -60,7 +62,7 @@ namespace WatchEat.ViewModels.EventSelection
             {
                 MessagingCenter.Send(this, CommandNames.AddWeightEntry, Weight);
             }
-            await Navigation.PopModalAsync();
+            await Navigation.PopModalToRootAsync();
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

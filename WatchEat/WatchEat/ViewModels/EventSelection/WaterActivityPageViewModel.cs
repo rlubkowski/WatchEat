@@ -12,6 +12,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             Title = "New Water Entry";
             IsEditView = false;
+            SelectedTime = DateTime.Now.ToTimespan();
             Water = new WaterEntry
             {
                 Date = date
@@ -22,6 +23,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             Title = "Edit Water Entry";
             IsEditView = true;
+            SelectedTime = DateTime.Now.ToTimespan();
             Water = water;
         }
 
@@ -60,7 +62,7 @@ namespace WatchEat.ViewModels.EventSelection
             {
                 MessagingCenter.Send(this, CommandNames.AddWaterEntry, Water);
             }
-            await Navigation.PopModalAsync();
+            await Navigation.PopModalToRootAsync();
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

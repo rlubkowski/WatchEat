@@ -13,6 +13,7 @@ namespace WatchEat.ViewModels.EventSelection
         public TrainingActivitySelectionPageViewModel(DateTime dateTime)
         {
             SelectedDate = dateTime;
+            SelectedTime = DateTime.Now.ToTimespan();
             Activities = new ObservableCollection<Models.Database.TrainingActivity>();
         }
 
@@ -35,13 +36,13 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        public ObservableCollection<Models.Database.TrainingActivity> Activities { get; private set; }     
+        public ObservableCollection<Models.Database.TrainingActivity> Activities { get; private set; }
 
         public ICommand ActivitySelected => new AsyncCommand(async (param) =>
         {
             var activity = (Models.Database.TrainingActivity)param;
             MessagingCenter.Send(this, CommandNames.TrainingActivitySelected, new TrainingActivitySelectionModel(activity, SelectedDate));
-            await Navigation.PopModalAsync();
+            await Navigation.PopModalToRootAsync();
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

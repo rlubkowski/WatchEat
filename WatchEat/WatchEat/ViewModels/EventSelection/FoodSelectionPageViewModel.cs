@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Models;
-using WatchEat.Models.Database;
 using Xamarin.Forms;
+
 
 namespace WatchEat.ViewModels.EventSelection
 {
@@ -14,6 +14,7 @@ namespace WatchEat.ViewModels.EventSelection
         public FoodSelectionPageViewModel(DateTime dateTime)
         {
             SelectedDate = dateTime;
+            SelectedTime = DateTime.Now.ToTimespan();
             FoodProducts = new ObservableCollection<Models.Database.Food>();
         }
 
@@ -42,7 +43,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             var foodProduct = (Models.Database.Food)param;
             MessagingCenter.Send(this, CommandNames.FoodProductSelected, new FoodSelectionModel(foodProduct, SelectedDate));
-            await Navigation.PopModalAsync();
+            await Navigation.PopModalToRootAsync();
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

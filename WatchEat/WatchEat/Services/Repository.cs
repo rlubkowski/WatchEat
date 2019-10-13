@@ -39,7 +39,7 @@ namespace WatchEat.Services
         public async Task<T> Get(int id) =>
              await _db.FindAsync<T>(id);
 
-        public async Task<T> Get(Expression<Func<T, bool>> predicate) =>
+        public async Task<T> Get(Expression<Func<T, bool>> predicate) => 
             await _db.FindAsync<T>(predicate);
 
         public async Task<int> Insert(T entity) =>
