@@ -17,14 +17,12 @@ namespace WatchEat.Models.Database
             }
         }
         
-        JournalEntryType _entryType = default(JournalEntryType);
         [Ignore]
         public JournalEntryType EntryType
         {
-            get => _entryType;
+            get => (JournalEntryType)Type;
             set
             {
-                _entryType = value;
                 Type = (int)value;
                 OnPropertyChanged(nameof(EntryType));
             }

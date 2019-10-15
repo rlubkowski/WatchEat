@@ -12,42 +12,42 @@ namespace WatchEat.Models
         {
             Date = foodSelection.Time;
             Type = JournalEntryType.Food;
-            Food = foodSelection.Food;
+            EntityReference = foodSelection.Food;
         }
 
-        public JournalEntryModel(TrainingActivitySelectionModel trainingSelection)
+        public JournalEntryModel(ActivitySelectionModel trainingSelection)
         {
             Date = trainingSelection.Time;
-            Type = JournalEntryType.TrainingActivity;
-            TrainingActivity = trainingSelection.TrainingActivity;
+            Type = JournalEntryType.Activity;
+            EntityReference = trainingSelection.TrainingActivity;
         }
 
-        public JournalEntryModel(TrainingActivity trainingActivity, DateTime dateTime)
+        public JournalEntryModel(ActivityEntry trainingActivity, DateTime dateTime)
         {
             Date = dateTime;
-            Type = JournalEntryType.TrainingActivity;
-            TrainingActivity = trainingActivity;
+            Type = JournalEntryType.Activity;
+            EntityReference = trainingActivity;
         }
 
-        public JournalEntryModel(Food food, DateTime dateTime)
+        public JournalEntryModel(FoodEntry food, DateTime dateTime)
         {
             Date = dateTime;
             Type = JournalEntryType.Food;
-            Food = food;
+            EntityReference = food;
         }
 
         public JournalEntryModel(WaterEntry waterEntry)
         {
             Date = waterEntry.Date;
             Type = JournalEntryType.Water;
-            Water =  waterEntry;
+            EntityReference =  waterEntry;
         }
 
         public JournalEntryModel(WeightEntry weightEntry)
         {
             Date = weightEntry.Date;
             Type = JournalEntryType.Weight;
-            Weight = weightEntry;
+            EntityReference = weightEntry;
         }
 
         DateTime _date;
@@ -71,38 +71,15 @@ namespace WatchEat.Models
                 OnPropertyChanged(nameof(Type));
             }
         }
-        public Food Food { get; private set; }
-
-        public TrainingActivity TrainingActivity { get; private set; }
-
-        public WaterEntry Water { get; private set; }
-
-        public WeightEntry Weight { get; private set; }
+        public EntityBase EntityReference { get; private set; }
 
         public JournalEntry ToEntity()
         {
-            int reference = 0;
-            switch (Type)
-            {
-                case JournalEntryType.TrainingActivity:
-                    reference = TrainingActivity.Id;
-                    break;
-                case JournalEntryType.Weight:
-                    reference = Weight.Id;
-                    break;
-                case JournalEntryType.Food:
-                    reference = Food.Id;
-                    break;
-                case JournalEntryType.Water:
-                    reference = Water.Id;
-                    break;                
-            }
-
             return new JournalEntry
             {
                 Date = Date,
-                Type = (int)Type,             
-                Reference = reference
+                EntryType = Type,             
+                Reference = EntityReference.Id
             };
         }
 

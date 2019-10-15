@@ -15,7 +15,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             SelectedDate = dateTime;
             SelectedTime = DateTime.Now.ToTimespan();
-            FoodProducts = new ObservableCollection<Models.Database.Food>();
+            FoodProducts = new ObservableCollection<Models.Database.FoodEntry>();
         }
 
         DateTime _date;
@@ -37,12 +37,12 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        public ObservableCollection<Models.Database.Food> FoodProducts { get; private set; }
+        public ObservableCollection<Models.Database.FoodEntry> FoodProducts { get; private set; }
 
-        public ICommand ProductSelected => new AsyncCommand(async (param) =>
+        public ICommand FoodSelected => new AsyncCommand(async (param) =>
         {
-            var foodProduct = (Models.Database.Food)param;
-            MessagingCenter.Send(this, CommandNames.FoodProductSelected, new FoodSelectionModel(foodProduct, SelectedDate));
+            var foodProduct = (Models.Database.FoodEntry)param;
+            MessagingCenter.Send(this, CommandNames.FoodSelected, new FoodSelectionModel(foodProduct, SelectedDate));
             await Navigation.PopModalToRootAsync();
         });
 
@@ -55,7 +55,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             if (!IsInitialized)
             {
-                foreach (var product in await DataStore.FoodProducts.Get())
+                foreach (var product in await DataStore.FoodEntries.Get())
                 {
                     FoodProducts.Add(product);
                 }

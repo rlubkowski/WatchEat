@@ -6,14 +6,32 @@
              mc:Ignorable="d"
              x:Class="WatchEat.Views.EventSelection.ActivitySelectionPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" Text="Back"  Command="{Binding Cancel}" />
+        <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />        
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Water" Command="{Binding AddWaterActivity}"/>
-            <Button Text="Food"  Command="{Binding AddFoodActivity}"/>
-            <Button Text="Training"  Command="{Binding AddTrainingActivity}"/>
-            <Button Text="Weight" Command="{Binding AddWeightActivity}"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <Label Text="Time" FontSize="Medium"/>
+                <TimePicker Time="{Binding SelectedTime}" />
+            </StackLayout>
+        <CollectionView Grid.Row="1" EmptyView="No items to display!" 
+                            SelectionChangedCommand="{Binding ActivitySelected}" 
+                            SelectionMode="Single" 
+                            ItemsSource="{Binding Activities}" 
+                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ActivitiesCollection}}"
+                            x:Name="ActivitiesCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HasShadow="True">
+                        <Label Text="{Binding Path=Name}" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

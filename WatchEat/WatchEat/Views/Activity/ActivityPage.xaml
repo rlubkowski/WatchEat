@@ -5,17 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
              xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
-             x:Class="WatchEat.Views.EventSelection.WaterActivityPage">
+             x:Class="WatchEat.Views.Activity.ActivityPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
         <ToolbarItem  Text="Save"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Time" FontSize="Medium"/>
-            <TimePicker Time="{Binding SelectedTime}" />
-            <Label Text="Water Amount" FontSize="Medium" />
-            <ctrl:NumericEntry NumericValue="{Binding Path=Water.Amount}" FontSize="Small"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Name" FontSize="Medium" />
+                <Entry Text="{Binding Path=Activity.Name}" FontSize="Small" />
+                <Label Text="Calories" FontSize="Medium" />
+                <ctrl:NumericEntry NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

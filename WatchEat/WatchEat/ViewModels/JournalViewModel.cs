@@ -40,37 +40,37 @@ namespace WatchEat.ViewModels
         private async Task LoadDayActivitiesAsync(DateTime dateTime)
         {            
             var tommorow = dateTime.AddDays(1);
-            var entries = await DataStore.Entries.Get(x => x.Date >= dateTime && x.Date < tommorow, x => x.Date);
+            var entries = await DataStore.JournalEntries.Get(x => x.Date >= dateTime && x.Date < tommorow, x => x.Date);
             Activities.Clear();
             foreach (var entry in entries)
             {
                 switch (entry.EntryType)
                 {
-                    case JournalEntryType.TrainingActivity:
-                        var activity = await DataStore.Activities.Get(entry.Reference);
+                    case JournalEntryType.Activity:
+                        var activity = await DataStore.ActivityEntries.Get(entry.Reference);
                         Activities.Add(new JournalEntryModel(activity, entry.Date));
                         break;
                     case JournalEntryType.Weight:
-                        var weight = await DataStore.WeightRecords.Get(entry.Reference);
+                        var weight = await DataStore.WeightEntries.Get(entry.Reference);
                         Activities.Add(new JournalEntryModel(weight));
                         break;
                     case JournalEntryType.Food:
-                        var food = await DataStore.FoodProducts.Get(entry.Reference);
+                        var food = await DataStore.FoodEntries.Get(entry.Reference);
                         Activities.Add(new JournalEntryModel(food, entry.Date));
                         break;
                     case JournalEntryType.Water:
-                        var water = await DataStore.WaterConsumptions.Get(entry.Reference);
+                        var water = await DataStore.WaterEntries.Get(entry.Reference);
                         Activities.Add(new JournalEntryModel(water));
                         break;                    
                 }
             }
         }
 
-        public ICommand AddActivity => new AsyncCommand(async() =>
+        public ICommand AddEvent => new AsyncCommand(async() =>
         {
             if (IsBusy)
                 return;
-            await Navigation.PushModalAsync(new NavigationPage(new ActivitySelectionPage(new ActivitySelectionPageViewModel(SelectedDay))));
+            await Navigation.PushModalAsync(new NavigationPage(new EventSelectionPage(new EventSelectionPageViewModel(SelectedDay))));
         });
 
         private DateTime _selectedDay;
@@ -90,28 +90,20 @@ namespace WatchEat.ViewModels
         {
             await base.InitializeAsync(navigation);
 
-            MessagingCenter.Subscribe<FoodSelectionPageViewModel, FoodSelectionModel>(this, CommandNames.FoodProductSelected, async (obj, item) =>
+            MessagingCenter.Subscribe<FoodSelectionPageViewModel, FoodSelectionModel>(this, CommandNames.FoodSelected, async (obj, item) =>
             {
-                Activities.Add(new JournalEntryModel(item));
+                var entryModel = new JournalEntryModel(item);
+                Activities.Add(entryModel);
 
-                await DataStore.Entries.Insert(new Models.Database.JournalEntry
-                {
-                    Date = item.Time,
-                    EntryType = JournalEntryType.Food,
-                    Reference = item.Food.Id
-                });
+                await DataStore.JournalEntries.Insert(entryModel.ToEntity());
             });
 
-            MessagingCenter.Subscribe<TrainingActivitySelectionPageViewModel, TrainingActivitySelectionModel>(this, CommandNames.TrainingActivitySelected, async (obj, item) =>
+            MessagingCenter.Subscribe<ActivitySelectionPageViewModel, ActivitySelectionModel>(this, CommandNames.ActivitySelected, async (obj, item) =>
             {
-                Activities.Add(new JournalEntryModel(item));
+                var entryModel = new JournalEntryModel(item);
+                Activities.Add(entryModel);
 
-                await DataStore.Entries.Insert(new Models.Database.JournalEntry
-                {
-                    Date = item.Time,
-                    EntryType = JournalEntryType.TrainingActivity,
-                    Reference = item.TrainingActivity.Id
-                });
+                await DataStore.JournalEntries.Insert(entryModel.ToEntity());
             });
            
             await LoadDayActivitiesAsync(SelectedDay);

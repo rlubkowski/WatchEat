@@ -26,7 +26,7 @@
                 <Label Text="Water Entry" />
             </DataTemplate>
             <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
-                                                      TrainingTemplate="{StaticResource trainingCellTemplate}" 
+                                                      ActivityTemplate="{StaticResource trainingCellTemplate}" 
                                                       WeightTemplate="{StaticResource weightCellTemplate}" 
                                                       WaterTemplate="{StaticResource waterCellTemplate}"
                                                       FoodTemplate="{StaticResource foodCellTemplate}"/>
@@ -73,7 +73,7 @@
         <Button Grid.Row="1" Margin="0,0,5,5" 
                     HorizontalOptions="End" 
                     VerticalOptions="End" 
-                    Command="{Binding AddActivity}"
+                    Command="{Binding AddEvent}"
                     Style="{StaticResource NavButton}" Text="+" />
         <ActivityIndicator Color="Green" 
                                Grid.Row="0"                               

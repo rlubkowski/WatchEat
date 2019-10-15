@@ -5,17 +5,17 @@ using Xamarin.Forms.Xaml;
 namespace WatchEat.Views.EventSelection
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TrainingActivitySelectionPage : ContentPage
+    public partial class EventSelectionPage : ContentPage
     {
-        public TrainingActivitySelectionPage(TrainingActivitySelectionPageViewModel viewModel)
+        public EventSelectionPage(EventSelectionPageViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
         }
 
         protected override async void OnAppearing()
-        {            
-            await (BindingContext as TrainingActivitySelectionPageViewModel).InitializeAsync(Navigation);
+        {
+            await (BindingContext as EventSelectionPageViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }

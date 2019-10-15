@@ -4,24 +4,24 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
 {
-    public class SingleFoodProductPageViewModel : BaseViewModel
+    public class FoodPageViewModel : BaseViewModel
     {
-        public SingleFoodProductPageViewModel()
+        public FoodPageViewModel()
         {
             Title = "New Food Product";
             IsEditView = false;
-            Product = new Models.Database.Food();
+            Product = new Models.Database.FoodEntry();
         }
 
-        public SingleFoodProductPageViewModel(Models.Database.Food product)
+        public FoodPageViewModel(Models.Database.FoodEntry product)
         {
             Title = "Edit Food Product";
             IsEditView = true;
             Product = product;
         }
 
-        Models.Database.Food _product;
-        public Models.Database.Food Product
+        Models.Database.FoodEntry _product;
+        public Models.Database.FoodEntry Product
         {
             get => _product;
             set { SetProperty(ref _product, value); }

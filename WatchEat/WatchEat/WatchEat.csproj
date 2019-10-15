@@ -21,37 +21,61 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Activity\ActivityPage.xaml.cs">
+      <DependentUpon>ActivityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EventSelection\EventSelectionPage.xaml.cs">
+      <DependentUpon>EventSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EventSelection\ActivitySelectionPage.xaml.cs">
+      <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EventSelection\WaterPage.xaml.cs">
+      <DependentUpon>WaterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EventSelection\WeightPage.xaml.cs">
+      <DependentUpon>WeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Food\FoodsPage.xaml.cs">
+      <DependentUpon>FoodsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Food\FoodPage.xaml.cs">
+      <DependentUpon>FoodPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\Statistics\MonthlyStatisticsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Statistics\WeeklyStatisticsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TrainingActivity\ActivitiesPage.xaml">
+    <EmbeddedResource Update="Views\Activity\ActivitiesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TrainingActivity\SingleActivityPage.xaml">
+    <EmbeddedResource Update="Views\Activity\ActivityPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EventSelection\ActivitySelectionPage.xaml">
+    <EmbeddedResource Update="Views\EventSelection\EventSelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EventSelection\FoodSelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EventSelection\TrainingActivitySelectionPage.xaml">
+    <EmbeddedResource Update="Views\EventSelection\ActivitySelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EventSelection\WaterActivityPage.xaml">
+    <EmbeddedResource Update="Views\EventSelection\WaterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EventSelection\WeightActivityPage.xaml">
+    <EmbeddedResource Update="Views\EventSelection\WeightPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Food\FoodProductsPage.xaml">
+    <EmbeddedResource Update="Views\Food\FoodsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Food\SingleFoodProductPage.xaml">
+    <EmbeddedResource Update="Views\Food\FoodPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\JournalPage.xaml">

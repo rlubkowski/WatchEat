@@ -5,7 +5,7 @@ namespace WatchEat.Views.TemplateSelectors
 {
     public class JournalEntryDataTemplateSelector : DataTemplateSelector
     {
-        public DataTemplate TrainingTemplate { get; set; }
+        public DataTemplate ActivityTemplate { get; set; }
 
         public DataTemplate WeightTemplate { get; set; }
 
@@ -18,8 +18,8 @@ namespace WatchEat.Views.TemplateSelectors
             var journalEntry = (JournalEntryModel)item;
             switch (journalEntry.Type)
             {
-                case Enums.JournalEntryType.TrainingActivity:
-                    return TrainingTemplate;
+                case Enums.JournalEntryType.Activity:
+                    return ActivityTemplate;
                 case Enums.JournalEntryType.Weight:
                     return WeightTemplate;
                 case Enums.JournalEntryType.Food:

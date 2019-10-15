@@ -3,15 +3,15 @@ using WatchEat.Models.Database;
 
 namespace WatchEat.Models
 {
-    public class TrainingActivitySelectionModel
+    public class ActivitySelectionModel
     {
-        public TrainingActivitySelectionModel(TrainingActivity activity, DateTime time)
+        public ActivitySelectionModel(ActivityEntry activity, DateTime time)
         {
             TrainingActivity = activity;
             Time = time;
         }
 
         public DateTime Time { get; private set; }
-        public TrainingActivity TrainingActivity { get; private set; }
+        public ActivityEntry TrainingActivity { get; private set; }
     }
 }

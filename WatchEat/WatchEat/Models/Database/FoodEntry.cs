@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Models.Database
 {
-    public class Food : EntityBase
+    public class FoodEntry : EntityBase
     {
         string _name = string.Empty;
         public string Name

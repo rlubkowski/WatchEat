@@ -6,9 +6,9 @@
         public const string EditFood = nameof(EditFood);
         public const string RemoveFood = nameof(RemoveFood);
 
-        public const string AddTrainingActivity = nameof(AddTrainingActivity);
-        public const string EditTrainingActivity = nameof(EditTrainingActivity);
-        public const string RemoveTrainingActivity = nameof(RemoveTrainingActivity);
+        public const string AddActivity = nameof(AddActivity);
+        public const string EditActivity = nameof(EditActivity);
+        public const string RemoveActivity = nameof(RemoveActivity);
 
         public const string AddWaterEntry = nameof(AddWaterEntry);
         public const string EditWaterEntry = nameof(EditWaterEntry);
@@ -18,7 +18,7 @@
         public const string EditWeightEntry = nameof(EditWeightEntry);
         public const string RemoveWeightEntry = nameof(RemoveWeightEntry);
 
-        public const string FoodProductSelected = nameof(FoodProductSelected);
-        public const string TrainingActivitySelected= nameof(TrainingActivitySelected);
+        public const string FoodSelected = nameof(FoodSelected);
+        public const string ActivitySelected= nameof(ActivitySelected);
     }
 }

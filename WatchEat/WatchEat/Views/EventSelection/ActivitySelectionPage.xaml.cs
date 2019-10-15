@@ -14,7 +14,7 @@ namespace WatchEat.Views.EventSelection
         }
 
         protected override async void OnAppearing()
-        {
+        {            
             await (BindingContext as ActivitySelectionPageViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }

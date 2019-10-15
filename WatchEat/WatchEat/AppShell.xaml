@@ -6,7 +6,7 @@
        mc:Ignorable="d"
        xmlns:local="clr-namespace:WatchEat.Views"
        xmlns:fviews="clr-namespace:WatchEat.Views.Food"
-       xmlns:aviews="clr-namespace:WatchEat.Views.TrainingActivity"
+       xmlns:aviews="clr-namespace:WatchEat.Views.Activity"
        xmlns:statviews="clr-namespace:WatchEat.Views.Statistics"
        Title="WatchEat"
        FlyoutBehavior="Disabled"
@@ -31,7 +31,7 @@
             <ShellContent ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
         </Tab>
         <Tab Title="Food Products" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate fviews:FoodProductsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate fviews:FoodsPage}" />
         </Tab>
         <Tab Title="Statistics" Icon="tab_about.png">
             <ShellContent Title="Last 7 days" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />

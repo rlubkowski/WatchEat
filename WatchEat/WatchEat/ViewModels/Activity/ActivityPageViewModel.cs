@@ -2,26 +2,26 @@
 using WatchEat.Helpers;
 using Xamarin.Forms;
 
-namespace WatchEat.ViewModels.TrainingActivity
+namespace WatchEat.ViewModels.Activity
 {
-    public class SingleTrainingActivityPageViewModel : BaseViewModel
+    public class ActivityPageViewModel : BaseViewModel
     {
-        public SingleTrainingActivityPageViewModel()
+        public ActivityPageViewModel()
         {
             Title = "New Activity";
             IsEditView = false;
-            Activity = new Models.Database.TrainingActivity();
+            Activity = new Models.Database.ActivityEntry();
         }
 
-        public SingleTrainingActivityPageViewModel(Models.Database.TrainingActivity activity)
+        public ActivityPageViewModel(Models.Database.ActivityEntry activity)
         {
             Title = "Edit Activity";
             IsEditView = true;
             Activity = activity;
         }
 
-        Models.Database.TrainingActivity _activity;
-        public Models.Database.TrainingActivity Activity
+        Models.Database.ActivityEntry _activity;
+        public Models.Database.ActivityEntry Activity
         {
             get => _activity;
             set { SetProperty(ref _activity, value); }
@@ -33,11 +33,11 @@ namespace WatchEat.ViewModels.TrainingActivity
         {
             if (IsEditView)
             {
-                MessagingCenter.Send(this, CommandNames.EditTrainingActivity, Activity);
+                MessagingCenter.Send(this, CommandNames.EditActivity, Activity);
             }
             else
             {
-                MessagingCenter.Send(this, CommandNames.AddTrainingActivity, Activity);
+                MessagingCenter.Send(this, CommandNames.AddActivity, Activity);
             }
             await Navigation.PopModalAsync();
         });
@@ -51,7 +51,7 @@ namespace WatchEat.ViewModels.TrainingActivity
         {
             if (await DisplayAlert("Confirm Remove", "Do you want to remove selected activity?", "Yes", "No"))
             {
-                MessagingCenter.Send(this, CommandNames.RemoveTrainingActivity, Activity);
+                MessagingCenter.Send(this, CommandNames.RemoveActivity, Activity);
             }
             await Navigation.PopModalAsync();
         });

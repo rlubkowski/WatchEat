@@ -1,7 +1,6 @@
 ﻿using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using System.Threading.Tasks;
 using WatchEat.Services;
 using WatchEat.Services.Interfaces;
 using Xamarin.Forms;
@@ -17,7 +16,7 @@ namespace WatchEat
             MainPage = new AppShell();
         }
 
-        protected override async void OnStart()
+        protected override void OnStart()
         {
             AppCenter.Start("ios=d052f377-ac14-4f09-b175-fea95222709f;android=9d5b0155-9633-438c-b1b1-6beadbd63faf;", typeof(Analytics), typeof(Crashes));            
         }

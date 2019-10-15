@@ -1,18 +1,13 @@
-﻿using WatchEat.ViewModels.TrainingActivity;
+﻿using WatchEat.ViewModels.EventSelection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WatchEat.Views.TrainingActivity
+namespace WatchEat.Views.EventSelection
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SingleActivityPage : ContentPage
+    public partial class WaterPage : ContentPage
     {
-        public SingleActivityPage()
-        {
-            InitializeComponent();
-        }
-
-        public SingleActivityPage(SingleTrainingActivityPageViewModel viewModel)
+        public WaterPage(WaterPageViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -20,13 +15,13 @@ namespace WatchEat.Views.TrainingActivity
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as SingleTrainingActivityPageViewModel : new SingleTrainingActivityPageViewModel();
+            var viewModel = BindingContext as WaterPageViewModel;
             await viewModel.InitializeAsync(Navigation, DisplayAlert);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(SingleTrainingActivityPageViewModel.Remove)));
+                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(WaterPageViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }
             else

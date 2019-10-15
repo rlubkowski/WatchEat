@@ -5,7 +5,7 @@ namespace WatchEat.Models
 {
     public class FoodSelectionModel
     {
-        public FoodSelectionModel(Food food, DateTime time)
+        public FoodSelectionModel(FoodEntry food, DateTime time)
         {
             Food = food;
             Time = time;
@@ -13,6 +13,6 @@ namespace WatchEat.Models
 
         public DateTime Time { get; private set; }
 
-        public Food Food { get; private set; }
+        public FoodEntry Food { get; private set; }
     }
 }
