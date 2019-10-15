@@ -38,10 +38,9 @@ namespace WatchEat.ViewModels
         });
 
         private async Task LoadDayActivitiesAsync(DateTime dateTime)
-        {
-            var yesterday = dateTime.AddDays(-1);
+        {            
             var tommorow = dateTime.AddDays(1);
-            var entries = await DataStore.Entries.Get(x => x.Date > yesterday && x.Date < tommorow, x => x.Date);
+            var entries = await DataStore.Entries.Get(x => x.Date >= dateTime && x.Date < tommorow, x => x.Date);
             Activities.Clear();
             foreach (var entry in entries)
             {
@@ -89,6 +88,8 @@ namespace WatchEat.ViewModels
         }
         public override async Task InitializeAsync(INavigation navigation)
         {
+            await base.InitializeAsync(navigation);
+
             MessagingCenter.Subscribe<FoodSelectionPageViewModel, FoodSelectionModel>(this, CommandNames.FoodProductSelected, async (obj, item) =>
             {
                 Activities.Add(new JournalEntryModel(item));
@@ -112,9 +113,8 @@ namespace WatchEat.ViewModels
                     Reference = item.TrainingActivity.Id
                 });
             });
-
-
-            await base.InitializeAsync(navigation);
+           
+            await LoadDayActivitiesAsync(SelectedDay);
         }      
     }
 }

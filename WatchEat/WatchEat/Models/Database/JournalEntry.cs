@@ -25,6 +25,7 @@ namespace WatchEat.Models.Database
             set
             {
                 _entryType = value;
+                Type = (int)value;
                 OnPropertyChanged(nameof(EntryType));
             }
         }

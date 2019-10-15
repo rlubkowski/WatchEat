@@ -21,6 +21,8 @@ namespace WatchEat.Services
 
         public IRepository<WaterEntry> WaterConsumptions { get; private set; }
 
+        public bool IsInitialized { get; private set; }
+
         public async Task InitializeAsync()
         {
             var connection = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WatchEat.db3"));
@@ -36,6 +38,7 @@ namespace WatchEat.Services
             Entries = new Repository<JournalEntry>(connection);
             WeightRecords = new Repository<WeightEntry>(connection);
             WaterConsumptions = new Repository<WaterEntry>(connection);
+            IsInitialized = true;
         }
     }
 }

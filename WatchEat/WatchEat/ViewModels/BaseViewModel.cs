@@ -36,13 +36,14 @@ namespace WatchEat.ViewModels
         {
             Navigation = navigation;
             IsInitialized = true;
+            if (!DataStore.IsInitialized)
+                await DataStore.InitializeAsync();
         }
 
         public virtual async Task InitializeAsync(INavigation navigation, Func<string, string, string, string, Task<bool>> displayAlert)
-        {
-            Navigation = navigation;
+        {            
             DisplayAlert = displayAlert;
-            IsInitialized = true;
+            await InitializeAsync(navigation);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
