@@ -4,18 +4,18 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Models;
+using WatchEat.Models.Database;
 using Xamarin.Forms;
-
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class FoodSelectionPageViewModel : BaseViewModel
+    public class FoodSelectionViewModel : BaseViewModel
     {
-        public FoodSelectionPageViewModel(DateTime dateTime)
+        public FoodSelectionViewModel(DateTime dateTime)
         {
             SelectedDate = dateTime;
             SelectedTime = DateTime.Now.ToTimespan();
-            FoodProducts = new ObservableCollection<Models.Database.FoodEntry>();
+            Foods = new ObservableCollection<FoodEntry>();
         }
 
         DateTime _date;
@@ -37,12 +37,12 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        public ObservableCollection<Models.Database.FoodEntry> FoodProducts { get; private set; }
+        public ObservableCollection<FoodEntry> Foods { get; private set; }
 
         public ICommand FoodSelected => new AsyncCommand(async (param) =>
         {
-            var foodProduct = (Models.Database.FoodEntry)param;
-            MessagingCenter.Send(this, CommandNames.FoodSelected, new FoodSelectionModel(foodProduct, SelectedDate));
+            var food = (FoodEntry)param;
+            MessagingCenter.Send(this, CommandNames.FoodSelected, new SelectionModel<FoodEntry>(food, SelectedDate));
             await Navigation.PopModalToRootAsync();
         });
 
@@ -53,14 +53,11 @@ namespace WatchEat.ViewModels.EventSelection
 
         public async override Task InitializeAsync(INavigation navigation)
         {
-            if (!IsInitialized)
+            foreach (var product in await DataStore.FoodEntries.Get())
             {
-                foreach (var product in await DataStore.FoodEntries.Get())
-                {
-                    FoodProducts.Add(product);
-                }
-                await base.InitializeAsync(navigation);
+                Foods.Add(product);
             }
+            await base.InitializeAsync(navigation);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace WatchEat.Views.Activity
             InitializeComponent();
         }
 
-        public ActivityPage(ActivityPageViewModel viewModel)
+        public ActivityPage(ActivityViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -20,13 +20,13 @@ namespace WatchEat.Views.Activity
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as ActivityPageViewModel : new ActivityPageViewModel();
+            var viewModel = BindingContext != null ? BindingContext as ActivityViewModel : new ActivityViewModel();
             await viewModel.InitializeAsync(Navigation, DisplayAlert);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(ActivityPageViewModel.Remove)));
+                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(ActivityViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }
             else

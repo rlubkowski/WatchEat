@@ -14,19 +14,19 @@
         <ScrollView>
             <StackLayout Spacing="20" Padding="15">
                 <Label Text="Name" FontSize="Medium" />
-                <Entry Text="{Binding Path=Product.Name}" FontSize="Small" />
+                <Entry Text="{Binding Path=Food.Name}" FontSize="Small" />
                 <Label Text="Calories" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Calories}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Calories}" FontSize="Small"/>
                 <Label Text="Carbs" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Carbs}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Carbs}" FontSize="Small"/>
                 <Label Text="Protein" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Protein}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Protein}" FontSize="Small"/>
                 <Label Text="Fat" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Fat}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Fat}" FontSize="Small"/>
                 <Label Text="Fiber" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Fiber}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Fiber}" FontSize="Small"/>
                 <Label Text="Salt" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Product.Salt}" FontSize="Small"/>
+                <ctrl:NumericEntry NumericValue="{Binding Path=Food.Salt}" FontSize="Small"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

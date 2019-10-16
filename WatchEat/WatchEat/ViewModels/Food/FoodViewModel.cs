@@ -1,30 +1,31 @@
 ﻿using System.Windows.Input;
 using WatchEat.Helpers;
+using WatchEat.Models.Database;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
 {
-    public class FoodPageViewModel : BaseViewModel
+    public class FoodViewModel : BaseViewModel
     {
-        public FoodPageViewModel()
+        public FoodViewModel()
         {
-            Title = "New Food Product";
+            Title = "New Food";
             IsEditView = false;
-            Product = new Models.Database.FoodEntry();
+            Food = new FoodEntry();
         }
 
-        public FoodPageViewModel(Models.Database.FoodEntry product)
+        public FoodViewModel(FoodEntry food)
         {
-            Title = "Edit Food Product";
+            Title = "Edit Food";
             IsEditView = true;
-            Product = product;
+            Food = food;
         }
 
-        Models.Database.FoodEntry _product;
-        public Models.Database.FoodEntry Product
+        FoodEntry _food;
+        public FoodEntry Food
         {
-            get => _product;
-            set { SetProperty(ref _product, value); }
+            get => _food;
+            set { SetProperty(ref _food, value); }
         }
 
         public bool IsEditView { get; private set; }
@@ -33,11 +34,11 @@ namespace WatchEat.ViewModels.Food
         {
             if (IsEditView)
             {
-                MessagingCenter.Send(this, CommandNames.EditFood, Product);
+                MessagingCenter.Send(this, CommandNames.EditFood, Food);
             }
             else
             {
-                MessagingCenter.Send(this, CommandNames.AddFood, Product);
+                MessagingCenter.Send(this, CommandNames.AddFood, Food);
             }
             await Navigation.PopModalAsync();
         });
@@ -51,7 +52,7 @@ namespace WatchEat.ViewModels.Food
         {
             if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
             {
-                MessagingCenter.Send(this, CommandNames.RemoveFood, Product);
+                MessagingCenter.Send(this, CommandNames.RemoveFood, Food);
             }
             await Navigation.PopModalAsync();
         });

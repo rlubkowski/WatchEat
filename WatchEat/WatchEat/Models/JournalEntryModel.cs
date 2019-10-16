@@ -8,18 +8,18 @@ namespace WatchEat.Models
 {
     public class JournalEntryModel : INotifyPropertyChanged
     {
-        public JournalEntryModel(FoodSelectionModel foodSelection)
+        public JournalEntryModel(SelectionModel<FoodEntry> foodSelection)
         {
             Date = foodSelection.Time;
             Type = JournalEntryType.Food;
-            EntityReference = foodSelection.Food;
+            EntityReference = foodSelection.SelectedEntity;
         }
 
-        public JournalEntryModel(ActivitySelectionModel trainingSelection)
+        public JournalEntryModel(SelectionModel<ActivityEntry> activitySelection)
         {
-            Date = trainingSelection.Time;
+            Date = activitySelection.Time;
             Type = JournalEntryType.Activity;
-            EntityReference = trainingSelection.TrainingActivity;
+            EntityReference = activitySelection.SelectedEntity;
         }
 
         public JournalEntryModel(ActivityEntry trainingActivity, DateTime dateTime)

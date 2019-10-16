@@ -14,7 +14,7 @@ namespace WatchEat.Views.Activity
 
         protected override async void OnAppearing()
         {
-            var viewModel = new ActivitiesPageViewModel();
+            var viewModel = new ActivitiesViewModel();
             await viewModel.InitializeAsync(Navigation);
             BindingContext = viewModel;
             base.OnAppearing();

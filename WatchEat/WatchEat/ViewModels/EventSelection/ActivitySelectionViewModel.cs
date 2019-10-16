@@ -4,17 +4,18 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Models;
+using WatchEat.Models.Database;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class ActivitySelectionPageViewModel : BaseViewModel
+    public class ActivitySelectionViewModel : BaseViewModel
     {
-        public ActivitySelectionPageViewModel(DateTime dateTime)
+        public ActivitySelectionViewModel(DateTime dateTime)
         {
             SelectedDate = dateTime;
             SelectedTime = DateTime.Now.ToTimespan();
-            Activities = new ObservableCollection<Models.Database.ActivityEntry>();
+            Activities = new ObservableCollection<ActivityEntry>();
         }
 
         DateTime _date;
@@ -36,12 +37,12 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        public ObservableCollection<Models.Database.ActivityEntry> Activities { get; private set; }
+        public ObservableCollection<ActivityEntry> Activities { get; private set; }
 
         public ICommand ActivitySelected => new AsyncCommand(async (param) =>
         {
-            var activity = (Models.Database.ActivityEntry)param;
-            MessagingCenter.Send(this, CommandNames.ActivitySelected, new ActivitySelectionModel(activity, SelectedDate));
+            var activity = (ActivityEntry)param;
+            MessagingCenter.Send(this, CommandNames.ActivitySelected, new SelectionModel<ActivityEntry>(activity, SelectedDate));
             await Navigation.PopModalToRootAsync();
         });
 
@@ -52,14 +53,11 @@ namespace WatchEat.ViewModels.EventSelection
 
         public async override Task InitializeAsync(INavigation navigation)
         {
-            if (!IsInitialized)
+            foreach (var activity in await DataStore.ActivityEntries.Get())
             {
-                foreach (var activity in await DataStore.ActivityEntries.Get())
-                {
-                    Activities.Add(activity);
-                }
-                await base.InitializeAsync(navigation);
+                Activities.Add(activity);
             }
+            await base.InitializeAsync(navigation);
         }
     }
 }

@@ -8,11 +8,11 @@
     <ContentPage.Content>
         <Grid>
             <CollectionView EmptyView="No items to display!" 
-                            SelectionChangedCommand="{Binding ProductSelected}" 
+                            SelectionChangedCommand="{Binding FoodSelected}" 
                             SelectionMode="Single" 
-                            ItemsSource="{Binding FoodProducts}" 
-                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference FoodProductsCollection}}"
-                            x:Name="FoodProductsCollection">
+                            ItemsSource="{Binding Foods}" 
+                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference FoodsCollection}}"
+                            x:Name="FoodsCollection">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame HasShadow="True">
@@ -24,7 +24,7 @@
             <Button Margin="0,0,5,5" 
                     HorizontalOptions="End" 
                     VerticalOptions="End" 
-                    Command="{Binding OpenAddProductPage}"
+                    Command="{Binding OpenAddFoodPage}"
                     Style="{StaticResource NavButton}" Text="+" />
         </Grid>
     </ContentPage.Content>

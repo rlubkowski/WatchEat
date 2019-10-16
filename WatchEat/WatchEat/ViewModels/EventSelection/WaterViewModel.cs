@@ -6,34 +6,34 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class WeightPageViewModel : BaseViewModel
+    public class WaterViewModel : BaseViewModel
     {
-        public WeightPageViewModel(DateTime date)
+        public WaterViewModel(DateTime date)
         {
-            Title = "New Weight Entry";
+            Title = "New Water Entry";
             IsEditView = false;
             SelectedTime = DateTime.Now.ToTimespan();
-            Weight = new WeightEntry            
+            Water = new WaterEntry
             {
                 Date = date
             };
         }
 
-        public WeightPageViewModel(WeightEntry water)
+        public WaterViewModel(WaterEntry water)
         {
-            Title = "Edit Weight Entry";
+            Title = "Edit Water Entry";
             IsEditView = true;
             SelectedTime = DateTime.Now.ToTimespan();
-            Weight = water;
+            Water = water;
         }
 
-        WeightEntry _weight;
-        public WeightEntry Weight
+        WaterEntry _water;
+        public WaterEntry Water
         {
-            get => _weight;
+            get => _water;
             set
             {
-                SetProperty(ref _weight, value);
+                SetProperty(ref _water, value);
                 SelectedTime = new TimeSpan(value.Date.Hour, value.Date.Minute, value.Date.Second);
             }
         }
@@ -45,8 +45,8 @@ namespace WatchEat.ViewModels.EventSelection
             set
             {
                 SetProperty(ref _time, value);
-                var date = Weight.Date;
-                Weight.Date = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
+                var date = Water.Date;
+                Water.Date = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
             }
         }
 
@@ -56,11 +56,11 @@ namespace WatchEat.ViewModels.EventSelection
         {
             if (IsEditView)
             {
-                MessagingCenter.Send(this, CommandNames.EditWeightEntry, Weight);
+                MessagingCenter.Send(this, CommandNames.EditWaterEntry, Water);
             }
             else
             {
-                MessagingCenter.Send(this, CommandNames.AddWeightEntry, Weight);
+                MessagingCenter.Send(this, CommandNames.AddWaterEntry, Water);
             }
             await Navigation.PopModalToRootAsync();
         });
@@ -74,7 +74,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
             {
-                MessagingCenter.Send(this, CommandNames.RemoveWeightEntry, Weight);
+                MessagingCenter.Send(this, CommandNames.RemoveWaterEntry, Water);
             }
             await Navigation.PopModalAsync();
         });

@@ -7,7 +7,7 @@ namespace WatchEat.Views.EventSelection
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventSelectionPage : ContentPage
     {
-        public EventSelectionPage(EventSelectionPageViewModel viewModel)
+        public EventSelectionPage(EventSelectionViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -15,7 +15,7 @@ namespace WatchEat.Views.EventSelection
 
         protected override async void OnAppearing()
         {
-            await (BindingContext as EventSelectionPageViewModel).InitializeAsync(Navigation);
+            await (BindingContext as EventSelectionViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }

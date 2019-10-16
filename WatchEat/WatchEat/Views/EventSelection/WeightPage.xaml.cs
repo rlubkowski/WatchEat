@@ -7,7 +7,7 @@ namespace WatchEat.Views.EventSelection
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeightPage : ContentPage
     {
-        public WeightPage(WeightPageViewModel viewModel)
+        public WeightPage(WeightViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -15,13 +15,13 @@ namespace WatchEat.Views.EventSelection
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext as WeightPageViewModel; 
+            var viewModel = BindingContext as WeightViewModel; 
             await viewModel.InitializeAsync(Navigation, DisplayAlert);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(WeightPageViewModel.Remove)));
+                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(WeightViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }
             else

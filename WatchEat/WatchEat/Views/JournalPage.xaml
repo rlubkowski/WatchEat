@@ -61,7 +61,7 @@
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
         </Grid>
-            <CollectionView ItemsSource="{Binding Activities}" ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
+            <CollectionView ItemsSource="{Binding Entries}" ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
             <CollectionView.EmptyView>
                 <Label Text="No activities this day."
                            FontAttributes="Bold"

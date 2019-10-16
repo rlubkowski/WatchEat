@@ -9,7 +9,7 @@ namespace WatchEat.Views
     {
         public JournalPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         protected override async void OnAppearing()

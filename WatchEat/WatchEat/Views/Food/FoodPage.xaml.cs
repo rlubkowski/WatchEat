@@ -12,7 +12,7 @@ namespace WatchEat.Views.Food
             InitializeComponent();
         }
 
-        public FoodPage(FoodPageViewModel viewModel)
+        public FoodPage(FoodViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
@@ -20,13 +20,13 @@ namespace WatchEat.Views.Food
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as FoodPageViewModel : new FoodPageViewModel();
+            var viewModel = BindingContext != null ? BindingContext as FoodViewModel : new FoodViewModel();
             await viewModel.InitializeAsync(Navigation, DisplayAlert);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(FoodPageViewModel.Remove)));
+                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(FoodViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }
             else

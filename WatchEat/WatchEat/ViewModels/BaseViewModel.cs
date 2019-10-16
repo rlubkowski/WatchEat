@@ -26,29 +26,21 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        protected bool IsInitialized { get; set; }
-
         public INavigation Navigation { get; private set; }
 
         public Func<string, string, string, string, Task<bool>> DisplayAlert { get; private set; }
 
         public virtual async Task InitializeAsync(INavigation navigation)
         {
-            Navigation = navigation;
-            IsInitialized = true;
+            Navigation = navigation;            
             if (!DataStore.IsInitialized)
-                await DataStore.InitializeAsync();
+                await DataStore.InitializeAsync();            
         }
 
         public virtual async Task InitializeAsync(INavigation navigation, Func<string, string, string, string, Task<bool>> displayAlert)
         {            
             DisplayAlert = displayAlert;
             await InitializeAsync(navigation);
-        }
-
-        public virtual async Task UnsubscribeAsync()
-        {
-            
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -63,7 +55,6 @@ namespace WatchEat.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
