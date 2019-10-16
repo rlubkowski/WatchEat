@@ -9,12 +9,16 @@
              xmlns:effects="clr-namespace:WatchEat.Effects"
              xmlns:converter="clr-namespace:WatchEat.Converters"
              xmlns:tmplsel="clr-namespace:WatchEat.Views.TemplateSelectors"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
-            <DataTemplate x:Key="foodCellTemplate">
-                <Label Text="Food Entry" />
+            <DataTemplate x:Key="foodCellTemplate">                
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Food Entry" />
+                    <Image Source="{markup:ImageResource porridge_PNG32.png}" />
+                </StackLayout>
             </DataTemplate>
             <DataTemplate x:Key="trainingCellTemplate">
                 <Label Text="Training Entry" />
@@ -24,6 +28,7 @@
             </DataTemplate>
             <DataTemplate x:Key="waterCellTemplate">
                 <Label Text="Water Entry" />
+                
             </DataTemplate>
             <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
                                                       ActivityTemplate="{StaticResource trainingCellTemplate}" 
@@ -63,12 +68,16 @@
         </Grid>
             <CollectionView ItemsSource="{Binding Entries}" ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
             <CollectionView.EmptyView>
-                <Label Text="No activities this day."
+                    
+                    <Label Text="{markup:Translate NoActivitiesThisDay}"
                            FontAttributes="Bold"
                            FontSize="18"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
                            HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center" />
-            </CollectionView.EmptyView>
+                           HorizontalTextAlignment="Center"/>
+                
+                </CollectionView.EmptyView>
         </CollectionView>
         <Button Grid.Row="1" Margin="0,0,5,5" 
                     HorizontalOptions="End" 

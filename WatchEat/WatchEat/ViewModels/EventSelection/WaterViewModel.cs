@@ -10,13 +10,13 @@ namespace WatchEat.ViewModels.EventSelection
     {
         public WaterViewModel(DateTime date)
         {
-            Title = "New Water Entry";
-            IsEditView = false;
-            SelectedTime = DateTime.Now.ToTimespan();
             Water = new WaterEntry
             {
                 Date = date
             };
+            Title = "New Water Entry";
+            IsEditView = false;
+            SelectedTime = DateTime.Now.ToTimespan();          
         }
 
         public WaterViewModel(WaterEntry water)

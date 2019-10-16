@@ -4,10 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.Food.FoodsPage">
     <ContentPage.Content>
         <Grid>
-            <CollectionView EmptyView="No items to display!" 
+            <CollectionView EmptyView="{locale:Translate NoItemsToDisplay}" 
                             SelectionChangedCommand="{Binding FoodSelected}" 
                             SelectionMode="Single" 
                             ItemsSource="{Binding Foods}" 

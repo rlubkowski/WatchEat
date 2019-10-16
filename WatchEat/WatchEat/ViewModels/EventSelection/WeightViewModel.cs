@@ -10,13 +10,13 @@ namespace WatchEat.ViewModels.EventSelection
     {
         public WeightViewModel(DateTime date)
         {
-            Title = "New Weight Entry";
-            IsEditView = false;
-            SelectedTime = DateTime.Now.ToTimespan();
-            Weight = new WeightEntry            
+            Weight = new WeightEntry
             {
                 Date = date
             };
+            Title = "New Weight Entry";
+            IsEditView = false;
+            SelectedTime = DateTime.Now.ToTimespan();         
         }
 
         public WeightViewModel(WeightEntry water)

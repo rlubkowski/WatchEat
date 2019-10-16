@@ -4,28 +4,29 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
+             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
              x:Class="WatchEat.Views.Food.FoodPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="Save"  Command="{Binding Save}" />
+        <ToolbarItem Text="{locale:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem  Text="{locale:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15">
-                <Label Text="Name" FontSize="Medium" />
+                <Label Text="{locale:Translate Name}" FontSize="Medium" />
                 <Entry Text="{Binding Path=Food.Name}" FontSize="Small" />
-                <Label Text="Calories" FontSize="Medium" />
+                <Label Text="{locale:Translate Calories}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Calories}" FontSize="Small"/>
-                <Label Text="Carbs" FontSize="Medium" />
+                <Label Text="{locale:Translate Carbs}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Carbs}" FontSize="Small"/>
-                <Label Text="Protein" FontSize="Medium" />
+                <Label Text="{locale:Translate Protein}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Protein}" FontSize="Small"/>
-                <Label Text="Fat" FontSize="Medium" />
+                <Label Text="{locale:Translate Fat}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Fat}" FontSize="Small"/>
-                <Label Text="Fiber" FontSize="Medium" />
+                <Label Text="{locale:Translate Fiber}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Fiber}" FontSize="Small"/>
-                <Label Text="Salt" FontSize="Medium" />
+                <Label Text="{locale:Translate Salt}" FontSize="Medium" />
                 <ctrl:NumericEntry NumericValue="{Binding Path=Food.Salt}" FontSize="Small"/>
             </StackLayout>
         </ScrollView>

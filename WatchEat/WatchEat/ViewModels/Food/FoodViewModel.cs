@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
@@ -9,14 +10,14 @@ namespace WatchEat.ViewModels.Food
     {
         public FoodViewModel()
         {
-            Title = "New Food";
+            Title = AppResource.NewFood;
             IsEditView = false;
             Food = new FoodEntry();
         }
 
         public FoodViewModel(FoodEntry food)
         {
-            Title = "Edit Food";
+            Title = AppResource.EditFood;
             IsEditView = true;
             Food = food;
         }
