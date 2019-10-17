@@ -150,6 +150,9 @@
   <data name="Protein" xml:space="preserve">
     <value>Protein</value>
   </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="Salt" xml:space="preserve">
     <value>Salt</value>
   </data>

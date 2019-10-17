@@ -14,11 +14,57 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
-            <DataTemplate x:Key="foodCellTemplate">                
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="Food Entry" />
-                    <Image Source="{markup:ImageResource porridge_PNG32.png}" />
-                </StackLayout>
+            <converter:DateToTimeStringConverter x:Key="DateToTimeStringConverter" />
+            <DataTemplate x:Key="foodCellTemplate">
+                <Grid Margin="10" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" HeightRequest="50" Aspect="AspectFit" Source="{markup:ImageResource porridge_PNG32.png}" />
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label FontAttributes="Bold" Text="{Binding Path=EntityReference.Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                        <Label FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" />
+
+
+                        <Label Text="{markup:Translate Calories}" Grid.Row="1" Grid.Column="0" />
+                        <Label Text="{markup:Translate Carbs}" Grid.Row="1" Grid.Column="2" />
+
+                        <Label Text="{Binding Path=EntityReference.Calories}" Grid.Row="1" Grid.Column="1" />
+                        <Label Text="{Binding Path=EntityReference.Carbs}" Grid.Row="1" Grid.Column="3" />
+
+                        <Label Text="{markup:Translate Protein}" Grid.Row="2" Grid.Column="0" />
+                        <Label Text="{markup:Translate Fat}" Grid.Row="2" Grid.Column="2" />
+
+                        <Label Text="{Binding Path=EntityReference.Protein}" Grid.Row="2" Grid.Column="1" />
+                        <Label Text="{Binding Path=EntityReference.Fat}" Grid.Row="2" Grid.Column="3" />
+
+                        <Label Text="{markup:Translate Fiber}" Grid.Row="3" Grid.Column="0" />
+                        <Label Text="{markup:Translate Salt}" Grid.Row="3" Grid.Column="2" />
+
+                        <Label Text="{Binding Path=EntityReference.Fiber}" Grid.Row="3" Grid.Column="1" />
+                        <Label Text="{Binding Path=EntityReference.Salt}" Grid.Row="3" Grid.Column="3" />
+
+                        <Button  Style="{StaticResource RemoveButton}"  Text="{markup:Translate Remove}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" />
+                    </Grid>
+                  
+                </Grid>
             </DataTemplate>
             <DataTemplate x:Key="trainingCellTemplate">
                 <Label Text="Training Entry" />
