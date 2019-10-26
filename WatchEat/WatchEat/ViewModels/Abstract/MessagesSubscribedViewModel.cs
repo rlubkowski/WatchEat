@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
-    public abstract class MessageSubscriptingViewModel : BaseViewModel
+    public abstract class MessagesSubscribedViewModel : BaseViewModel
     {
         protected void HandlePageEvents(NavigationPage page)
         {

@@ -8,14 +8,14 @@
              x:Class="WatchEat.Views.EventSelection.WaterPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="Save"  Command="{Binding Save}" />
+        <ToolbarItem  Text="Add"  Command="{Binding Add}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Time" FontSize="Medium"/>
             <TimePicker Time="{Binding SelectedTime}" />
             <Label Text="Water Amount" FontSize="Medium" />
-            <ctrl:NumericEntry NumericValue="{Binding Path=Water.Amount}" FontSize="Small"/>
+            <ctrl:NumericEntry NumericValue="{Binding Amount}" FontSize="Small"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

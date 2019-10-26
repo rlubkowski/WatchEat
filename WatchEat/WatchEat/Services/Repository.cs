@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using WatchEat.Models.Database;
+using WatchEat.Models.Database.Abstract;
 using WatchEat.Services.Interfaces;
 
 namespace WatchEat.Services

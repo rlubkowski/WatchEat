@@ -17,10 +17,6 @@ namespace WatchEat.Services
 
         public IRepository<JournalEntry> JournalEntries { get; private set; }
 
-        public IRepository<WeightEntry> WeightEntries { get; private set; }
-
-        public IRepository<WaterEntry> WaterEntries { get; private set; }
-
         public bool IsInitialized { get; private set; }
 
         public async Task InitializeAsync()
@@ -29,15 +25,11 @@ namespace WatchEat.Services
             await connection.CreateTableAsync<FoodEntry>();            
             await connection.CreateTableAsync<Notification>();
             await connection.CreateTableAsync<ActivityEntry>();
-            await connection.CreateTableAsync<JournalEntry>();
-            await connection.CreateTableAsync<WeightEntry>();
-            await connection.CreateTableAsync<WaterEntry>();
+            await connection.CreateTableAsync<JournalEntry>();            
             FoodEntries = new Repository<FoodEntry>(connection);            
             Notifications = new Repository<Notification>(connection);
             ActivityEntries = new Repository<ActivityEntry>(connection);
-            JournalEntries = new Repository<JournalEntry>(connection);
-            WeightEntries = new Repository<WeightEntry>(connection);
-            WaterEntries = new Repository<WaterEntry>(connection);
+            JournalEntries = new Repository<JournalEntry>(connection);            
             IsInitialized = true;
         }
     }

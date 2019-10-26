@@ -1,7 +1,8 @@
-﻿using WatchEat.Models;
+﻿using WatchEat.Enums;
+using WatchEat.Models.Database;
 using Xamarin.Forms;
 
-namespace WatchEat.Views.TemplateSelectors
+namespace WatchEat.TemplateSelectors
 {
     public class JournalEntryDataTemplateSelector : DataTemplateSelector
     {
@@ -15,16 +16,16 @@ namespace WatchEat.Views.TemplateSelectors
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var journalEntry = (JournalEntryModel)item;
-            switch (journalEntry.Type)
+            var journalEntry = (JournalEntry)item;
+            switch (journalEntry.EntryType)
             {
-                case Enums.JournalEntryType.Activity:
+                case JournalEntryType.Activity:
                     return ActivityTemplate;
-                case Enums.JournalEntryType.Weight:
+                case JournalEntryType.Weight:
                     return WeightTemplate;
-                case Enums.JournalEntryType.Food:
+                case JournalEntryType.Food:
                     return FoodTemplate;
-                case Enums.JournalEntryType.Water:
+                case JournalEntryType.Water:
                     return WaterTemplate;
             }
             return null;

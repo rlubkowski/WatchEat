@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace WatchEat.Helpers
+namespace WatchEat.Helpers.MethodExtensions
 {
     public static class NavigationExtensions
     {

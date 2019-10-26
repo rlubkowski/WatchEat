@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
 {
-    public class FoodsViewModel : MessageSubscriptingViewModel
+    public class FoodsViewModel : MessagesSubscribedViewModel
     {
         public FoodsViewModel()
         {

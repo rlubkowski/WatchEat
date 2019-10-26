@@ -8,7 +8,7 @@
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:effects="clr-namespace:WatchEat.Effects"
              xmlns:converter="clr-namespace:WatchEat.Converters"
-             xmlns:tmplsel="clr-namespace:WatchEat.Views.TemplateSelectors"
+             xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
@@ -39,27 +39,27 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Label FontAttributes="Bold" Text="{Binding Path=EntityReference.Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                        <Label FontAttributes="Bold" Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
                         <Label FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" />
 
 
                         <Label Text="{markup:Translate Calories}" Grid.Row="1" Grid.Column="0" />
                         <Label Text="{markup:Translate Carbs}" Grid.Row="1" Grid.Column="2" />
 
-                        <Label Text="{Binding Path=EntityReference.Calories}" Grid.Row="1" Grid.Column="1" />
-                        <Label Text="{Binding Path=EntityReference.Carbs}" Grid.Row="1" Grid.Column="3" />
+                        <Label Text="{Binding Calories}" Grid.Row="1" Grid.Column="1" />
+                        <Label Text="{Binding Carbs}" Grid.Row="1" Grid.Column="3" />
 
                         <Label Text="{markup:Translate Protein}" Grid.Row="2" Grid.Column="0" />
                         <Label Text="{markup:Translate Fat}" Grid.Row="2" Grid.Column="2" />
 
-                        <Label Text="{Binding Path=EntityReference.Protein}" Grid.Row="2" Grid.Column="1" />
-                        <Label Text="{Binding Path=EntityReference.Fat}" Grid.Row="2" Grid.Column="3" />
+                        <Label Text="{Binding Protein}" Grid.Row="2" Grid.Column="1" />
+                        <Label Text="{Binding Fat}" Grid.Row="2" Grid.Column="3" />
 
                         <Label Text="{markup:Translate Fiber}" Grid.Row="3" Grid.Column="0" />
                         <Label Text="{markup:Translate Salt}" Grid.Row="3" Grid.Column="2" />
 
-                        <Label Text="{Binding Path=EntityReference.Fiber}" Grid.Row="3" Grid.Column="1" />
-                        <Label Text="{Binding Path=EntityReference.Salt}" Grid.Row="3" Grid.Column="3" />
+                        <Label Text="{Binding Fiber}" Grid.Row="3" Grid.Column="1" />
+                        <Label Text="{Binding Salt}" Grid.Row="3" Grid.Column="3" />
 
                         <Button  Style="{StaticResource RemoveButton}"  Text="{markup:Translate Remove}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" />
                     </Grid>
@@ -105,7 +105,7 @@
                        HorizontalTextAlignment="Center" 
                        Text="{Binding SelectedDay, Converter={StaticResource DateToStringConverter}}" >
                 <Label.Effects>
-                    <effects:ShadowEffect Color="Green" Radius="2" DistanceX="2" DistanceY="2" />
+                    <effects:ShadowEffect Color="Green" Radius="1" DistanceX="1" DistanceY="1" />
                 </Label.Effects>
             </Label>
             <Button Grid.Column="2" Command="{Binding Navigate}" 

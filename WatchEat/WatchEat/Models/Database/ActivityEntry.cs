@@ -1,6 +1,9 @@
-﻿namespace WatchEat.Models.Database
+﻿using WatchEat.Models.Database.Abstract;
+using WatchEat.Models.Interfaces;
+
+namespace WatchEat.Models.Database
 {
-    public class ActivityEntry : EntityBase
+    public class ActivityEntry : EntityBase, ISelectableEntity
     {
         string _name = string.Empty;
         public string Name

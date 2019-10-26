@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WatchEat.Models.Database
+namespace WatchEat.Models.Database.Abstract
 {
     public abstract class EntityBase : INotifyPropertyChanged
     {

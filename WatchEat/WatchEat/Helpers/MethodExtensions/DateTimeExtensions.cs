@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WatchEat.Helpers
+namespace WatchEat.Helpers.MethodExtensions
 {
     public static class DateTimeExtensions
     {

@@ -12,26 +12,13 @@
        FlyoutBehavior="Disabled"
        FlyoutIsPresented="False"       
        x:Class="WatchEat.AppShell">
-
-    <!-- 
-        Styles and Resources 
-    -->
-    <!--<Shell.Resources>
-        <ResourceDictionary>
-       
-        </ResourceDictionary>
-    </Shell.Resources>-->
-
-    <!-- Your Pages -->
     <TabBar>
         <Tab Title="Journal" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />
-        </Tab>
-        <Tab Title="Activities" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
-        </Tab>
-        <Tab Title="Food Products" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate fviews:FoodsPage}" />
+        </Tab>        
+        <Tab Title="Definitions" Icon="tab_about.png">
+            <ShellContent Title="Food" ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
+            <ShellContent Title="Activities" ContentTemplate="{DataTemplate fviews:FoodsPage}" />
         </Tab>
         <Tab Title="Statistics" Icon="tab_about.png">
             <ShellContent Title="Last 7 days" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />
@@ -41,35 +28,4 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>        
     </TabBar>
-
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
-	<DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
-
 </Shell>

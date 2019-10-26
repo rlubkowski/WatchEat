@@ -8,14 +8,14 @@
              x:Class="WatchEat.Views.EventSelection.WeightPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="Save"  Command="{Binding Save}" />
+        <ToolbarItem  Text="Add"  Command="{Binding Add}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Time" FontSize="Medium"/>
             <TimePicker Time="{Binding SelectedTime}" />
             <Label Text="Weight" FontSize="Medium" />
-            <ctrl:NumericEntry NumericValue="{Binding Path=Weight.Weight}" FontSize="Small"/>
+            <ctrl:NumericEntry NumericValue="{Binding Weight}" FontSize="Small"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

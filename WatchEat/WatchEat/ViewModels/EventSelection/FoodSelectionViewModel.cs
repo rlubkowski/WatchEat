@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Helpers;
+using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Models.Database;
 using Xamarin.Forms;

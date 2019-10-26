@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class EventSelectionViewModel : MessageSubscriptingViewModel
+    public class EventSelectionViewModel : MessagesSubscribedViewModel
     {
         public EventSelectionViewModel(DateTime selectedDay, Action subscribeCallback, Action unsubscribeCallback)
         {

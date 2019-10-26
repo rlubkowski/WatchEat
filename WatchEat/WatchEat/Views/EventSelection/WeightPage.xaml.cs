@@ -16,18 +16,8 @@ namespace WatchEat.Views.EventSelection
         protected override async void OnAppearing()
         {
             var viewModel = BindingContext as WeightViewModel; 
-            await viewModel.InitializeAsync(Navigation, DisplayAlert);
-            if (viewModel.IsEditView)
-            {
-                var toolbarItem = new ToolbarItem();
-                toolbarItem.Text = "Remove";
-                toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(WeightViewModel.Remove)));
-                PageRef.ToolbarItems.Add(toolbarItem);
-            }
-            else
-            {
-                BindingContext = viewModel;
-            }
+            await viewModel.InitializeAsync(Navigation);
+            BindingContext = viewModel;
             base.OnAppearing();
         }
     }

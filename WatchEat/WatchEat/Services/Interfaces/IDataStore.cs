@@ -10,8 +10,6 @@ namespace WatchEat.Services.Interfaces
         IRepository<FoodEntry> FoodEntries { get; }        
         IRepository<Notification> Notifications { get; }
         IRepository<ActivityEntry> ActivityEntries { get; }
-        IRepository<JournalEntry> JournalEntries { get; }
-        IRepository<WeightEntry> WeightEntries { get; }
-        IRepository<WaterEntry> WaterEntries { get; }        
+        IRepository<JournalEntry> JournalEntries { get; }              
     }
 }

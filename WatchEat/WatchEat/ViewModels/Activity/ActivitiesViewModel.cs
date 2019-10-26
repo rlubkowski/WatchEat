@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Activity
 {
-    public class ActivitiesViewModel : MessageSubscriptingViewModel
+    public class ActivitiesViewModel : MessagesSubscribedViewModel
     {
         public ActivitiesViewModel()
         {

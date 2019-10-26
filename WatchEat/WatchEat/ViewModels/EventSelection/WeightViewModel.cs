@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
 using WatchEat.Helpers;
-using WatchEat.Models.Database;
+using WatchEat.Helpers.MethodExtensions;
+using WatchEat.Models;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
@@ -10,32 +11,16 @@ namespace WatchEat.ViewModels.EventSelection
     {
         public WeightViewModel(DateTime date)
         {
-            Weight = new WeightEntry
-            {
-                Date = date
-            };
-            Title = "New Weight Entry";
-            IsEditView = false;
-            SelectedTime = DateTime.Now.ToTimespan();         
-        }
-
-        public WeightViewModel(WeightEntry water)
-        {
-            Title = "Edit Weight Entry";
-            IsEditView = true;
+            Title = "New Weight Entry";            
+            SelectedDate = date;
             SelectedTime = DateTime.Now.ToTimespan();
-            Weight = water;
         }
 
-        WeightEntry _weight;
-        public WeightEntry Weight
+        DateTime _date;
+        public DateTime SelectedDate
         {
-            get => _weight;
-            set
-            {
-                SetProperty(ref _weight, value);
-                SelectedTime = new TimeSpan(value.Date.Hour, value.Date.Minute, value.Date.Second);
-            }
+            get => _date;
+            set => SetProperty(ref _date, value);
         }
 
         TimeSpan _time;
@@ -45,37 +30,26 @@ namespace WatchEat.ViewModels.EventSelection
             set
             {
                 SetProperty(ref _time, value);
-                var date = Weight.Date;
-                Weight.Date = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
+                var date = SelectedDate;
+                SelectedDate = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
             }
         }
 
-        public bool IsEditView { get; private set; }
-
-        public ICommand Save => new AsyncCommand(async () =>
+        decimal _weight = default(decimal);
+        public decimal Weight 
         {
-            if (IsEditView)
-            {
-                MessagingCenter.Send(this, CommandNames.EditWeightEntry, Weight);
-            }
-            else
-            {
-                MessagingCenter.Send(this, CommandNames.AddWeightEntry, Weight);
-            }
+            get => _weight;
+            set { SetProperty(ref _weight, value); }
+        }
+
+        public ICommand Add => new AsyncCommand(async () =>
+        {
+            MessagingCenter.Send(this, CommandNames.AddWeightEntry, new WeightEntryModel(Weight, SelectedDate));
             await Navigation.PopModalToRootAsync();
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>
         {
-            await Navigation.PopModalAsync();
-        });
-
-        public ICommand Remove => new AsyncCommand(async () =>
-        {
-            if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
-            {
-                MessagingCenter.Send(this, CommandNames.RemoveWeightEntry, Weight);
-            }
             await Navigation.PopModalAsync();
         });
     }
