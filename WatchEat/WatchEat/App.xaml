@@ -28,7 +28,8 @@
                 <Setter Property="TextColor" Value="GhostWhite" />
                 <Setter Property="BackgroundColor" Value="Red" />
                 <Setter Property="FontSize" Value="Micro" />
-                <Setter Property="HeightRequest" Value="20" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="HeightRequest" Value="30" />
             </Style>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />

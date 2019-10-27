@@ -16,9 +16,11 @@
                             x:Name="FoodsCollection">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HasShadow="True">
-                            <Label Text="{Binding Path=Name}" />
-                        </Frame>
+                        <ContentView Padding="5">
+                            <Frame Margin="5" BorderColor="Black" BackgroundColor="Azure" HasShadow="True">
+                                <Label Text="{Binding Path=Name}" />
+                            </Frame>
+                        </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

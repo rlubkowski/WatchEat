@@ -15,7 +15,7 @@ namespace WatchEat.Views
         protected override async void OnAppearing()
         {
             var viewModel = new JournalViewModel();
-            await viewModel.InitializeAsync(Navigation);
+            await viewModel.InitializeAsync(Navigation, DisplayAlert);
             BindingContext = viewModel;
             base.OnAppearing();
         }

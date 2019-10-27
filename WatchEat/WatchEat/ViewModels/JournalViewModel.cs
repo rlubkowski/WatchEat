@@ -54,6 +54,18 @@ namespace WatchEat.ViewModels
             await Navigation.PushModalAsync(new NavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeMessages, UnsubscribeMessages))));
         });
 
+        public ICommand EditEntry => new AsyncCommand(async (entry) =>
+        {
+
+        });
+
+        public ICommand RemoveEntry => new AsyncCommand(async (entry) =>
+        {
+            if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
+            {
+            }
+        });
+
         private void SubscribeMessages()
         {
             MessagingCenter.Subscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected, async (obj, item) =>
