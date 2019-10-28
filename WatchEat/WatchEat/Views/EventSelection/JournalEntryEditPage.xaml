@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ctlrs="clr-namespace:WatchEat.Views.Controls"
+             xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
+             x:Class="WatchEat.Views.EventSelection.JournalEntryEditPage">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="foodCellTemplate">
+            <Label Text="Food Entry" />
+        </DataTemplate>
+        <DataTemplate x:Key="trainingCellTemplate">
+            <Label Text="Training Entry" />
+        </DataTemplate>
+        <DataTemplate x:Key="weightCellTemplate">
+            <Label Text="Weight Entry" />
+        </DataTemplate>
+        <DataTemplate x:Key="waterCellTemplate">
+            <Label Text="Water Entry" />
+
+        </DataTemplate>
+        <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
+                                                      ActivityTemplate="{StaticResource trainingCellTemplate}" 
+                                                      WeightTemplate="{StaticResource weightCellTemplate}" 
+                                                      WaterTemplate="{StaticResource waterCellTemplate}"
+                                                      FoodTemplate="{StaticResource foodCellTemplate}"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ctlrs:ContentControl Source="{Binding Entry}" ContentTemplate="{StaticResource EntryTemplateSelector}"/>
+    </ContentPage.Content>
+</ContentPage>

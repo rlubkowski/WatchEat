@@ -51,22 +51,26 @@ namespace WatchEat.ViewModels
         {
             if (IsBusy)
                 return;
-            await Navigation.PushModalAsync(new NavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeMessages, UnsubscribeMessages))));
+            await Navigation.PushModalAsync(new NavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeEventSelection, UnsubscribeEventSelection))));
         });
 
         public ICommand EditEntry => new AsyncCommand(async (entry) =>
         {
-
+            var journalEntry = entry as JournalEntry;
+            await Navigation.PushModalAsync(new NavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
         });
 
         public ICommand RemoveEntry => new AsyncCommand(async (entry) =>
         {
-            if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
+            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
             {
+                var journalEntry = entry as JournalEntry;
+                Entries.Remove(journalEntry);
+                await DataStore.JournalEntries.Delete(journalEntry);
             }
         });
 
-        private void SubscribeMessages()
+        private void SubscribeEventSelection()
         {
             MessagingCenter.Subscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected, async (obj, item) =>
             {
@@ -83,7 +87,7 @@ namespace WatchEat.ViewModels
             });
         }
 
-        private void UnsubscribeMessages()
+        private void UnsubscribeEventSelection()
         {
             MessagingCenter.Unsubscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected);
             MessagingCenter.Unsubscribe<ActivitySelectionViewModel, SelectionModel<ActivityEntry>>(this, CommandNames.ActivitySelected);

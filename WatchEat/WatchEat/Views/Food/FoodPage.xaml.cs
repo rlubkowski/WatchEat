@@ -10,6 +10,7 @@ namespace WatchEat.Views.Food
         public FoodPage()
         {
             InitializeComponent();
+            BindingContext = new FoodViewModel();
         }
 
         public FoodPage(FoodViewModel viewModel)
@@ -20,8 +21,8 @@ namespace WatchEat.Views.Food
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as FoodViewModel : new FoodViewModel();
-            await viewModel.InitializeAsync(Navigation, DisplayAlert);
+            var viewModel = BindingContext as FoodViewModel;
+            await viewModel.InitializeAsync(Navigation);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();

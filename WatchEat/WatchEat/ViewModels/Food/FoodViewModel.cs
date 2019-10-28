@@ -41,6 +41,7 @@ namespace WatchEat.ViewModels.Food
             {
                 MessagingCenter.Send(this, CommandNames.AddFood, Food);
             }
+            
             await Navigation.PopModalAsync();
         });
 
@@ -51,7 +52,7 @@ namespace WatchEat.ViewModels.Food
 
         public ICommand Remove => new AsyncCommand(async () =>
         {
-            if (await DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
+            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
             {
                 MessagingCenter.Send(this, CommandNames.RemoveFood, Food);
             }

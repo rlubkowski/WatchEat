@@ -12,6 +12,8 @@ namespace WatchEat.ViewModels
     {
         public IDataStore DataStore => DependencyService.Get<IDataStore>();
 
+        public IDialogService DialogService => DependencyService.Get<IDialogService>();
+
         bool isBusy = false;
         public bool IsBusy
         {
@@ -26,21 +28,13 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        public INavigation Navigation { get; private set; }
-
-        public Func<string, string, string, string, Task<bool>> DisplayAlert { get; private set; }
+        public INavigation Navigation { get; private set; }        
 
         public virtual async Task InitializeAsync(INavigation navigation)
         {
             Navigation = navigation;            
             if (!DataStore.IsInitialized)
                 await DataStore.InitializeAsync();            
-        }
-
-        public virtual async Task InitializeAsync(INavigation navigation, Func<string, string, string, string, Task<bool>> displayAlert)
-        {            
-            DisplayAlert = displayAlert;
-            await InitializeAsync(navigation);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

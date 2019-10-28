@@ -33,7 +33,7 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <Image HeightRequest="35" Aspect="AspectFit" Source="{markup:ImageResource porridge_PNG32.png}" Grid.Row="0" />
+                                <Image HeightRequest="35" Aspect="AspectFit" Source="{markup:ImageResource Food.png}" Grid.Row="0" />
                                 <Button Command="{Binding Path=BindingContext.EditEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Edit" FontSize="Micro" Grid.Row="1"/>
                                 <Button Command="{Binding Path=BindingContext.RemoveEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Remove" FontSize="Micro" Grid.Row="2" />
                             </Grid>

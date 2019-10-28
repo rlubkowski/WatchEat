@@ -14,7 +14,7 @@ namespace WatchEat.Views.Controls
         }
 
         public static readonly BindableProperty NumericValueProperty = BindableProperty.Create(
-            "NumericValue",
+            nameof(NumericValue),
             typeof(decimal?),
             typeof(NumericEntry),
             null,
@@ -26,7 +26,7 @@ namespace WatchEat.Views.Controls
         );
 
         public static readonly BindableProperty NumericValueFormatProperty = BindableProperty.Create(
-            "NumericValueFormat",
+            nameof(NumericValueFormat),
             typeof(string),
             typeof(NumericEntry),
             "N2",
@@ -44,8 +44,6 @@ namespace WatchEat.Views.Controls
 
         private void OnUnfocused(object sender, FocusEventArgs e)
         {
-            var numberFormant = CultureInfo.InvariantCulture.NumberFormat;
-
             if (decimal.TryParse(Text, NumberStyles.Number, CultureInfo.DefaultThreadCurrentCulture, out decimal numericValue))
             {
                 int round = Convert.ToInt32(NumericValueFormat.Substring(1));
@@ -55,7 +53,6 @@ namespace WatchEat.Views.Controls
             {
                 NumericValue = null;
             }
-
             SetDisplayFormat(this);
         }
 
@@ -68,11 +65,7 @@ namespace WatchEat.Views.Controls
         public string NumericValueFormat
         {
             get { return (string)GetValue(NumericValueFormatProperty) ?? "N2"; }
-            set
-            {
-                var _value = string.IsNullOrWhiteSpace(value) ? "N2" : value;
-                SetValue(NumericValueFormatProperty, value);
-            }
+            set { SetValue(NumericValueFormatProperty, value); }
         }
 
         private static void SetDisplayFormat(NumericEntry textBox)

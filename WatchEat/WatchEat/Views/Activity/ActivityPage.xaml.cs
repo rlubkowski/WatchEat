@@ -20,8 +20,8 @@ namespace WatchEat.Views.Activity
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext != null ? BindingContext as ActivityViewModel : new ActivityViewModel();
-            await viewModel.InitializeAsync(Navigation, DisplayAlert);
+            var viewModel = BindingContext as ActivityViewModel;
+            await viewModel.InitializeAsync(Navigation);
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();

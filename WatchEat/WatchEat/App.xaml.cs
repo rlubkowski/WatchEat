@@ -33,7 +33,8 @@ namespace WatchEat
 
         private void RegisterServices()
         {
-            DependencyService.Register<IDataStore, DataStore>();            
+            DependencyService.Register<IDataStore, DataStore>();
+            DependencyService.Register<IDialogService, DialogService>();
         }
     }
 }

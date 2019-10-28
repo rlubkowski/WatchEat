@@ -10,9 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\Activity.png" />
+    <None Remove="Resources\Images\Activity2.png" />
+    <None Remove="Resources\Images\Food.png" />
+    <None Remove="Resources\Images\Food2.png" />
     <None Remove="Resources\Images\porridge_PNG32.png" />
     <None Remove="Resources\Images\porridge_PNG60.png" />
     <None Remove="Resources\Images\radish_PNG50.png" />
+    <None Remove="Resources\Images\Scales.png" />
+    <None Remove="Resources\Images\Scales2.png" />
+    <None Remove="Resources\Images\Water.png" />
     <None Remove="Resources\Images\water_glass_PNG15232.png" />
   </ItemGroup>
 
@@ -29,12 +36,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\porridge_PNG32.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Images\porridge_PNG60.png" />
-    <EmbeddedResource Include="Resources\Images\radish_PNG50.png" />
-    <EmbeddedResource Include="Resources\Images\water_glass_PNG15232.png" />
+    <EmbeddedResource Include="Resources\Images\Activity.png" />
+    <EmbeddedResource Include="Resources\Images\Activity2.png" />
+    <EmbeddedResource Include="Resources\Images\Food.png" />
+    <EmbeddedResource Include="Resources\Images\Food2.png" />
+    <EmbeddedResource Include="Resources\Images\Scales.png" />
+    <EmbeddedResource Include="Resources\Images\Scales2.png" />
+    <EmbeddedResource Include="Resources\Images\Water.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -70,6 +78,9 @@
     <EmbeddedResource Update="Resources\AppResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EventSelection\JournalEntryEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Statistics\MonthlyStatisticsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

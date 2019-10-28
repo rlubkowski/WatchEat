@@ -50,7 +50,7 @@ namespace WatchEat.ViewModels.Activity
 
         public ICommand Remove => new AsyncCommand(async () =>
         {
-            if (await DisplayAlert("Confirm Remove", "Do you want to remove selected activity?", "Yes", "No"))
+            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected activity?", "Yes", "No"))
             {
                 MessagingCenter.Send(this, CommandNames.RemoveActivity, Activity);
             }
