@@ -4,30 +4,42 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:ctlrs="clr-namespace:WatchEat.Views.Controls"
-             xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
+             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
              x:Class="WatchEat.Views.EventSelection.JournalEntryEditPage">
-    <ContentPage.Resources>
-        <DataTemplate x:Key="foodCellTemplate">
-            <Label Text="Food Entry" />
-        </DataTemplate>
-        <DataTemplate x:Key="trainingCellTemplate">
-            <Label Text="Training Entry" />
-        </DataTemplate>
-        <DataTemplate x:Key="weightCellTemplate">
-            <Label Text="Weight Entry" />
-        </DataTemplate>
-        <DataTemplate x:Key="waterCellTemplate">
-            <Label Text="Water Entry" />
-
-        </DataTemplate>
-        <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
-                                                      ActivityTemplate="{StaticResource trainingCellTemplate}" 
-                                                      WeightTemplate="{StaticResource weightCellTemplate}" 
-                                                      WaterTemplate="{StaticResource waterCellTemplate}"
-                                                      FoodTemplate="{StaticResource foodCellTemplate}"/>
-    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{locale:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem  Text="{locale:Translate Save}"  Command="{Binding Save}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ctlrs:ContentControl Source="{Binding Entry}" ContentTemplate="{StaticResource EntryTemplateSelector}"/>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{locale:Translate Name}" FontSize="Medium" />
+                <Entry Text="{Binding Path=Entry.Name}" FontSize="Small" />
+
+                <Label Text="Time" FontSize="Medium"/>
+                <TimePicker Time="{Binding Path=Entry.Time}" />
+
+                <Label IsVisible="{Binding CaloriesVisible}" Text="{locale:Translate Calories}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding CaloriesVisible}" NumericValue="{Binding Path=Entry.Calories}" FontSize="Small"/>
+
+                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Carbs}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Carbs}" FontSize="Small"/>
+                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Protein}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Protein}" FontSize="Small"/>
+                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Fat}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fat}" FontSize="Small"/>
+                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Fiber}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fiber}" FontSize="Small"/>
+                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Salt}" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Salt}" FontSize="Small"/>
+
+                <Label IsVisible="{Binding WeightVisible}" Text="Weight" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding WeightVisible}" NumericValue="{Binding Weight}" FontSize="Small"/>
+
+                <Label IsVisible="{Binding WaterVisible}" Text="Water Amount" FontSize="Medium" />
+                <ctrl:NumericEntry IsVisible="{Binding WaterVisible}" NumericValue="{Binding Amount}" FontSize="Small"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

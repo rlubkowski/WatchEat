@@ -39,6 +39,17 @@ namespace WatchEat.Models.Database
                 OnPropertyChanged(nameof(Date));
             }
         }
+                
+        [Ignore]
+        public TimeSpan Time
+        {
+            get => new TimeSpan(Date.Hour, Date.Minute, Date.Second);
+            set
+            {                
+                var date = Date;
+                Date = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
+            }
+        }
 
         string _name = string.Empty;
         public string Name
