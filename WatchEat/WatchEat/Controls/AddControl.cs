@@ -1,6 +1,6 @@
 ﻿using SkiaSharp.Views.Forms;
 
-namespace WatchEat.Views.Controls
+namespace WatchEat.Controls
 {
     public class AddControl : SKCanvasView
     {

@@ -7,17 +7,23 @@
              x:Class="WatchEat.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="PrimaryColor">#0ABF58</Color>
+            <Color x:Key="SecondaryColor">#055a00</Color>
+            <Color x:Key="TernaryColor">#B8F2B6</Color>
+            <Color x:Key="SelectionColor">#F2E852</Color>
+            <Color x:Key="DisabledColor">#DBDBDB</Color>
+            <Color x:Key="CustomWhite">#F2F2F2</Color>
+            <Color x:Key="CustomBlack">#0D0D0D</Color>            
             <Style x:Key="NavButton" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="BorderColor" Value="Green" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryColor}" />
                 <Setter Property="BorderRadius" Value="30" />
                 <Setter Property="BorderWidth" Value="1" />
-                <Setter Property="TextColor" Value="Green" />
-                <Setter Property="BackgroundColor" Value="Lime" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
                 <Setter Property="HeightRequest" Value="60" />
-                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="60" />                
             </Style>
             <Style x:Key="RemoveButton" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -31,18 +37,20 @@
                 <Setter Property="Padding" Value="2" />
                 <Setter Property="HeightRequest" Value="30" />
             </Style>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            <Style x:Key="TabStyle" TargetType="TabBar">
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource CustomWhite}" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource CustomWhite}" />
+                <Setter Property="Shell.DisabledColor" Value="{StaticResource DisabledColor}" />
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource SecondaryColor}" />
+                
+                
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource CustomWhite}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource CustomWhite}" />
+                <Setter Property="Shell.TabBarDisabledColor" Value="{StaticResource DisabledColor}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource SecondaryColor}" />                
             </Style>
-            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

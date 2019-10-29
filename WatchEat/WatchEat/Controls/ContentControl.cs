@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace WatchEat.Views.Controls
+namespace WatchEat.Controls
 {
     public class ContentControl : ContentView
     {      

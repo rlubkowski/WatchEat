@@ -5,6 +5,7 @@ using WatchEat.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
+[assembly: ExportEffect(typeof(LabelShadowEffect), "LabelShadowEffect")]
 namespace WatchEat.iOS
 {
     public class LabelShadowEffect : PlatformEffect
@@ -13,13 +14,13 @@ namespace WatchEat.iOS
         {
             try
             {
-                var effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
+                var effect = (Effects.LabelShadowEffect)Element.Effects.FirstOrDefault(e => e is Effects.LabelShadowEffect);
                 if (effect != null)
                 {
                     Control.Layer.CornerRadius = effect.Radius;
                     Control.Layer.ShadowColor = effect.Color.ToCGColor();
                     Control.Layer.ShadowOffset = new CGSize(effect.DistanceX, effect.DistanceY);
-                    Control.Layer.ShadowOpacity = 1.0f;
+                    Control.Layer.ShadowOpacity = 0.5f;
                 }
             }
             catch (Exception ex)

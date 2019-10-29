@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
-             xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
+             xmlns:controls="clr-namespace:WatchEat.Controls"
              x:Class="WatchEat.Views.Activity.ActivityPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
@@ -16,7 +16,7 @@
                 <Label Text="Name" FontSize="Medium" />
                 <Entry Text="{Binding Path=Activity.Name}" FontSize="Small" />
                 <Label Text="Calories" FontSize="Medium" />
-                <ctrl:NumericEntry NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+                <controls:NumericEntry NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

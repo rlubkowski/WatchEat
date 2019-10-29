@@ -14,6 +14,7 @@
     <None Remove="Resources\Images\Activity2.png" />
     <None Remove="Resources\Images\Food.png" />
     <None Remove="Resources\Images\Food2.png" />
+    <None Remove="Resources\Images\Logo.png" />
     <None Remove="Resources\Images\porridge_PNG32.png" />
     <None Remove="Resources\Images\porridge_PNG60.png" />
     <None Remove="Resources\Images\radish_PNG50.png" />
@@ -40,6 +41,7 @@
     <EmbeddedResource Include="Resources\Images\Activity2.png" />
     <EmbeddedResource Include="Resources\Images\Food.png" />
     <EmbeddedResource Include="Resources\Images\Food2.png" />
+    <EmbeddedResource Include="Resources\Images\Logo.png" />
     <EmbeddedResource Include="Resources\Images\Scales.png" />
     <EmbeddedResource Include="Resources\Images\Scales2.png" />
     <EmbeddedResource Include="Resources\Images\Water.png" />

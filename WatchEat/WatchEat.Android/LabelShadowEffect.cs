@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 using WatchEat.Droid;
-using WatchEat.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ResolutionGroupName("WatchEat")]
+
 [assembly: ExportEffect(typeof(LabelShadowEffect), "LabelShadowEffect")]
 namespace WatchEat.Droid
 {
@@ -16,7 +15,7 @@ namespace WatchEat.Droid
             try
             {
                 var control = Control as Android.Widget.TextView;
-                var effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
+                var effect = (Effects.LabelShadowEffect)Element.Effects.FirstOrDefault(e => e is Effects.LabelShadowEffect);
                 if (effect != null)
                 {
                     float radius = effect.Radius;

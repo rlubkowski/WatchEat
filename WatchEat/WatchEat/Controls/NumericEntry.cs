@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace WatchEat.Views.Controls
+namespace WatchEat.Controls
 {
     public class NumericEntry : Entry
     {

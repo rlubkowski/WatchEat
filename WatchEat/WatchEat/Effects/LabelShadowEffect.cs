@@ -2,9 +2,9 @@
 
 namespace WatchEat.Effects
 {
-    public class ShadowEffect : RoutingEffect
+    public class LabelShadowEffect : RoutingEffect
     {
-        public ShadowEffect() : base("WatchEat.LabelShadowEffect")
+        public LabelShadowEffect() : base("WatchEat.LabelShadowEffect")
         {
         }
 

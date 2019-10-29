@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             Shell.NavBarIsVisible="False"
+             mc:Ignorable="d"         
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:effects="clr-namespace:WatchEat.Effects"
              xmlns:converter="clr-namespace:WatchEat.Converters"
              xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
-             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"      
+             xmlns:controls="clr-namespace:WatchEat.Controls"
              x:Name="PageReference"
              x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
@@ -37,7 +37,7 @@
                                 <Button Command="{Binding Path=BindingContext.EditEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Edit" FontSize="Micro" Grid.Row="1"/>
                                 <Button Command="{Binding Path=BindingContext.RemoveEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Remove" FontSize="Micro" Grid.Row="2" />
                             </Grid>
-                            
+               
                             <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0" BackgroundColor="Bisque" Margin="0" Padding="0">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Grid.ColumnDefinitions>
@@ -96,32 +96,35 @@
                                                       FoodTemplate="{StaticResource foodCellTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Content>
+    <ContentPage.Content>        
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid BackgroundColor="Lime" Padding="5,10,5,10">
+            <Grid BackgroundColor="{StaticResource PrimaryColor}" Padding="5,10,5,10">
+                <Grid.Effects>
+                    <effects:ContainerShadowEffect Radius="5" DistanceX="5" DistanceY="5" Color="Gray"/>
+                </Grid.Effects>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" 
+                <Button Grid.Column="0" 
                         Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Backward}" 
                         Style="{StaticResource NavButton}" Text="&lt;" />
-            <Label Grid.Column="1" TextColor="Green" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" 
+                <Label Grid.Column="1" TextColor="{StaticResource SecondaryColor}" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" 
                        HorizontalOptions="Center" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center" 
                        Text="{Binding SelectedDay, Converter={StaticResource DateToStringConverter}}" >
                 <Label.Effects>
-                    <effects:ShadowEffect Color="Green" Radius="1" DistanceX="1" DistanceY="1" />
+                    <effects:LabelShadowEffect Color="White" Radius="2" DistanceX="2" DistanceY="2" />
                 </Label.Effects>
             </Label>
-            <Button Grid.Column="2" Command="{Binding Navigate}" 
+                <Button Grid.Column="2" Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
         </Grid>
@@ -138,12 +141,17 @@
                 
                 </CollectionView.EmptyView>
         </CollectionView>
-        <Button Grid.Row="1" Margin="0,0,5,5" 
-                    HorizontalOptions="End" 
-                    VerticalOptions="End" 
-                    Command="{Binding AddEvent}"
-                    Style="{StaticResource NavButton}" Text="+" />
-        <ActivityIndicator Color="Green" 
+         
+                <Button Grid.Row="1" 
+                        Margin="0,0,5,5"                        
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        Command="{Binding AddEvent}"
+                        Style="{StaticResource NavButton}"
+                        Text="+" />
+
+
+            <ActivityIndicator Color="Green" 
                                Grid.Row="0"                               
                                Grid.RowSpan="2" 
                                IsVisible="{Binding IsBusy}" 

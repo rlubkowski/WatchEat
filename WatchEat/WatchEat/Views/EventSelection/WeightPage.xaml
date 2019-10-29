@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
-             xmlns:ctrl="clr-namespace:WatchEat.Views.Controls"
+             xmlns:controls="clr-namespace:WatchEat.Controls"
              x:Class="WatchEat.Views.EventSelection.WeightPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
@@ -15,7 +15,7 @@
             <Label Text="Time" FontSize="Medium"/>
             <TimePicker Time="{Binding SelectedTime}" />
             <Label Text="Weight" FontSize="Medium" />
-            <ctrl:NumericEntry NumericValue="{Binding Weight}" FontSize="Small"/>
+            <controls:NumericEntry NumericValue="{Binding Weight}" FontSize="Small"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
