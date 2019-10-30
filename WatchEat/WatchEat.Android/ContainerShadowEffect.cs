@@ -18,6 +18,7 @@ namespace WatchEat.Droid
 
                 var effect = (Effects.ContainerShadowEffect)Element.Effects.FirstOrDefault(e => e is Effects.ContainerShadowEffect);
 
+
                 if (effect != null)
                 {
                     float radius = effect.Radius;

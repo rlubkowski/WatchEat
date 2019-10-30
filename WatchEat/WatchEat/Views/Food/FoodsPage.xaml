@@ -5,7 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Class="WatchEat.Views.Food.FoodsPage"
              xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions">
+
+    <ContentPage.Resources>
+        <Style TargetType="ContentView">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource SelectionColor}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        
         <Grid>
             <CollectionView EmptyView="{locale:Translate NoItemsToDisplay}" 
                             SelectionChangedCommand="{Binding FoodSelected}" 
