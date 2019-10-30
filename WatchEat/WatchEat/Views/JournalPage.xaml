@@ -22,27 +22,33 @@
             <!--<converter:SelectionChangedEventArgsToCurrentSelectionConverter x:Key="SelectionChangedEventArgsToCurrentSelectionConverter" />-->
             <DataTemplate x:Key="foodCellTemplate">
                 <ContentView Padding="5">
-                    <Frame BorderColor="Black" BackgroundColor="Azure" HasShadow="True" Padding="5">
-                        <Grid>
+                    <Frame Style="{StaticResource BackgroundFrame}" Padding="5" HeightRequest="156">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
+                            <!--<Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0">
+                            </Grid.RowDefinitions>-->
+                            <Image HorizontalOptions="FillAndExpand" Aspect="AspectFit" Grid.Column="0" Source="{markup:ImageResource Food.png}"  />
+                            <!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="2*" />
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <Image HeightRequest="35" Aspect="AspectFit" Source="{markup:ImageResource Food.png}" Grid.Row="0" />
+                                <Image HeightRequest="35" Grid.Column="0" Aspect="AspectFit" Source="{markup:ImageResource Food.png}" Grid.Row="0" />
                                 <Button Command="{Binding Path=BindingContext.EditEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Edit" FontSize="Micro" Grid.Row="1"/>
                                 <Button Command="{Binding Path=BindingContext.RemoveEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Remove" FontSize="Micro" Grid.Row="2" />
-                            </Grid>
-               
-                            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="0" BackgroundColor="Bisque" Margin="0" Padding="0">
+                            </Grid>-->
+                            <Grid Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" HasShadow="True" BackgroundColor="{StaticResource PrimaryColor}" Margin="3" Padding="0">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="4*" />
@@ -56,29 +62,38 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <Label Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-                                    <Label VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" />
+                                    <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" />
 
 
-                                    <Label Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" Grid.Row="1" Grid.Column="0" />
-                                    <Label VerticalTextAlignment="Center" Text="{markup:Translate Carbs}" Grid.Row="1" Grid.Column="2" />
+                                    <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" Grid.Row="1" Grid.Column="0" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Carbs}" Grid.Row="1" Grid.Column="2" />
 
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" Grid.Row="1" Grid.Column="1" />
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Carbs}" Grid.Row="1" Grid.Column="3" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" Grid.Row="1" Grid.Column="1" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Carbs}" Grid.Row="1" Grid.Column="3" />
 
-                                    <Label Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Protein}" Grid.Row="2" Grid.Column="0" />
-                                    <Label VerticalTextAlignment="Center" Text="{markup:Translate Fat}" Grid.Row="2" Grid.Column="2" />
+                                    <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Protein}" Grid.Row="2" Grid.Column="0" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Fat}" Grid.Row="2" Grid.Column="2" />
 
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Protein}" Grid.Row="2" Grid.Column="1" />
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fat}" Grid.Row="2" Grid.Column="3" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Protein}" Grid.Row="2" Grid.Column="1" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fat}" Grid.Row="2" Grid.Column="3" />
 
-                                    <Label Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Fiber}" Grid.Row="3" Grid.Column="0" />
-                                    <Label VerticalTextAlignment="Center" Text="{markup:Translate Salt}" Grid.Row="3" Grid.Column="2" />
+                                    <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Fiber}" Grid.Row="3" Grid.Column="0" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Salt}" Grid.Row="3" Grid.Column="2" />
 
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fiber}" Grid.Row="3" Grid.Column="1" />
-                                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Salt}" Grid.Row="3" Grid.Column="3" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fiber}" Grid.Row="3" Grid.Column="1" />
+                                    <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Salt}" Grid.Row="3" Grid.Column="3" />
                                 </Grid>
                             </Frame>
+                                <Grid Grid.Row="1" RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Command="{Binding Path=BindingContext.EditEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource EditButton}" Text="Edit" FontSize="Micro" />
+                                    <Button Grid.Column="1" Command="{Binding Path=BindingContext.RemoveEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Remove" FontSize="Micro" />
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Frame>
                 </ContentView>

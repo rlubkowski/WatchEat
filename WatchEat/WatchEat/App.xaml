@@ -41,15 +41,17 @@
                 <Setter Property="HasShadow" Value="True" />                
             </Style>
             <Style x:Key="RemoveButton" TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="BorderColor" Value="Crimson" />
-                <Setter Property="BorderRadius" Value="10" />
-                <Setter Property="BorderWidth" Value="1" />
-                <Setter Property="TextColor" Value="GhostWhite" />
-                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="TextColor" Value="{StaticResource CustomBlack}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource SelectionColor}"/>
                 <Setter Property="FontSize" Value="Micro" />
-                <Setter Property="Padding" Value="2" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="HeightRequest" Value="30" />
+            </Style>
+            <Style x:Key="EditButton" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource CustomBlack}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="Margin" Value="2" />
                 <Setter Property="HeightRequest" Value="30" />
             </Style>
             <Style x:Key="TabStyle" TargetType="TabBar">
