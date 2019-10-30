@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Name="ControlRef"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             x:Class="WatchEat.Controls.InfoAgregator">
+    <ContentView.Resources>
+        <converters:ValueToStringConverter x:Key="ValueToStringConverter" />
+    </ContentView.Resources>
+    <ContentView.Content>        
+        <Frame HasShadow="True" BackgroundColor="{StaticResource TernaryColor}" Margin="1">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Label FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Text, Mode=OneWay}" Margin="1"/>
+                <!--<Label FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Value, Mode=OneWay, Converter={StaticResource ValueToStringConverter}}" Margin="1"/>-->
+            </StackLayout>
+        </Frame>
+  </ContentView.Content>
+</ContentView>

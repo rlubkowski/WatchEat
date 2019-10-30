@@ -123,11 +123,15 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Grid.Row="0"
                         Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Backward}" 
                         Style="{StaticResource NavButton}" Text="&lt;" />
-                <Label Grid.Column="1" TextColor="{StaticResource SecondaryColor}" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" 
+                <Label Grid.Column="1" Grid.Row="0" TextColor="{StaticResource SecondaryColor}" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" 
                        HorizontalOptions="Center" 
                        VerticalTextAlignment="Center" 
                        HorizontalTextAlignment="Center" 
@@ -136,9 +140,42 @@
                     <effects:LabelShadowEffect Color="White" Radius="2" DistanceX="2" DistanceY="2" />
                 </Label.Effects>
             </Label>
-                <Button Grid.Column="2" Command="{Binding Navigate}" 
+                <Button Grid.Column="2" Grid.Row="0" Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />                        
+                    </Grid.RowDefinitions>
+
+                    <Frame Grid.Row="0" HasShadow="True" BackgroundColor="{StaticResource TernaryColor}" Margin="1">
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                            <Label FontSize="Small" Text="Calories" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:InfoAgregator Text="Carbs" Value="0" Grid.Column="0" />
+                        <controls:InfoAgregator Text="Protein" Value="0" Grid.Column="1" />
+                        <controls:InfoAgregator Text="Fat" Value="0" Grid.Column="2" />
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:InfoAgregator Text="Fiber" Value="0" Grid.Column="0" />
+                        <controls:InfoAgregator Text="Salt" Value="0" Grid.Column="1" />
+                    </Grid>
+                </Grid>
         </Grid>
             <CollectionView SelectionMode="Single"
                             x:Name="EntriesCollection"                            
