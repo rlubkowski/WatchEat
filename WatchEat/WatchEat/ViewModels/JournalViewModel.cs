@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WatchEat.Controls;
 using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
@@ -19,6 +20,26 @@ namespace WatchEat.ViewModels
         {
             SelectedDay = DateTime.Today;
             Entries = new ObservableCollection<JournalEntry>();
+            Entries.CollectionChanged += OnEntriesChanged;
+        }
+
+        private void OnEntriesChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    break;
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Move:
+                    break;
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    break;
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Replace:
+                    break;
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Reset:
+                    break;
+                default:
+                    break;
+            }
         }
 
         public ICommand Navigate => new AsyncCommand(async (direction) =>
@@ -51,13 +72,13 @@ namespace WatchEat.ViewModels
         {
             if (IsBusy)
                 return;
-            await Navigation.PushModalAsync(new NavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeEventSelection, UnsubscribeEventSelection))));
+            await Navigation.PushModalAsync(new StyledNavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeEventSelection, UnsubscribeEventSelection))));
         });
 
         public ICommand EditEntry => new AsyncCommand(async (entry) =>
         {
             var journalEntry = entry as JournalEntry;
-            await Navigation.PushModalAsync(new NavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
+            await Navigation.PushModalAsync(new StyledNavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
         });
 
         public ICommand RemoveEntry => new AsyncCommand(async (entry) =>

@@ -25,6 +25,21 @@
                 <Setter Property="HeightRequest" Value="60" />
                 <Setter Property="WidthRequest" Value="60" />                
             </Style>
+            <Style x:Key="EventSelectionButton" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />                
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="TextColor" Value="{StaticResource CustomWhite}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />                
+                <Setter Property="Padding" Value="5" />
+            </Style>
+            <Style x:Key="BackgroundFrame" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource TernaryColor}" />
+                <Setter Property="HasShadow" Value="True" />                
+            </Style>
             <Style x:Key="RemoveButton" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />

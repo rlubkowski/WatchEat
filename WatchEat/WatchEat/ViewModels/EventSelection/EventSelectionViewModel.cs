@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
+using WatchEat.Controls;
 using WatchEat.Helpers;
 using WatchEat.Views.EventSelection;
-using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
@@ -33,28 +33,28 @@ namespace WatchEat.ViewModels.EventSelection
 
         public ICommand AddWaterEvent => new AsyncCommand(async () =>
         {
-            var page = new NavigationPage(new WaterPage(new WaterViewModel(SelectedDay)));
+            var page = new StyledNavigationPage(new WaterPage(new WaterViewModel(SelectedDay)));
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });
 
         public ICommand AddFoodEvent => new AsyncCommand(async () =>
         {
-            var page = new NavigationPage(new FoodSelectionPage(new FoodSelectionViewModel(SelectedDay)));
+            var page = new StyledNavigationPage(new FoodSelectionPage(new FoodSelectionViewModel(SelectedDay)));
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });
 
         public ICommand AddWeightEvent => new AsyncCommand(async () =>
         {
-            var page = new NavigationPage(new WeightPage(new WeightViewModel(SelectedDay)));
+            var page = new StyledNavigationPage(new WeightPage(new WeightViewModel(SelectedDay)));
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });
 
         public ICommand AddActivityEvent => new AsyncCommand(async () =>
         {
-            var page = new NavigationPage(new ActivitySelectionPage(new ActivitySelectionViewModel(SelectedDay)));
+            var page = new StyledNavigationPage(new ActivitySelectionPage(new ActivitySelectionViewModel(SelectedDay)));
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });

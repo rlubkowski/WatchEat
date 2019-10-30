@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WatchEat.Controls;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
 using WatchEat.Views.Activity;
@@ -20,7 +21,7 @@ namespace WatchEat.ViewModels.Activity
 
         public ICommand OpenAddActivityPage => new AsyncCommand(async () =>
         {
-            var page = new NavigationPage(new ActivityPage());
+            var page = new StyledNavigationPage(new ActivityPage());
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });
@@ -28,7 +29,7 @@ namespace WatchEat.ViewModels.Activity
         public ICommand ActivitySelected => new AsyncCommand(async (param) =>
         {
             var activity = (ActivityEntry)param;
-            var page = new NavigationPage(new ActivityPage(new ActivityViewModel(activity)));
+            var page = new StyledNavigationPage(new ActivityPage(new ActivityViewModel(activity)));
             HandlePageEvents(page);
             await Navigation.PushModalAsync(page);
         });

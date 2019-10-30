@@ -10,6 +10,7 @@ namespace WatchEat.Views.Activity
         public ActivityPage()
         {
             InitializeComponent();
+            BindingContext = new ActivityViewModel();
         }
 
         public ActivityPage(ActivityViewModel viewModel)

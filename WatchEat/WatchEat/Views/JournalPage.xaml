@@ -10,12 +10,16 @@
              xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"      
              xmlns:controls="clr-namespace:WatchEat.Controls"
+             xmlns:behaviors="clr-namespace:WatchEat.Behaviors"
+             Shell.NavBarIsVisible="False"
              x:Name="PageReference"
              x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
             <converter:DateToTimeStringConverter x:Key="DateToTimeStringConverter" />
+            <!--<converter:SelectionToVisibilityConverter x:Key="SelectionToVisibilityConverter" />-->
+            <!--<converter:SelectionChangedEventArgsToCurrentSelectionConverter x:Key="SelectionChangedEventArgsToCurrentSelectionConverter" />-->
             <DataTemplate x:Key="foodCellTemplate">
                 <ContentView Padding="5">
                     <Frame BorderColor="Black" BackgroundColor="Azure" HasShadow="True" Padding="5">
@@ -96,6 +100,14 @@
                                                       FoodTemplate="{StaticResource foodCellTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
+    <!--<ContentPage.ToolbarItems>        
+        <controls:BindableToolbarItem IsVisible="{Binding SelectedItem, Source={x:Reference EntriesCollection}, Converter={StaticResource SelectionToVisibilityConverter}}"
+                                      Text="Edit"  Command="{Binding EditEntry}" />
+        <controls:BindableToolbarItem IsVisible="{Binding Path=BindingContext.ActionsVisible, Source={x:Reference PageReference}}"
+                                      Text="Remove"  Command="{Binding RemoveEntry}" />
+    </ContentPage.ToolbarItems>-->
+    
     <ContentPage.Content>        
         <Grid>
         <Grid.RowDefinitions>
@@ -128,7 +140,10 @@
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
         </Grid>
-            <CollectionView ItemsSource="{Binding Entries}" ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
+            <CollectionView SelectionMode="Single"
+                            x:Name="EntriesCollection"                            
+                            ItemsSource="{Binding Entries}"                      
+                            ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
             <CollectionView.EmptyView>
                     
                     <Label Text="{markup:Translate NoActivitiesThisDay}"
@@ -140,7 +155,11 @@
                            HorizontalTextAlignment="Center"/>
                 
                 </CollectionView.EmptyView>
+                <!--<CollectionView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding EntrySelected}" Converter="{StaticResource SelectionChangedEventArgsToCurrentSelectionConverter}" />
+                </CollectionView.Behaviors>-->
         </CollectionView>
+            
          
                 <Button Grid.Row="1" 
                         Margin="0,0,5,5"                        

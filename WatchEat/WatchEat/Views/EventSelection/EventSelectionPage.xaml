@@ -4,16 +4,60 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.EventSelection.EventSelectionPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary" Text="Back"  Command="{Binding Cancel}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Water" Command="{Binding AddWaterEvent}"/>
-            <Button Text="Food"  Command="{Binding AddFoodEvent}"/>
-            <Button Text="Training"  Command="{Binding AddActivityEvent}"/>
-            <Button Text="Weight" Command="{Binding AddWeightEvent}"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" Source="{markup:ImageResource Water.png}" Grid.Column="0"/>
+                    <Button Margin="10" Style="{StaticResource EventSelectionButton}" Text="Water" Command="{Binding AddWaterEvent}" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="1" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" Source="{markup:ImageResource Food.png}" Grid.Column="0" />
+                    <Button Margin="10" Style="{StaticResource EventSelectionButton}" Text="Food"  Command="{Binding AddFoodEvent}" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="2" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" Source="{markup:ImageResource Activity.png}" Grid.Column="0" />
+                    <Button Margin="10" Style="{StaticResource EventSelectionButton}" Text="Training"  Command="{Binding AddActivityEvent}" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="3" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit" Source="{markup:ImageResource Scales.png}" Grid.Column="0" />
+                    <Button Margin="10" Style="{StaticResource EventSelectionButton}"  Text="Weight" Command="{Binding AddWeightEvent}" Grid.Column="1" />
+                </Grid>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
