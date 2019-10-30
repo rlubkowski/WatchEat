@@ -2,24 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"         
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"               
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:effects="clr-namespace:WatchEat.Effects"
              xmlns:converter="clr-namespace:WatchEat.Converters"
              xmlns:tmplsel="clr-namespace:WatchEat.TemplateSelectors"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"      
-             xmlns:controls="clr-namespace:WatchEat.Controls"
-             xmlns:behaviors="clr-namespace:WatchEat.Behaviors"
-             Shell.NavBarIsVisible="False"
-             x:Name="PageReference"
-             x:Class="WatchEat.Views.JournalPage">
+             xmlns:controls="clr-namespace:WatchEat.Controls"             
+             Shell.NavBarIsVisible="False" mc:Ignorable="d"
+             x:Name="PageReference" x:Class="WatchEat.Views.JournalPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
-            <converter:DateToTimeStringConverter x:Key="DateToTimeStringConverter" />
-            <!--<converter:SelectionToVisibilityConverter x:Key="SelectionToVisibilityConverter" />-->
-            <!--<converter:SelectionChangedEventArgsToCurrentSelectionConverter x:Key="SelectionChangedEventArgsToCurrentSelectionConverter" />-->
+            <converter:DateToTimeStringConverter x:Key="DateToTimeStringConverter" />            
             <DataTemplate x:Key="foodCellTemplate">
                 <ContentView Padding="5">
                     <Frame Style="{StaticResource BackgroundFrame}" Padding="5" HeightRequest="156">
@@ -27,27 +22,13 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="2*" />
-                            </Grid.ColumnDefinitions>
-                            <!--<Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>-->
-                            <Image HorizontalOptions="FillAndExpand" Aspect="AspectFit" Grid.Column="0" Source="{markup:ImageResource Food.png}"  />
-                            <!--<Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="2*" />
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Image HeightRequest="35" Grid.Column="0" Aspect="AspectFit" Source="{markup:ImageResource Food.png}" Grid.Row="0" />
-                                <Button Command="{Binding Path=BindingContext.EditEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Edit" FontSize="Micro" Grid.Row="1"/>
-                                <Button Command="{Binding Path=BindingContext.RemoveEntry, Source={x:Reference PageReference}}" CommandParameter="{Binding}" Style="{StaticResource RemoveButton}" Text="Remove" FontSize="Micro" Grid.Row="2" />
-                            </Grid>-->
+                            </Grid.ColumnDefinitions>                            
+                            <Image HorizontalOptions="FillAndExpand" Aspect="AspectFit" Grid.Column="0" Source="{markup:ImageResource Food.png}"  />                            
                             <Grid Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-
                                 <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" HasShadow="True" BackgroundColor="{StaticResource PrimaryColor}" Margin="3" Padding="0">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Grid.ColumnDefinitions>
@@ -64,7 +45,6 @@
                                     </Grid.RowDefinitions>
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" />
-
 
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" Grid.Row="1" Grid.Column="0" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Carbs}" Grid.Row="1" Grid.Column="2" />
@@ -105,8 +85,7 @@
                 <Label Text="Weight Entry" />
             </DataTemplate>
             <DataTemplate x:Key="waterCellTemplate">
-                <Label Text="Water Entry" />
-                
+                <Label Text="Water Entry" />                
             </DataTemplate>
             <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
                                                       ActivityTemplate="{StaticResource trainingCellTemplate}" 
@@ -115,13 +94,6 @@
                                                       FoodTemplate="{StaticResource foodCellTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <!--<ContentPage.ToolbarItems>        
-        <controls:BindableToolbarItem IsVisible="{Binding SelectedItem, Source={x:Reference EntriesCollection}, Converter={StaticResource SelectionToVisibilityConverter}}"
-                                      Text="Edit"  Command="{Binding EditEntry}" />
-        <controls:BindableToolbarItem IsVisible="{Binding Path=BindingContext.ActionsVisible, Source={x:Reference PageReference}}"
-                                      Text="Remove"  Command="{Binding RemoveEntry}" />
-    </ContentPage.ToolbarItems>-->
     
     <ContentPage.Content>        
         <Grid RowSpacing="0">
@@ -197,20 +169,15 @@
                             x:Name="EntriesCollection"                            
                             ItemsSource="{Binding Entries}"                      
                             ItemTemplate="{StaticResource EntryTemplateSelector}" Grid.Row="1">           
-            <CollectionView.EmptyView>
-                    
+            <CollectionView.EmptyView>                    
                     <Label Text="{markup:Translate NoActivitiesThisDay}"
                            FontAttributes="Bold"
                            FontSize="18"
                            VerticalOptions="Center"
                            VerticalTextAlignment="Center"
                            HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center"/>
-                
-                </CollectionView.EmptyView>
-                <!--<CollectionView.Behaviors>
-                    <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding EntrySelected}" Converter="{StaticResource SelectionChangedEventArgsToCurrentSelectionConverter}" />
-                </CollectionView.Behaviors>-->
+                           HorizontalTextAlignment="Center"/>                
+                </CollectionView.EmptyView>                
         </CollectionView>
             
          

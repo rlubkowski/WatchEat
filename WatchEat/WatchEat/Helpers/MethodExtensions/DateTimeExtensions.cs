@@ -8,5 +8,11 @@ namespace WatchEat.Helpers.MethodExtensions
         {            
             return new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
         }
+
+        public static DateTime AppendCurrentTime(this DateTime dateTime)
+        {
+            var current = DateTime.Now;
+            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, current.Hour, current.Minute, current.Second);
+        }
     }
 }

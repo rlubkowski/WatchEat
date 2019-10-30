@@ -9,11 +9,10 @@ namespace WatchEat.ViewModels.EventSelection
 {
     public class WaterViewModel : BaseViewModel
     {
-        public WaterViewModel(DateTime date)
+        public WaterViewModel(DateTime dateTime)
         {   
             Title = "New Water Entry";            
-            SelectedDate = date;
-            SelectedTime = DateTime.Now.ToTimespan();
+            SelectedDate = dateTime.AppendCurrentTime();
         }
 
         DateTime _date;
@@ -23,15 +22,14 @@ namespace WatchEat.ViewModels.EventSelection
             set => SetProperty(ref _date, value);
         }
 
-        TimeSpan _time;
         public TimeSpan SelectedTime
         {
-            get => _time;
+            get => SelectedDate.ToTimespan();
             set
             {
-                SetProperty(ref _time, value);
                 var date = SelectedDate;
                 SelectedDate = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
+                OnPropertyChanged(nameof(SelectedTime));
             }
         }
 

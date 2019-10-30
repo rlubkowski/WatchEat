@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
-             x:Class="WatchEat.Views.Food.FoodsPage">
+             mc:Ignorable="d" x:Class="WatchEat.Views.Food.FoodsPage"
+             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions">
     <ContentPage.Content>
         <Grid>
             <CollectionView EmptyView="{locale:Translate NoItemsToDisplay}" 

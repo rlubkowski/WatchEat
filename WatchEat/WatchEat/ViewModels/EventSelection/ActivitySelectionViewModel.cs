@@ -14,8 +14,7 @@ namespace WatchEat.ViewModels.EventSelection
     {
         public ActivitySelectionViewModel(DateTime dateTime)
         {
-            SelectedDate = dateTime;
-            SelectedTime = DateTime.Now.ToTimespan();
+            SelectedDate = dateTime.AppendCurrentTime();            
             Activities = new ObservableCollection<ActivityEntry>();
         }
 
@@ -25,16 +24,15 @@ namespace WatchEat.ViewModels.EventSelection
             get => _date;
             set => SetProperty(ref _date, value);
         }
-
-        TimeSpan _time;
+        
         public TimeSpan SelectedTime
         {
-            get => _time;
+            get => SelectedDate.ToTimespan();
             set
-            {
-                SetProperty(ref _time, value);
+            {                
                 var date = SelectedDate;
                 SelectedDate = new DateTime(date.Year, date.Month, date.Day, value.Hours, value.Minutes, value.Seconds);
+                OnPropertyChanged(nameof(SelectedTime));
             }
         }
 
