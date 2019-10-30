@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Margin="2" x:Name="ControlRef" Padding="0"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             x:Class="WatchEat.Controls.CaloriesInfo">
+    <ContentView.Resources>
+        <converters:ValueToStringConverter x:Key="ValueToStringConverter" />
+    </ContentView.Resources>
+  <ContentView.Content>
+      
+        <Frame HasShadow="True" BackgroundColor="{StaticResource TernaryColor}" Padding="3"  Margin="0">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />                    
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small" Text="Calories" />
+
+                <Label Text="Consumed" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Margin="0,0,0,3" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Consumed, Converter={StaticResource ValueToStringConverter}}"/>
+
+                <Label Text="Recommended" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Margin="0,0,0,3" Grid.Column="1" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Recommended, Converter={StaticResource ValueToStringConverter}}"/>
+
+                <Label Text="Burned" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Margin="0,0,0,3" Grid.Column="2" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Burned, Converter={StaticResource ValueToStringConverter}}"/>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

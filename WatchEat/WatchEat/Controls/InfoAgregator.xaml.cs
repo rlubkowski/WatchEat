@@ -15,7 +15,8 @@ namespace WatchEat.Controls
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text),
                                                                                       typeof(string),
                                                                                       typeof(InfoAgregator),
-                                                                                      string.Empty);
+                                                                                      string.Empty,
+                                                                                      BindingMode.OneWay);
 
         public string Text
         {
@@ -26,12 +27,12 @@ namespace WatchEat.Controls
         public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value),
                                                                                         typeof(decimal),
                                                                                         typeof(InfoAgregator),
-                                                                                        default(decimal));
-
+                                                                                        default(decimal),
+                                                                                        BindingMode.OneWay);
         public decimal Value
         {
-            get { return (decimal)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get { return (decimal)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
         }
     }
 }

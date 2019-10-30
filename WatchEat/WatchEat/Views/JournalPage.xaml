@@ -109,12 +109,12 @@
     </ContentPage.ToolbarItems>-->
     
     <ContentPage.Content>        
-        <Grid>
+        <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-            <Grid BackgroundColor="{StaticResource PrimaryColor}" Padding="5,10,5,10">
+            <Grid BackgroundColor="{StaticResource PrimaryColor}" RowSpacing="0">
                 <Grid.Effects>
                     <effects:ContainerShadowEffect Radius="5" DistanceX="5" DistanceY="5" Color="Gray"/>
                 </Grid.Effects>
@@ -124,10 +124,11 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="147" />
                 </Grid.RowDefinitions>
                 <Button Grid.Column="0" Grid.Row="0"
+                        Margin="5"
                         Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Backward}" 
                         Style="{StaticResource NavButton}" Text="&lt;" />
@@ -140,24 +141,22 @@
                     <effects:LabelShadowEffect Color="White" Radius="2" DistanceX="2" DistanceY="2" />
                 </Label.Effects>
             </Label>
-                <Button Grid.Column="2" Grid.Row="0" Command="{Binding Navigate}" 
+                <Button Grid.Column="2" Grid.Row="0"
+                        Margin="5"
+                        Command="{Binding Navigate}" 
                         CommandParameter="{x:Static enums:NavigationDirection.Forward}" 
                         Style="{StaticResource NavButton}" Text="&gt;" />
-                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-                    
+                
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" RowSpacing="0" ColumnSpacing="0" Margin="5,5,5,0" Padding="0">                    
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />                        
+                        <RowDefinition Height="79" />
+                        <RowDefinition Height="29" />
+                        <RowDefinition Height="29" />                        
                     </Grid.RowDefinitions>
+                    
+                    <controls:CaloriesInfo Grid.Row="0" />
 
-                    <Frame Grid.Row="0" HasShadow="True" BackgroundColor="{StaticResource TernaryColor}" Margin="1">
-                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-                            <Label FontSize="Small" Text="Calories" />
-                        </StackLayout>
-                    </Frame>
-
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
@@ -167,13 +166,15 @@
                         <controls:InfoAgregator Text="Protein" Value="0" Grid.Column="1" />
                         <controls:InfoAgregator Text="Fat" Value="0" Grid.Column="2" />
                     </Grid>
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2" RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <controls:InfoAgregator Text="Fiber" Value="0" Grid.Column="0" />
-                        <controls:InfoAgregator Text="Salt" Value="0" Grid.Column="1" />
+                        <controls:InfoAgregator Text="Water" Value="0" Grid.Column="1" />
+                        <controls:InfoAgregator Text="Salt" Value="0" Grid.Column="2" />
                     </Grid>
                 </Grid>
         </Grid>
