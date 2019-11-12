@@ -9,6 +9,9 @@ namespace WatchEat.Services.Interfaces
 {
     public interface IRepository<T> where T : EntityBase, new()
     {
+        event EventHandler<T> EntityInserted;
+        event EventHandler<T> EntityUpdated;
+        event EventHandler<T> EntityDeleted;
         Task<List<T>> Get();
         Task<T> Get(int id);
         Task<List<T>> Get<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null);

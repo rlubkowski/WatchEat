@@ -67,7 +67,7 @@
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource CustomWhite}" />
                 <Setter Property="Shell.TabBarDisabledColor" Value="{StaticResource DisabledColor}" />
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource SecondaryColor}" />                
-            </Style>
+            </Style>          
         </ResourceDictionary>
     </Application.Resources>
 </Application>

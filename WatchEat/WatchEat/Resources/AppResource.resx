@@ -129,11 +129,20 @@
   <data name="EditFood" xml:space="preserve">
     <value>Edit Food</value>
   </data>
+  <data name="ExtraActive" xml:space="preserve">
+    <value>Extra active</value>
+  </data>
   <data name="Fat" xml:space="preserve">
     <value>Fat</value>
   </data>
   <data name="Fiber" xml:space="preserve">
     <value>Fiber</value>
+  </data>
+  <data name="LightlyActive" xml:space="preserve">
+    <value>Lightly active</value>
+  </data>
+  <data name="ModeratetelyActive" xml:space="preserve">
+    <value>Moderatetely active</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -158,5 +167,11 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Sedentary" xml:space="preserve">
+    <value>Sedentary</value>
+  </data>
+  <data name="VeryActive" xml:space="preserve">
+    <value>Very active</value>
   </data>
 </root>

@@ -12,9 +12,10 @@
        FlyoutBehavior="Disabled"
        FlyoutIsPresented="False"       
        x:Class="WatchEat.AppShell">
+    
     <TabBar Style="{StaticResource TabStyle}">
         <Tab Title="User" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:UserPage}" />
         </Tab>
         <Tab Title="Journal" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />

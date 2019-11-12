@@ -12,6 +12,10 @@ namespace WatchEat.Services
     {
         private readonly SQLiteAsyncConnection _db;
 
+        public event EventHandler<T> EntityInserted;
+        public event EventHandler<T> EntityUpdated;
+        public event EventHandler<T> EntityDeleted;
+
         public Repository(SQLiteAsyncConnection db)
         {
             _db = db;
@@ -42,13 +46,46 @@ namespace WatchEat.Services
         public async Task<T> Get(Expression<Func<T, bool>> predicate) => 
             await _db.FindAsync<T>(predicate);
 
-        public async Task<int> Insert(T entity) =>
-             await _db.InsertAsync(entity);
+        public async Task<int> Insert(T entity)
+        {
+            var result = await _db.InsertAsync(entity);
+            OnEntityInserted(entity);
+            return result;
+        }
 
-        public async Task<int> Update(T entity) =>
-             await _db.UpdateAsync(entity);
+        public async Task<int> Update(T entity)
+        {
+            var result = await _db.UpdateAsync(entity);
+            OnEntityUpdated(entity);
+            return result;
+        }
 
-        public async Task<int> Delete(T entity) =>
-             await _db.DeleteAsync(entity);
+        public async Task<int> Delete(T entity)
+        {
+            var result = await _db.DeleteAsync(entity);
+            OnEntityDeleted(entity);
+            return result;
+        }
+
+        private void OnEntityInserted(T entity)
+        {
+            if (EntityInserted == null)
+                return;
+            EntityInserted.Invoke(this, entity);
+        }
+
+        private void OnEntityUpdated(T entity)
+        {
+            if (EntityUpdated == null)
+                return;
+            EntityUpdated.Invoke(this, entity);
+        }
+
+        private void OnEntityDeleted(T entity)
+        {
+            if (EntityDeleted == null)
+                return;
+            EntityDeleted.Invoke(this, entity);
+        }
     }
 }

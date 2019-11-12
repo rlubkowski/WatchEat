@@ -179,15 +179,16 @@
                            HorizontalTextAlignment="Center"/>                
                 </CollectionView.EmptyView>                
         </CollectionView>
+
+
+            <Button  Grid.Row="1"
+                     Margin="0,0,5,5"
+                     HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Command="{Binding AddEvent}"
+                     Style="{StaticResource NavButton}"
+                     Text="+" />
             
-         
-                <Button Grid.Row="1" 
-                        Margin="0,0,5,5"                        
-                        HorizontalOptions="End"
-                        VerticalOptions="End"
-                        Command="{Binding AddEvent}"
-                        Style="{StaticResource NavButton}"
-                        Text="+" />
 
 
             <ActivityIndicator Color="Green" 

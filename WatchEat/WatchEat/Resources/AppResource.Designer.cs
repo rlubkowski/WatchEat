@@ -97,6 +97,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Extra active.
+        /// </summary>
+        internal static string ExtraActive {
+            get {
+                return ResourceManager.GetString("ExtraActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fat.
         /// </summary>
         internal static string Fat {
@@ -111,6 +120,24 @@ namespace WatchEat.Resources {
         internal static string Fiber {
             get {
                 return ResourceManager.GetString("Fiber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lightly active.
+        /// </summary>
+        internal static string LightlyActive {
+            get {
+                return ResourceManager.GetString("LightlyActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderatetely active.
+        /// </summary>
+        internal static string ModeratetelyActive {
+            get {
+                return ResourceManager.GetString("ModeratetelyActive", resourceCulture);
             }
         }
         
@@ -183,6 +210,24 @@ namespace WatchEat.Resources {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sedentary.
+        /// </summary>
+        internal static string Sedentary {
+            get {
+                return ResourceManager.GetString("Sedentary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very active.
+        /// </summary>
+        internal static string VeryActive {
+            get {
+                return ResourceManager.GetString("VeryActive", resourceCulture);
             }
         }
     }

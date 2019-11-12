@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             xmlns:controls="clr-namespace:WatchEat.Controls"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             xmlns:enums="clr-namespace:WatchEat.Enums"
+             x:Class="WatchEat.Views.EditUserPage" mc:Ignorable="d">    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">                
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Gender" FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Male" FontSize="Medium" VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="False"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Female" FontSize="Medium" VerticalTextAlignment="Center"/>
+                            <CheckBox IsChecked="False"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="Age" FontSize="Medium" />
+                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />
+
+                <Label Text="Weight" FontSize="Medium" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Weight" FontSize="Medium" VerticalTextAlignment="Center" />
+                    <Button Command="{Binding }"  HorizontalOptions="EndAndExpand" TextColor="{StaticResource CustomBlack}" BackgroundColor="{StaticResource PrimaryColor}" 
+                            Text="Edit" />
+                </StackLayout>
+
+                <Label Text="Height" FontSize="Medium" />
+                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />
+
+                <Label Text="Activity level" FontSize="Medium" />
+                <controls:EnumPicker x:TypeArguments="enums:ActivityFactor"  SelectedItem="{Binding ActivityFactor}" FontSize="Medium" />
+
+            </StackLayout>
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>
