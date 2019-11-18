@@ -74,6 +74,12 @@ namespace WatchEat.ViewModels
                 return;
             await Navigation.PushModalAsync(new StyledNavigationPage(new EventSelectionPage(new EventSelectionViewModel(SelectedDay, SubscribeEventSelection, UnsubscribeEventSelection))));
         });
+        
+        public ICommand EntrySelected => new AsyncCommand(async (entry) =>
+        {
+            var journalEntry = entry as JournalEntry;
+            await Navigation.PushModalAsync(new StyledNavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
+        });
 
         public ICommand EditEntry => new AsyncCommand(async (entry) =>
         {

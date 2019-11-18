@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.Activity.ActivitiesPage">
     <ContentPage.Resources>
         <Style TargetType="ContentView">
@@ -24,7 +24,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            <CollectionView EmptyView="{locale:Translate NoItemsToDisplay}" 
+            <CollectionView EmptyView="{markup:Translate NoItemsToDisplay}" 
                             SelectionChangedCommand="{Binding ActivitySelected}" 
                             SelectionMode="Single" 
                             ItemsSource="{Binding Activities}" 
@@ -32,9 +32,32 @@
                             x:Name="ActivitiesCollection">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HasShadow="True">
-                            <Label Text="{Binding Path=Name}" />
-                        </Frame>
+                        <ContentView Padding="5">
+                            <Frame Style="{StaticResource BackgroundFrame}" Padding="5">
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="True" BackgroundColor="{StaticResource PrimaryColor}" Margin="3" Padding="0">
+                                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*" />
+                                                <ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />                                                
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" 
+                                               Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />                                            
+
+                                            <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" 
+                                                   LineBreakMode="TailTruncation" Grid.Row="1" Grid.Column="0" />
+
+                                            <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" 
+                                                   Grid.Row="1" Grid.Column="1" />
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
