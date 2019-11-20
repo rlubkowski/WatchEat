@@ -11,12 +11,7 @@
         public const string RemoveActivity = nameof(RemoveActivity);
 
         public const string AddWaterEntry = nameof(AddWaterEntry);
-        public const string EditWaterEntry = nameof(EditWaterEntry);
-        public const string RemoveWaterEntry = nameof(RemoveWaterEntry);
-
-        public const string AddWeightEntry = nameof(AddWeightEntry);
-        public const string EditWeightEntry = nameof(EditWeightEntry);
-        public const string RemoveWeightEntry = nameof(RemoveWeightEntry);
+        public const string AddWeightEntry = nameof(AddWeightEntry);        
 
         public const string FoodSelected = nameof(FoodSelected);
         public const string ActivitySelected= nameof(ActivitySelected);

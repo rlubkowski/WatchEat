@@ -6,7 +6,17 @@
              xmlns:controls="clr-namespace:WatchEat.Controls"
              xmlns:converters="clr-namespace:WatchEat.Converters"
              xmlns:enums="clr-namespace:WatchEat.Enums"
-             x:Class="WatchEat.Views.EditUserPage" mc:Ignorable="d">    
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             x:Class="WatchEat.Views.EditUserPage" mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:GenderToEnumConverter x:Key="GenderToEnumConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15">                
@@ -16,11 +26,11 @@
                     <StackLayout Orientation="Horizontal">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Male" FontSize="Medium" VerticalTextAlignment="Center"/>
-                            <CheckBox IsChecked="False"/>
+                            <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Male}}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Female" FontSize="Medium" VerticalTextAlignment="Center"/>
-                            <CheckBox IsChecked="False"/>
+                            <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Female}}"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -29,11 +39,7 @@
                 <controls:NumericEntry Text="{Binding }" FontSize="Medium" />
 
                 <Label Text="Weight" FontSize="Medium" />
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Weight" FontSize="Medium" VerticalTextAlignment="Center" />
-                    <Button Command="{Binding }"  HorizontalOptions="EndAndExpand" TextColor="{StaticResource CustomBlack}" BackgroundColor="{StaticResource PrimaryColor}" 
-                            Text="Edit" />
-                </StackLayout>
+                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />                
 
                 <Label Text="Height" FontSize="Medium" />
                 <controls:NumericEntry Text="{Binding }" FontSize="Medium" />

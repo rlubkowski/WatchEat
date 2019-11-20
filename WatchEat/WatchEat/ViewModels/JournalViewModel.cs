@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WatchEat.Adapters;
 using WatchEat.Controls;
 using WatchEat.Enums;
 using WatchEat.Helpers;
@@ -101,23 +102,38 @@ namespace WatchEat.ViewModels
         {
             MessagingCenter.Subscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected, async (obj, item) =>
             {
-                var entry = item.ToJournalEntry();
-                Entries.Add(entry);
-                await DataStore.JournalEntries.Insert(entry);
+                await HandleAddEntryEvent(item);
             });
 
             MessagingCenter.Subscribe<ActivitySelectionViewModel, SelectionModel<ActivityEntry>>(this, CommandNames.ActivitySelected, async (obj, item) =>
             {
-                var entry = item.ToJournalEntry();
-                Entries.Add(entry);
-                await DataStore.JournalEntries.Insert(entry);
+                await HandleAddEntryEvent(item);
             });
+
+            MessagingCenter.Subscribe<WaterViewModel, WaterEntryModel>(this, CommandNames.AddWaterEntry, async (obj, item) =>
+            {
+                await HandleAddEntryEvent(item);
+            });
+
+            MessagingCenter.Subscribe<WeightViewModel, WeightEntryModel>(this, CommandNames.AddWeightEntry, async (obj, item) =>
+            {
+                await HandleAddEntryEvent(item);
+            });
+        }
+
+        private async Task HandleAddEntryEvent(IJournalEntryAdapter entry) 
+        {
+            var jEntry = entry.ToJournalEntry();
+            Entries.Add(jEntry);
+            await DataStore.JournalEntries.Insert(jEntry);
         }
 
         private void UnsubscribeEventSelection()
         {
             MessagingCenter.Unsubscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected);
             MessagingCenter.Unsubscribe<ActivitySelectionViewModel, SelectionModel<ActivityEntry>>(this, CommandNames.ActivitySelected);
+            MessagingCenter.Unsubscribe<WaterViewModel, WaterEntryModel>(this, CommandNames.AddWaterEntry);
+            MessagingCenter.Unsubscribe<WeightViewModel, WeightEntryModel>(this, CommandNames.AddWeightEntry);
         }
 
         private DateTime _selectedDay;

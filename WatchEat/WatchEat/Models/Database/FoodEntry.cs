@@ -4,7 +4,7 @@ using WatchEat.Models.Interfaces;
 namespace WatchEat.Models.Database
 {
     public class FoodEntry : EntityBase, ISelectableEntity
-    {
+    {   
         string _name = string.Empty;
         public string Name
         {
