@@ -18,18 +18,32 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _gender, value); }
         }
         
-        bool _isEnabled = false;
-        public bool IsEnabled
+        bool _isValid = false;
+        public bool IsValid
         {
-            get => _isEnabled;
-            set { SetProperty(ref _isEnabled, value); }
+            get => _isValid;
+            set { SetProperty(ref _isValid, value); }
         }
 
-        public int Age { get; set; }
+        int _age = 0;
+        public int Age 
+        {
+            get => _age;
+            set { SetProperty(ref _age, value); } 
+        }
 
-        public decimal Weight { get; set; }
+        decimal _weight = 0;
+        public decimal Weight 
+        {
+            get => _weight;
+            set { SetProperty(ref _weight, value); }
+        }
 
-        public int Height { get; set; }
-
+        int _heigth = 0;
+        public int Height 
+        {
+            get => _heigth;
+            set { SetProperty(ref _heigth, value); }
+        }
     }
 }

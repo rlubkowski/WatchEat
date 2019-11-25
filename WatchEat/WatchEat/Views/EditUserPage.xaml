@@ -6,6 +6,7 @@
              xmlns:controls="clr-namespace:WatchEat.Controls"
              xmlns:converters="clr-namespace:WatchEat.Converters"
              xmlns:enums="clr-namespace:WatchEat.Enums"
+             xmlns:validation="clr-namespace:WatchEat.Behaviors.Validation"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.EditUserPage" mc:Ignorable="d">
     <ContentPage.ToolbarItems>
@@ -36,13 +37,25 @@
                 </StackLayout>
 
                 <Label Text="Age" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />
+                <controls:NumericEntry Text="{Binding Age}" FontSize="Medium" >
+                    <controls:NumericEntry.Behaviors>
+                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                    </controls:NumericEntry.Behaviors>
+                </controls:NumericEntry>
 
                 <Label Text="Weight" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />                
+                <controls:NumericEntry Text="{Binding Weight}" FontSize="Medium" >
+                    <controls:NumericEntry.Behaviors>
+                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                    </controls:NumericEntry.Behaviors>
+                </controls:NumericEntry>
 
                 <Label Text="Height" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding }" FontSize="Medium" />
+                <controls:NumericEntry Text="{Binding Height}" FontSize="Medium" >
+                    <controls:NumericEntry.Behaviors>
+                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                    </controls:NumericEntry.Behaviors>
+                </controls:NumericEntry>
 
                 <Label Text="Activity level" FontSize="Medium" />
                 <controls:EnumPicker x:TypeArguments="enums:ActivityFactor"  SelectedItem="{Binding ActivityFactor}" FontSize="Medium" />
