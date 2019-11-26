@@ -3,9 +3,9 @@ using Xamarin.Forms;
 
 namespace WatchEat.Behaviors.Validation
 {
-    public class WeightValidationBehavior : Behavior<NumericEntry>
+    public class NumericValidationBehavior : Behavior<NumericEntry>
     {
-        public static readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(WeightValidationBehavior), false, BindingMode.OneWayToSource);
+        public static readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(NumericValidationBehavior), false);
 
         public bool IsValid
         {
@@ -27,7 +27,9 @@ namespace WatchEat.Behaviors.Validation
 
         private void OnTextChangedCallback(object sender, TextChangedEventArgs e)
         {
-            
+            decimal parseResult = 0;
+            bool result = decimal.TryParse(e.NewTextValue, out parseResult);
+            IsValid = result && parseResult != 0 && parseResult > 0 ? true : false;
         }        
     }
 }

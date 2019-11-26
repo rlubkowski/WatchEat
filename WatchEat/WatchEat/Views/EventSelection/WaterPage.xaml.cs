@@ -15,9 +15,7 @@ namespace WatchEat.Views.EventSelection
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext as WaterViewModel;
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as WaterViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }

@@ -16,9 +16,13 @@ namespace WatchEat.Controls
             {
                 Items.Add(GetEnumDescription(value));
             }
+
+            SelectedIndex = Items.IndexOf(GetEnumDescription(SelectedItem));
         }
 
-        public new static BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(T), typeof(EnumPicker<T>), default(T), propertyChanged: OnSelectedItemChanged, defaultBindingMode: BindingMode.TwoWay);
+        public new static BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(T), typeof(EnumPicker<T>), default(T),
+            propertyChanged: OnSelectedItemChanged, defaultBindingMode: BindingMode.TwoWay);
+        
 
         public new T SelectedItem
         {

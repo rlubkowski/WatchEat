@@ -8,6 +8,7 @@
              xmlns:enums="clr-namespace:WatchEat.Enums"
              xmlns:validation="clr-namespace:WatchEat.Behaviors.Validation"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             x:Name="PageReference"             
              x:Class="WatchEat.Views.EditUserPage" mc:Ignorable="d">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
@@ -37,28 +38,28 @@
                 </StackLayout>
 
                 <Label Text="Age" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding Age}" FontSize="Medium" >
+                <controls:NumericEntry Text="{Binding Age}" NumericValueFormat="N0" FontSize="Medium" >
                     <controls:NumericEntry.Behaviors>
-                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsAgeValid, Mode=OneWayToSource}" />
                     </controls:NumericEntry.Behaviors>
                 </controls:NumericEntry>
 
                 <Label Text="Weight" FontSize="Medium" />
                 <controls:NumericEntry Text="{Binding Weight}" FontSize="Medium" >
                     <controls:NumericEntry.Behaviors>
-                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsWeightValid, Mode=OneWayToSource}" />
                     </controls:NumericEntry.Behaviors>
                 </controls:NumericEntry>
 
                 <Label Text="Height" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding Height}" FontSize="Medium" >
+                <controls:NumericEntry Text="{Binding Height}" NumericValueFormat="N0" FontSize="Medium" >
                     <controls:NumericEntry.Behaviors>
-                        <validation:WeightValidationBehavior IsValid="{Binding IsValid}" />
+                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsHeightValid, Mode=OneWayToSource}" />
                     </controls:NumericEntry.Behaviors>
                 </controls:NumericEntry>
 
                 <Label Text="Activity level" FontSize="Medium" />
-                <controls:EnumPicker x:TypeArguments="enums:ActivityFactor"  SelectedItem="{Binding ActivityFactor}" FontSize="Medium" />
+                <controls:EnumPicker x:TypeArguments="enums:ActivityFactor" SelectedItem="{Binding ActivityFactor, Mode=TwoWay}" FontSize="Medium" />
 
             </StackLayout>
         </ScrollView>        

@@ -10,13 +10,12 @@ namespace WatchEat.Views
         public UserPage()
         {
             InitializeComponent();
+            BindingContext = new UserViewModel();
         }
 
         protected override async void OnAppearing()
         {
-            var viewModel = new UserViewModel();
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as UserViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }

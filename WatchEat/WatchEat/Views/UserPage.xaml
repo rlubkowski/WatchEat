@@ -3,16 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="WatchEat.Views.UserPage">
+             mc:Ignorable="d" x:Class="WatchEat.Views.UserPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Edit"  Command="{Binding Edit}" />        
+        <ToolbarItem Text="Update"  Command="{Binding Update}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource PrimaryColor}">                
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Gender" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="90 kg" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Age" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="30" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Weight" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="90 kg" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Height" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="190 cm" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Activity level:" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="Active" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="Active means blabababab" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="IBW" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="85kg" />                        
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Body fat estimate %" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="12%" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="BMI" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="25" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="25 means blabal" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="BMR" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="45" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="45" />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Calories" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="2500" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

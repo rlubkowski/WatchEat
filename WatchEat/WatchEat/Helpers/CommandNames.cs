@@ -14,6 +14,8 @@
         public const string AddWeightEntry = nameof(AddWeightEntry);        
 
         public const string FoodSelected = nameof(FoodSelected);
-        public const string ActivitySelected= nameof(ActivitySelected);
+        public const string ActivitySelected = nameof(ActivitySelected);
+
+        public const string UserInfoUpdated = nameof(UserInfoUpdated);
     }
 }

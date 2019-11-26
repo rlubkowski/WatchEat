@@ -10,13 +10,12 @@ namespace WatchEat.Views.Activity
         public ActivitiesPage()
         {
             InitializeComponent();
+            BindingContext = new ActivitiesViewModel();
         }
 
         protected override async void OnAppearing()
         {
-            var viewModel = new ActivitiesViewModel();
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as ActivitiesViewModel).InitializeAsync(Navigation);            
             base.OnAppearing();
         }
     }

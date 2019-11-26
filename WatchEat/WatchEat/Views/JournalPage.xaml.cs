@@ -10,13 +10,12 @@ namespace WatchEat.Views
         public JournalPage()
         {
             InitializeComponent();
+            BindingContext = new JournalViewModel();
         }
 
         protected override async void OnAppearing()
         {
-            var viewModel = new JournalViewModel();
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as JournalViewModel).InitializeAsync(Navigation);            
             base.OnAppearing();
         }
     }

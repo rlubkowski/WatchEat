@@ -15,9 +15,7 @@ namespace WatchEat.Views.EventSelection
 
         protected override async void OnAppearing()
         {
-            var viewModel = BindingContext as WeightViewModel; 
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as WeightViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }
