@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using WatchEat.Enums;
 
 namespace WatchEat.Services.Interfaces
 {
@@ -15,5 +13,7 @@ namespace WatchEat.Services.Interfaces
 
 
         //https://calculator.me/planning/weight-loss.php
+
+        decimal Calculate(decimal bmr, ActivityFactor activityFactor);
     }
 }

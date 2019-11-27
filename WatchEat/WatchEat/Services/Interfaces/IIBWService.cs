@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using WatchEat.Enums;
 
 namespace WatchEat.Services.Interfaces
 {
@@ -30,8 +28,16 @@ namespace WatchEat.Services.Interfaces
         //Lemmens formula:
         //Ideal Body Weight(kg) = 22 x height^2 (meter)
 
-        //BMI range formula:
-        //BMI = mass(kg) / height^2 (meter)
-        //Healthy Weight Range = BMI between 18.5 and 25.
+        decimal CalculateBroca(decimal height, Gender gender, bool imperialUnits = false);
+
+        decimal CalculateDevine(decimal height, Gender gender, bool imperialUnits = false);
+
+        decimal CalculateRobinson(decimal height, Gender gender, bool imperialUnits = false);
+
+        decimal CalculateMiller(decimal height, Gender gender, bool imperialUnits = false);
+
+        decimal CalculateHamwi(decimal height, Gender gender, bool imperialUnits = false);
+
+        decimal CalculateLemmens(decimal height, bool imperialUnits = false);
     }
 }
