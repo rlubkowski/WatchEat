@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WatchEat.Models
+﻿namespace WatchEat.Models
 {
     public class BMRCalculationResult
     {
+        public BMRCalculationResult(decimal bmr)
+        {
+            BMR = bmr;
+        }
+
+        public decimal BMR { get; private set; }
     }
 }

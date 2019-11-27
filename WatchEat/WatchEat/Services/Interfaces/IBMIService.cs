@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnitsNet;
+﻿using WatchEat.Enums;
 using WatchEat.Models;
 
 namespace WatchEat.Services.Interfaces
 {
     public interface IBMIService
     {
-        //Metric BMI Formula
-        //BMI = weight(kg) / [height(m)]2
+        BMICalculationResult Calculate(decimal weight, decimal height, bool imperialUnits = false);
 
-
-        //Imperial BMI Formula
-        //BMI = 703 × weight(lbs) / [height(in)]2
-        BMICalculationResult Calculate(Mass weight, Length height);
-
-   
+        BMI ValueToFactor(decimal bmi);
     }
 }
