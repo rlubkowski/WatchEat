@@ -16,18 +16,20 @@ namespace WatchEat.Services
             //Women: BMR = 655 + (9.6 x weight in kg) + (1.8 x height in cm) - (4.7 x age in years)
             //Men: BMR = 66 + (13.7 x weight in kg) + (5 x height in cm) - (6.8 x age in years)
 
-
+            decimal bmrResult = 0;
             switch (gender)
             {
                 case Gender.Male:
+                    bmrResult = CalculateMale(weight, height, age, imperialUnits);
                     break;
                 case Gender.Female:
+                    bmrResult = CalculateFemale(weight, height, age, imperialUnits);
                     break;
                 default:
                     break;
             }
 
-            return new BMRCalculationResult();
+            return new BMRCalculationResult(bmrResult);
         }
 
         private decimal CalculateFemale(decimal weight, decimal height, int age, bool imperialUnits)
