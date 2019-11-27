@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Food
 {
-    public class FoodsViewModel : MessagesSubscribedViewModel
+    public class FoodsViewModel : ViewModelWithChildPages
     {
         public FoodsViewModel()
         {
@@ -22,7 +22,7 @@ namespace WatchEat.ViewModels.Food
         public ICommand OpenAddFoodPage => new AsyncCommand(async () =>
         {
             var page = new StyledNavigationPage(new FoodPage());
-            HandlePageEvents(page);
+            HandleChildPageEvents(page);
             await Navigation.PushModalAsync(page);
         });
 
@@ -30,11 +30,11 @@ namespace WatchEat.ViewModels.Food
         {
             var foodProduct = (FoodEntry)param;
             var page = new StyledNavigationPage(new FoodPage(new FoodViewModel(foodProduct)));
-            HandlePageEvents(page);
+            HandleChildPageEvents(page);
             await Navigation.PushModalAsync(page);
         });
 
-        protected override void OnPageAppearing(object sender, EventArgs e)
+        protected override void OnChildPageAppearing(object sender, EventArgs e)
         {
             MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood, async (obj, item) =>
             {
@@ -54,12 +54,12 @@ namespace WatchEat.ViewModels.Food
             });
         }
 
-        protected override void OnPageDisappearing(object sender, EventArgs e)
+        protected override void OnChildPageDisappearing(object sender, EventArgs e)
         {
             MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood);
             MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.EditFood);
             MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.RemoveFood);
-            base.OnPageDisappearing(sender, e);
+            base.OnChildPageDisappearing(sender, e);
         }
 
         public async override Task InitializeAsync(INavigation navigation)

@@ -42,7 +42,35 @@ namespace WatchEat.ViewModels
             get => _gender;
             set { SetProperty(ref _gender, value); }
         }
-        
+
+        GoalType _goalType;
+        public GoalType GoalType
+        {
+            get => _goalType;
+            set { SetProperty(ref _goalType, value); }
+        }
+
+        TimePeriod _timePeriod;
+        public TimePeriod TimePeriod
+        {
+            get => _timePeriod;
+            set { SetProperty(ref _timePeriod, value); }
+        }
+
+        int _goalPeriod;
+        public int GoalPeriod
+        {
+            get => _goalPeriod;
+            set { SetProperty(ref _goalPeriod, value); }
+        }
+
+        decimal _goalWeight = 0;
+        public decimal GoalWeight
+        {
+            get => _goalWeight;
+            set { SetProperty(ref _goalWeight, value); }
+        }
+
         bool _isAgeValid = false;
         public bool IsAgeValid
         {

@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
-    public class UserViewModel : MessagesSubscribedViewModel
+    public class UserViewModel : ViewModelWithChildPages
     {
       
         ActivityFactor _activityFactor;
@@ -86,23 +86,23 @@ namespace WatchEat.ViewModels
         public ICommand Update => new AsyncCommand(async () =>
         {
             var page = new StyledNavigationPage(new EditUserPage());
-            HandlePageEvents(page);
+            HandleChildPageEvents(page);
             await Navigation.PushModalAsync(page);
         });
         
-        protected override void OnPageAppearing(object sender, EventArgs e)
+        protected override void OnChildPageAppearing(object sender, EventArgs e)
         {
             MessagingCenter.Subscribe<EditUserViewModel, UserInfoUpdateModel>(this, CommandNames.UserInfoUpdated, async (obj, item) =>
             {
 
             });
-            base.OnPageAppearing(sender, e);
+            base.OnChildPageAppearing(sender, e);
         }
 
-        protected override void OnPageDisappearing(object sender, EventArgs e)
+        protected override void OnChildPageDisappearing(object sender, EventArgs e)
         {
             MessagingCenter.Unsubscribe<EditUserViewModel, UserInfoUpdateModel>(this, CommandNames.UserInfoUpdated);
-            base.OnPageDisappearing(sender, e);
+            base.OnChildPageDisappearing(sender, e);
         }
 
         public override Task InitializeAsync(INavigation navigation)

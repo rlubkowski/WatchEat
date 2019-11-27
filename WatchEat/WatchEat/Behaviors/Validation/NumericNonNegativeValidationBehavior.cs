@@ -3,9 +3,9 @@ using Xamarin.Forms;
 
 namespace WatchEat.Behaviors.Validation
 {
-    public class NumericValidationBehavior : Behavior<NumericEntry>
+    public class NumericNonNegativeValidationBehavior : Behavior<NumericEntry>
     {
-        public static readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(NumericValidationBehavior), false);
+        public static readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(NumericNonNegativeValidationBehavior), false);
 
         public bool IsValid
         {

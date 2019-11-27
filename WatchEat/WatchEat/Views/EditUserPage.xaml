@@ -21,45 +21,69 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">                
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
 
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Gender" FontSize="Medium" />
-                    <StackLayout Orientation="Horizontal">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Male" FontSize="Medium" VerticalTextAlignment="Center"/>
-                            <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Male}}"/>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                    <StackLayout>
+                        <Label Text="User Information" FontAttributes="Bold" FontSize="Medium" />
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Gender" FontSize="Medium" />
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Male" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                    <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Male}}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Female" FontSize="Medium" VerticalTextAlignment="Center"/>
+                                    <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Female}}"/>
+                                </StackLayout>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Female" FontSize="Medium" VerticalTextAlignment="Center"/>
-                            <CheckBox IsChecked="{Binding Gender, Converter={StaticResource GenderToEnumConverter}, ConverterParameter={x:Static enums:Gender.Female}}"/>
-                        </StackLayout>
+
+                        <Label Text="Age" FontSize="Medium" />
+                        <controls:NumericEntry Text="{Binding Age}" NumericValueFormat="N0" FontSize="Medium" >
+                            <controls:NumericEntry.Behaviors>
+                                <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsAgeValid, Mode=OneWayToSource}" />
+                            </controls:NumericEntry.Behaviors>
+                        </controls:NumericEntry>
+
+                        <Label Text="Weight" FontSize="Medium" />
+                        <controls:NumericEntry Text="{Binding Weight}" FontSize="Medium" >
+                            <controls:NumericEntry.Behaviors>
+                                <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsWeightValid, Mode=OneWayToSource}" />
+                            </controls:NumericEntry.Behaviors>
+                        </controls:NumericEntry>
+
+                        <Label Text="Height" FontSize="Medium" />
+                        <controls:NumericEntry Text="{Binding Height}" NumericValueFormat="N0" FontSize="Medium" >
+                            <controls:NumericEntry.Behaviors>
+                                <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsHeightValid, Mode=OneWayToSource}" />
+                            </controls:NumericEntry.Behaviors>
+                        </controls:NumericEntry>
+
+                        <Label Text="Activity level" FontSize="Medium" />
+                        <controls:EnumPicker x:TypeArguments="enums:ActivityFactor" SelectedItem="{Binding ActivityFactor, Mode=TwoWay}" FontSize="Medium" />
                     </StackLayout>
-                </StackLayout>
+                </Frame>
 
-                <Label Text="Age" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding Age}" NumericValueFormat="N0" FontSize="Medium" >
-                    <controls:NumericEntry.Behaviors>
-                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsAgeValid, Mode=OneWayToSource}" />
-                    </controls:NumericEntry.Behaviors>
-                </controls:NumericEntry>
-
-                <Label Text="Weight" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding Weight}" FontSize="Medium" >
-                    <controls:NumericEntry.Behaviors>
-                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsWeightValid, Mode=OneWayToSource}" />
-                    </controls:NumericEntry.Behaviors>
-                </controls:NumericEntry>
-
-                <Label Text="Height" FontSize="Medium" />
-                <controls:NumericEntry Text="{Binding Height}" NumericValueFormat="N0" FontSize="Medium" >
-                    <controls:NumericEntry.Behaviors>
-                        <validation:NumericValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsHeightValid, Mode=OneWayToSource}" />
-                    </controls:NumericEntry.Behaviors>
-                </controls:NumericEntry>
-
-                <Label Text="Activity level" FontSize="Medium" />
-                <controls:EnumPicker x:TypeArguments="enums:ActivityFactor" SelectedItem="{Binding ActivityFactor, Mode=TwoWay}" FontSize="Medium" />
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                    <StackLayout>
+                        <Label Text="Your Goal" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="You want to:" FontSize="Medium" />
+                        <controls:EnumPicker x:TypeArguments="enums:GoalType" SelectedItem="{Binding GoalType, Mode=TwoWay}" FontSize="Medium" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:NumericEntry Text="{Binding GoalWeight}" HorizontalOptions="FillAndExpand"  FontSize="Medium" Grid.Column="0" />
+                            <Label Text="kg" FontSize="Medium" Grid.Column="1" VerticalTextAlignment="End" Margin="0,0,0,10" />
+                        </Grid>                        
+                        <Label Text="In the period of:" FontSize="Medium" />
+                        <controls:NumericEntry Text="{Binding GoalPeriod}" NumericValueFormat="N0" FontSize="Medium" />
+                        <controls:EnumPicker x:TypeArguments="enums:TimePeriod" SelectedItem="{Binding TimePeriod, Mode=TwoWay}" FontSize="Medium" />
+                    </StackLayout>                    
+                </Frame>
 
             </StackLayout>
         </ScrollView>        
