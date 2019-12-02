@@ -5,6 +5,7 @@
         Underfat,
         Healthy, 
         Overweight, 
-        Obese
+        Obese,
+        NoData
     }
 }
