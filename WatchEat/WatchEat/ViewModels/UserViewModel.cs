@@ -11,8 +11,7 @@ using Xamarin.Forms;
 namespace WatchEat.ViewModels
 {
     public class UserViewModel : ViewModelWithChildPages
-    {
-      
+    {      
         ActivityFactor _activityFactor;
         public ActivityFactor ActivityFactor
         {

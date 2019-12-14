@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WatchEat.Tests.Services
 {
-    class IBWServiceTests
+    public class IBWServiceTests
     {
     }
 }

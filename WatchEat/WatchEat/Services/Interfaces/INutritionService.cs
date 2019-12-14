@@ -1,8 +1,9 @@
 ﻿using WatchEat.Enums;
+using WatchEat.Models;
 
 namespace WatchEat.Services.Interfaces
 {
-    public interface ICaloriesService
+    public interface INutritionService
     {
         //Harris Benedict Equation
         //If you are sedentary(little or no exercise) : Calorie-Calculation = BMR x 1.2
@@ -14,6 +15,8 @@ namespace WatchEat.Services.Interfaces
 
         //https://calculator.me/planning/weight-loss.php
 
-        decimal Calculate(decimal bmr, ActivityFactor activityFactor);
+        decimal GetDailyCaloriesEstimation(decimal bmr, ActivityFactor activityFactor);
+
+        NutritionRecommendation CalculateNutritionRecommendation(int calories);
     }
 }

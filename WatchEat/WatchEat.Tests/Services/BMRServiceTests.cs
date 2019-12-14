@@ -18,14 +18,16 @@ namespace WatchEat.Tests.Services
         }
 
         [Test]
-        public void Calculate_GivenHeightWeightAndAge_CalculatesBMR()
+        public void Calculate_GivenHeightWeightAgeMale_CalculatesHarrisBenedictBMR()
         {
             decimal height = 190;
             decimal weight = 90;
             int age = 30;
-            //var calculationResult = _bmrService.Calculate(weight, height);
-            //Assert.AreEqual(calculationResult.BMIValue, 24.93m);
-            //Assert.AreEqual(calculationResult.BMIFactor, BMI.HealthyWeight);
+
+
+            var bmr = _bmrService.BMRHarrisBenedict(weight, height, age, Enums.Gender.Male);
+
+            Assert.AreEqual(bmr, 2045m);
         }
 
         [Test]

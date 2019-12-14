@@ -2,20 +2,20 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
        xmlns:local="clr-namespace:WatchEat.Views"
        xmlns:fviews="clr-namespace:WatchEat.Views.Food"
        xmlns:aviews="clr-namespace:WatchEat.Views.Activity"
        xmlns:statviews="clr-namespace:WatchEat.Views.Statistics"
-       Title="WatchEat"
+       Title="WatchEat" mc:Ignorable="d"
        FlyoutBehavior="Disabled"
        FlyoutIsPresented="False"       
        x:Class="WatchEat.AppShell">
 
     <TabBar Style="{StaticResource TabStyle}">
         <Tab Title="User" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:UserPage}" />
+            <ShellContent Title="User Info" ContentTemplate="{DataTemplate local:UserPage}" />
+            <ShellContent Title="Goals" ContentTemplate="{DataTemplate local:GoalsPage}" />
         </Tab>
         <Tab Title="Journal" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />
