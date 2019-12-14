@@ -41,5 +41,15 @@
         {
             return feet / 0.032808m;
         }
+
+        public static decimal MililitersToOunces(decimal mililiters)
+        {
+            return mililiters * 0.033814m;
+        }
+
+        public static decimal OuncesToMililiters(decimal ounces)
+        {
+            return ounces / 0.033814m;
+        }
     }
 }

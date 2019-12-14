@@ -15,6 +15,39 @@ namespace WatchEat.Tests.Services
         }
 
         [Test]
+        public void Calculate_GivenHeightWeightAgeMale_CalculatesHarrisBenedictBMR()
+        {
+            decimal height = 190;
+            decimal weight = 90;
+            int age = 30;
+
+            var bmr = _nutritionService.BMRHarrisBenedict(weight, height, age, Enums.Gender.Male);
+
+            Assert.AreEqual(bmr, 2045m);
+        }
+
+        [Test]
+        public void CalculateWeightChangeEstimation_GivenLoseParameters_ReturnsCaloriesRecommendation()
+        {
+            var result = _nutritionService.CalculateWeightChangeEstimation(30, 190, 90, Enums.Gender.Male, Enums.ActivityFactor.Sedentary, Enums.TimePeriod.Months, 2, Enums.GoalType.Lose, 9);
+
+            Assert.AreEqual(true, true);
+        }
+
+        [Test]
+        public void CalculateWeightChangeEstimation_GivenGainParameters_ReturnsCaloriesRecommendation()
+        {
+
+        }
+
+        [Test]
+        public void CalculateWeightChangeEstimation_GivenMaintainParameters_ReturnsCaloriesRecommendation()
+        {
+
+        }
+
+
+        [Test]
         public void CalculateNutritionRecommendation_GivenCalories_CalculatesNutritionRecommendation()
         {
             var result = _nutritionService.CalculateNutritionRecommendation(2500);

@@ -5,18 +5,16 @@ namespace WatchEat.Services.Interfaces
 {
     public interface INutritionService
     {
-        //Harris Benedict Equation
-        //If you are sedentary(little or no exercise) : Calorie-Calculation = BMR x 1.2
-        //If you are lightly active(light exercise/sports 1-3 days/week) : Calorie-Calculation = BMR x 1.375
-        //If you are moderatetely active(moderate exercise/sports 3-5 days/week) : Calorie-Calculation = BMR x 1.55
-        //If you are very active(hard exercise/sports 6-7 days a week) : Calorie-Calculation = BMR x 1.725
-        //If you are extra active(very hard exercise/sports & physical job or 2x training) : Calorie-Calculation = BMR x 1.9
-
-
-        //https://calculator.me/planning/weight-loss.php
-
         decimal GetDailyCaloriesEstimation(decimal bmr, ActivityFactor activityFactor);
 
         NutritionRecommendation CalculateNutritionRecommendation(int calories);
+
+        decimal BMRHarrisBenedict(decimal weight, decimal height, int age, Gender gender, bool imperialUnits = false);
+
+        decimal BMRMifflinStJeor(decimal weight, decimal height, int age, Gender gender, bool imperialUnits = false);
+
+        WeightChangeEstimationResult CalculateWeightChangeEstimation(int age, decimal height, decimal weight, Gender gender, ActivityFactor activityFactor, TimePeriod timePeriod, int periodNumber, GoalType goalType, decimal weightToLoose, bool imperialUnits = false);
+
+        decimal CalculateDailyWaterIntake(decimal weight, bool imperialUnits = false);
     }
 }
