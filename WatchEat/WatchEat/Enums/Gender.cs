@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using WatchEat.Helpers.Attributes;
 
 namespace WatchEat.Enums
 {
-    public enum Gender
+    public enum Gender : int
     {
+        [LocalizedDescription(nameof(Male))]
         Male,
+        [LocalizedDescription(nameof(Female))]
         Female
     }
 }

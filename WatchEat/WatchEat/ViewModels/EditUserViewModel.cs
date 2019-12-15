@@ -1,14 +1,21 @@
-﻿
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Models;
+using WatchEat.Resources;
+using WatchEat.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
     public class EditUserViewModel : BaseViewModel
     {
+        public EditUserViewModel()
+        {
+            Title = AppResource.EditUserInformation;
+        }
+
         public ICommand Cancel => new AsyncCommand(async (entry) =>
         {
             await Navigation.PopModalAsync();
@@ -18,22 +25,37 @@ namespace WatchEat.ViewModels
         {
             if (IsValid)
             {
-                MessagingCenter.Send(this, CommandNames.UserInfoUpdated, new UserInfoUpdateModel());
+                var userInfo = new UserInfoModel(Age, Height, Weight, Gender, ActivityLevel);
+                UserSettings.UpdateUserInformation(userInfo);
+                MessagingCenter.Send(this, CommandNames.UserInfoUpdated, userInfo);
                 await Navigation.PopModalAsync();
             }
             else
             {
-                await DialogService.DisplayAlert("Validation Info", "Some of the values are incorrect!", "Cancel");
+                await DialogService.DisplayAlert(AppResource.Validation, AppResource.ValidationValuesIncorrect, AppResource.Cancel);
             }
         });
 
+        protected IUserSettings UserSettings => DependencyService.Get<IUserSettings>();
+
+        public override async Task InitializeAsync(INavigation navigation)
+        {
+            var userInfo = UserSettings.GetUserInformation();
+            ActivityLevel = userInfo.ActivityLevel;
+            Gender = userInfo.Gender;
+            Age = userInfo.Age;
+            Weight = userInfo.Weight;
+            Height = userInfo.Height;
+            await base.InitializeAsync(navigation);
+        }
+
         public bool IsValid { get => IsAgeValid && IsWeightValid && IsHeightValid; }
 
-        ActivityFactor _activityFactor;
-        public ActivityFactor ActivityFactor
+        ActivityLevel _activityLevel;
+        public ActivityLevel ActivityLevel
         {
-            get => _activityFactor;
-            set { SetProperty(ref _activityFactor, value); }
+            get => _activityLevel;
+            set { SetProperty(ref _activityLevel, value); }
         }
         
         Gender _gender;
@@ -41,35 +63,7 @@ namespace WatchEat.ViewModels
         {
             get => _gender;
             set { SetProperty(ref _gender, value); }
-        }
-
-        GoalType _goalType;
-        public GoalType GoalType
-        {
-            get => _goalType;
-            set { SetProperty(ref _goalType, value); }
-        }
-
-        TimePeriod _timePeriod;
-        public TimePeriod TimePeriod
-        {
-            get => _timePeriod;
-            set { SetProperty(ref _timePeriod, value); }
-        }
-
-        int _goalPeriod;
-        public int GoalPeriod
-        {
-            get => _goalPeriod;
-            set { SetProperty(ref _goalPeriod, value); }
-        }
-
-        decimal _goalWeight = 0;
-        public decimal GoalWeight
-        {
-            get => _goalWeight;
-            set { SetProperty(ref _goalWeight, value); }
-        }
+        }    
 
         bool _isAgeValid = false;
         public bool IsAgeValid

@@ -17,5 +17,7 @@
         public const string ActivitySelected = nameof(ActivitySelected);
 
         public const string UserInfoUpdated = nameof(UserInfoUpdated);
+
+        public const string UserGoalsUpdated = nameof(UserGoalsUpdated);
     }
 }

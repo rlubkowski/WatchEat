@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Enums
 {
-    public enum TimePeriod
+    public enum GoalTimePeriod : int
     {
         Days,
         Weeks,

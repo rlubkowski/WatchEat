@@ -35,6 +35,11 @@ namespace WatchEat
         {
             DependencyService.Register<IDataStore, DataStore>();
             DependencyService.Register<IDialogService, DialogService>();
+            DependencyService.Register<IUserSettings, UserSettings>();
+            DependencyService.Register<IBMIService, BMIService>();
+            DependencyService.Register<IBodyFatService, BodyFatService>();
+            DependencyService.Register<IIBWService, IBWService>();
+            DependencyService.Register<INutritionService, NutritionService>();
         }
     }
 }

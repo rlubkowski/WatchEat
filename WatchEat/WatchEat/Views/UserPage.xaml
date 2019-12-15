@@ -3,74 +3,220 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             Title="{Binding Title}"
              mc:Ignorable="d" x:Class="WatchEat.Views.UserPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:EnumToTranslateStringConverter x:Key="EnumToTranslateStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update"  Command="{Binding Update}" />
+        <ToolbarItem Text="{markup:Translate Update}"  Command="{Binding Update}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource PrimaryColor}">                
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Gender" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="90 kg" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate Gender}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Gender, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Age" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="30" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate Age}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Age}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Weight" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="90 kg" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate WeightKg}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Weight}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Height" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="190 cm" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate HeightCm}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Height}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Activity level:" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="Active" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="Active means blabababab" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate ActivityLevel}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding ActivityLevel, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="IBW" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="85kg" />                        
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BodyMassIndex}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMI}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMIFactor, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Body fat estimate %" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="12%" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate IdealBodyWeight}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWMiller}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWMiller}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWBroca}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWBroca}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWDevine}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWDevine}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWHamwi}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWHamwi}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWRobinson}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWRobinson}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate IBWLemmens}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding IBWLemmens}" />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="BMI" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="25" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="25 means blabal" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BodyFatEstimate}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BodyFat}" />
+                    </StackLayout>
+                </Frame>           
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BasalMetabolicRate}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate BMRHarrisBenedictFormula}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMRHarrisBenedict}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate BMRMifflinStJeor}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMRMifflinStJeor}" />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="BMR" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="45" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="45" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyCaloriesRecommendation}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate BMRHarrisBenedictFormula}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding CaloriesHarrisBenedict}" />
+                        </StackLayout>
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate BMRMifflinStJeor}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding CaloriesMifflinStJeor}" />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
                 <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="Calories" />
-                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="2500" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyNutritionRecommendation}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BMRHarrisBenedictFormula}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Carbs}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Carbs.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Carbs.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Carbs.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Carbs.GramsTo}" />
+                        </StackLayout>
+
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Protein}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Proteins.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Proteins.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Proteins.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Proteins.GramsTo}" />
+                        </StackLayout>
+
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Fat}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Fats.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Fats.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Fats.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding HarrisBenedictNutrition.Fats.GramsTo}" />
+                        </StackLayout>
+
+
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BMRMifflinStJeor}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Carbs}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Carbs.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Carbs.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Carbs.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Carbs.GramsTo}" />
+                        </StackLayout>
+
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Protein}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Proteins.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Proteins.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Proteins.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Proteins.GramsTo}" />
+                        </StackLayout>
+
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic, Bold" Text="{markup:Translate Fat}" />
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeCalories}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Fats.CaloriesFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Fats.CaloriesTo}" />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{markup:Translate RangeGrams}" />
+                            <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Fats.GramsFrom}" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="-" />
+                            <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding MifflinStJeorNutrition.Fats.GramsTo}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout Padding="0">
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyWaterRecommendation}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding DailyWater}" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -61,6 +61,87 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activities.
+        /// </summary>
+        internal static string Activities {
+            get {
+                return ResourceManager.GetString("Activities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activity level.
+        /// </summary>
+        internal static string ActivityLevel {
+            get {
+                return ResourceManager.GetString("ActivityLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        internal static string Age {
+            get {
+                return ResourceManager.GetString("Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (BMR) Basal Metabolic Rate [cal].
+        /// </summary>
+        internal static string BasalMetabolicRate {
+            get {
+                return ResourceManager.GetString("BasalMetabolicRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Harris-Benedict formula:.
+        /// </summary>
+        internal static string BMRHarrisBenedictFormula {
+            get {
+                return ResourceManager.GetString("BMRHarrisBenedictFormula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mifflin-St. Jeor formula:.
+        /// </summary>
+        internal static string BMRMifflinStJeor {
+            get {
+                return ResourceManager.GetString("BMRMifflinStJeor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Body fat estimate [%].
+        /// </summary>
+        internal static string BodyFatEstimate {
+            get {
+                return ResourceManager.GetString("BodyFatEstimate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (BMI) Body Mass Index.
+        /// </summary>
+        internal static string BodyMassIndex {
+            get {
+                return ResourceManager.GetString("BodyMassIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calories.
         /// </summary>
         internal static string Calories {
@@ -88,11 +169,56 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Daily Calories Recommendation [cal].
+        /// </summary>
+        internal static string DailyCaloriesRecommendation {
+            get {
+                return ResourceManager.GetString("DailyCaloriesRecommendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Nutrition Recommendation.
+        /// </summary>
+        internal static string DailyNutritionRecommendation {
+            get {
+                return ResourceManager.GetString("DailyNutritionRecommendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Water Recommendation [l].
+        /// </summary>
+        internal static string DailyWaterRecommendation {
+            get {
+                return ResourceManager.GetString("DailyWaterRecommendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Definitions.
+        /// </summary>
+        internal static string Definitions {
+            get {
+                return ResourceManager.GetString("Definitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Food.
         /// </summary>
         internal static string EditFood {
             get {
                 return ResourceManager.GetString("EditFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit User Information.
+        /// </summary>
+        internal static string EditUserInformation {
+            get {
+                return ResourceManager.GetString("EditUserInformation", resourceCulture);
             }
         }
         
@@ -115,6 +241,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fiber.
         /// </summary>
         internal static string Fiber {
@@ -124,11 +259,182 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foods.
+        /// </summary>
+        internal static string Foods {
+            get {
+                return ResourceManager.GetString("Foods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        internal static string Gender {
+            get {
+                return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goal.
+        /// </summary>
+        internal static string Goal {
+            get {
+                return ResourceManager.GetString("Goal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Healthy.
+        /// </summary>
+        internal static string Healthy {
+            get {
+                return ResourceManager.GetString("Healthy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Healthy weight.
+        /// </summary>
+        internal static string HealthyWeight {
+            get {
+                return ResourceManager.GetString("HealthyWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height.
+        /// </summary>
+        internal static string Height {
+            get {
+                return ResourceManager.GetString("Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height [cm].
+        /// </summary>
+        internal static string HeightCm {
+            get {
+                return ResourceManager.GetString("HeightCm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broca index:.
+        /// </summary>
+        internal static string IBWBroca {
+            get {
+                return ResourceManager.GetString("IBWBroca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Devine formula:.
+        /// </summary>
+        internal static string IBWDevine {
+            get {
+                return ResourceManager.GetString("IBWDevine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hamwi formula:.
+        /// </summary>
+        internal static string IBWHamwi {
+            get {
+                return ResourceManager.GetString("IBWHamwi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lemmens formula:.
+        /// </summary>
+        internal static string IBWLemmens {
+            get {
+                return ResourceManager.GetString("IBWLemmens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miller formula:.
+        /// </summary>
+        internal static string IBWMiller {
+            get {
+                return ResourceManager.GetString("IBWMiller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Robinson formula:.
+        /// </summary>
+        internal static string IBWRobinson {
+            get {
+                return ResourceManager.GetString("IBWRobinson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (IBW) Ideal Body Weight [kg].
+        /// </summary>
+        internal static string IdealBodyWeight {
+            get {
+                return ResourceManager.GetString("IdealBodyWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Journal.
+        /// </summary>
+        internal static string Journal {
+            get {
+                return ResourceManager.GetString("Journal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 30 days.
+        /// </summary>
+        internal static string Last30Days {
+            get {
+                return ResourceManager.GetString("Last30Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 7 days.
+        /// </summary>
+        internal static string Last7Days {
+            get {
+                return ResourceManager.GetString("Last7Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lightly active.
         /// </summary>
         internal static string LightlyActive {
             get {
                 return ResourceManager.GetString("LightlyActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderately obese.
+        /// </summary>
+        internal static string ModeratelyObese {
+            get {
+                return ResourceManager.GetString("ModeratelyObese", resourceCulture);
             }
         }
         
@@ -169,6 +475,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No data.
+        /// </summary>
+        internal static string NoData {
+            get {
+                return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No items to display!.
         /// </summary>
         internal static string NoItemsToDisplay {
@@ -178,11 +493,47 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obese.
+        /// </summary>
+        internal static string Obese {
+            get {
+                return ResourceManager.GetString("Obese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overweight.
+        /// </summary>
+        internal static string Overweight {
+            get {
+                return ResourceManager.GetString("Overweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Protein.
         /// </summary>
         internal static string Protein {
             get {
                 return ResourceManager.GetString("Protein", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calories: .
+        /// </summary>
+        internal static string RangeCalories {
+            get {
+                return ResourceManager.GetString("RangeCalories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grams:.
+        /// </summary>
+        internal static string RangeGrams {
+            get {
+                return ResourceManager.GetString("RangeGrams", resourceCulture);
             }
         }
         
@@ -223,11 +574,137 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Severely obese.
+        /// </summary>
+        internal static string SeverelyObese {
+            get {
+                return ResourceManager.GetString("SeverelyObese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Severely underweight.
+        /// </summary>
+        internal static string SeverelyUnderweight {
+            get {
+                return ResourceManager.GetString("SeverelyUnderweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        internal static string Statistics {
+            get {
+                return ResourceManager.GetString("Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Underfat.
+        /// </summary>
+        internal static string Underfat {
+            get {
+                return ResourceManager.GetString("Underfat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Underweight.
+        /// </summary>
+        internal static string Underweight {
+            get {
+                return ResourceManager.GetString("Underweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Information.
+        /// </summary>
+        internal static string UserInformation {
+            get {
+                return ResourceManager.GetString("UserInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        internal static string Validation {
+            get {
+                return ResourceManager.GetString("Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some of the values are incorrect, please correct them!.
+        /// </summary>
+        internal static string ValidationValuesIncorrect {
+            get {
+                return ResourceManager.GetString("ValidationValuesIncorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Very active.
         /// </summary>
         internal static string VeryActive {
             get {
                 return ResourceManager.GetString("VeryActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very severely obese.
+        /// </summary>
+        internal static string VerySeverelyObese {
+            get {
+                return ResourceManager.GetString("VerySeverelyObese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very severely underweight.
+        /// </summary>
+        internal static string VerySeverelyUnderweight {
+            get {
+                return ResourceManager.GetString("VerySeverelyUnderweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight.
+        /// </summary>
+        internal static string Weight {
+            get {
+                return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight [kg].
+        /// </summary>
+        internal static string WeightKg {
+            get {
+                return ResourceManager.GetString("WeightKg", resourceCulture);
             }
         }
     }

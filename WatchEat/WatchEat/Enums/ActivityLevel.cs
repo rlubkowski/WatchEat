@@ -2,7 +2,7 @@
 
 namespace WatchEat.Enums
 {
-    public enum ActivityFactor
+    public enum ActivityLevel : int
     {
         [LocalizedDescription(nameof(Sedentary))]
         Sedentary,              //little or no exercise

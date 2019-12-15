@@ -1,4 +1,6 @@
-﻿namespace WatchEat.Models
+﻿using System;
+
+namespace WatchEat.Models
 {
     public class NutritionRecommendation
     {
@@ -23,8 +25,8 @@
     {
         public NutritionRange(decimal gramsFrom, decimal gramsTo, int caloriesFrom, int caloriesTo)
         {
-            GramsFrom = gramsFrom;
-            GramsTo = gramsTo;
+            GramsFrom = Math.Round(gramsFrom);
+            GramsTo = Math.Round(gramsTo);
             CaloriesFrom = caloriesFrom;
             CaloriesTo = caloriesTo;
         }

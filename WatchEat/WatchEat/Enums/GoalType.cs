@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Enums
 {
-    public enum GoalType
+    public enum GoalType : int
     {
         Maintain,
         Lose,

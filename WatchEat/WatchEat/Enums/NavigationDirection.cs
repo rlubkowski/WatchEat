@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Enums
 {
-    public enum NavigationDirection
+    public enum NavigationDirection : int
     {
         Forward,
         Backward

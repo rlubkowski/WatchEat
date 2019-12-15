@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="ActivityLevel" xml:space="preserve">
+    <value>Activity level</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="BasalMetabolicRate" xml:space="preserve">
+    <value>(BMR) Basal Metabolic Rate [cal]</value>
+  </data>
+  <data name="BMRHarrisBenedictFormula" xml:space="preserve">
+    <value>Harris-Benedict formula:</value>
+  </data>
+  <data name="BMRMifflinStJeor" xml:space="preserve">
+    <value>Mifflin-St. Jeor formula:</value>
+  </data>
+  <data name="BodyFatEstimate" xml:space="preserve">
+    <value>Body fat estimate [%]</value>
+  </data>
+  <data name="BodyMassIndex" xml:space="preserve">
+    <value>(BMI) Body Mass Index</value>
+  </data>
   <data name="Calories" xml:space="preserve">
     <value>Calories</value>
   </data>
@@ -126,8 +153,23 @@
   <data name="Carbs" xml:space="preserve">
     <value>Carbs</value>
   </data>
+  <data name="DailyCaloriesRecommendation" xml:space="preserve">
+    <value>Daily Calories Recommendation [cal]</value>
+  </data>
+  <data name="DailyNutritionRecommendation" xml:space="preserve">
+    <value>Daily Nutrition Recommendation</value>
+  </data>
+  <data name="DailyWaterRecommendation" xml:space="preserve">
+    <value>Daily Water Recommendation [l]</value>
+  </data>
+  <data name="Definitions" xml:space="preserve">
+    <value>Definitions</value>
+  </data>
   <data name="EditFood" xml:space="preserve">
     <value>Edit Food</value>
+  </data>
+  <data name="EditUserInformation" xml:space="preserve">
+    <value>Edit User Information</value>
   </data>
   <data name="ExtraActive" xml:space="preserve">
     <value>Extra active</value>
@@ -135,11 +177,71 @@
   <data name="Fat" xml:space="preserve">
     <value>Fat</value>
   </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
   <data name="Fiber" xml:space="preserve">
     <value>Fiber</value>
   </data>
+  <data name="Foods" xml:space="preserve">
+    <value>Foods</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Goal</value>
+  </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Healthy</value>
+  </data>
+  <data name="HealthyWeight" xml:space="preserve">
+    <value>Healthy weight</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="HeightCm" xml:space="preserve">
+    <value>Height [cm]</value>
+  </data>
+  <data name="IBWBroca" xml:space="preserve">
+    <value>Broca index:</value>
+  </data>
+  <data name="IBWDevine" xml:space="preserve">
+    <value>Devine formula:</value>
+  </data>
+  <data name="IBWHamwi" xml:space="preserve">
+    <value>Hamwi formula:</value>
+  </data>
+  <data name="IBWLemmens" xml:space="preserve">
+    <value>Lemmens formula:</value>
+  </data>
+  <data name="IBWMiller" xml:space="preserve">
+    <value>Miller formula:</value>
+  </data>
+  <data name="IBWRobinson" xml:space="preserve">
+    <value>Robinson formula:</value>
+  </data>
+  <data name="IdealBodyWeight" xml:space="preserve">
+    <value>(IBW) Ideal Body Weight [kg]</value>
+  </data>
+  <data name="Journal" xml:space="preserve">
+    <value>Journal</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>Last 30 days</value>
+  </data>
+  <data name="Last7Days" xml:space="preserve">
+    <value>Last 7 days</value>
+  </data>
   <data name="LightlyActive" xml:space="preserve">
     <value>Lightly active</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="ModeratelyObese" xml:space="preserve">
+    <value>Moderately obese</value>
   </data>
   <data name="ModeratetelyActive" xml:space="preserve">
     <value>Moderatetely active</value>
@@ -153,11 +255,26 @@
   <data name="NoActivitiesThisDay" xml:space="preserve">
     <value>No activities this day!</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No data</value>
+  </data>
   <data name="NoItemsToDisplay" xml:space="preserve">
     <value>No items to display!</value>
   </data>
+  <data name="Obese" xml:space="preserve">
+    <value>Obese</value>
+  </data>
+  <data name="Overweight" xml:space="preserve">
+    <value>Overweight</value>
+  </data>
   <data name="Protein" xml:space="preserve">
     <value>Protein</value>
+  </data>
+  <data name="RangeCalories" xml:space="preserve">
+    <value>Calories: </value>
+  </data>
+  <data name="RangeGrams" xml:space="preserve">
+    <value>Grams:</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
@@ -171,7 +288,49 @@
   <data name="Sedentary" xml:space="preserve">
     <value>Sedentary</value>
   </data>
+  <data name="SeverelyObese" xml:space="preserve">
+    <value>Severely obese</value>
+  </data>
+  <data name="SeverelyUnderweight" xml:space="preserve">
+    <value>Severely underweight</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Underfat" xml:space="preserve">
+    <value>Underfat</value>
+  </data>
+  <data name="Underweight" xml:space="preserve">
+    <value>Underweight</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>User Information</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="ValidationValuesIncorrect" xml:space="preserve">
+    <value>Some of the values are incorrect, please correct them!</value>
+  </data>
   <data name="VeryActive" xml:space="preserve">
     <value>Very active</value>
+  </data>
+  <data name="VerySeverelyObese" xml:space="preserve">
+    <value>Very severely obese</value>
+  </data>
+  <data name="VerySeverelyUnderweight" xml:space="preserve">
+    <value>Very severely underweight</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="WeightKg" xml:space="preserve">
+    <value>Weight [kg]</value>
   </data>
 </root>

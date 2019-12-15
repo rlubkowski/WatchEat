@@ -61,7 +61,7 @@ namespace WatchEat.Controls
         private static string GetEnumDescription(object value)
         {
             string result = value.ToString();
-            var attribute = typeof(T).GetRuntimeField(value.ToString()).GetCustomAttributes(typeof(LocalizedDescriptionAttribute), false).SingleOrDefault() as LocalizedDescriptionAttribute;
+            var attribute = typeof(T).GetRuntimeField(result).GetCustomAttributes(typeof(LocalizedDescriptionAttribute), false).SingleOrDefault() as LocalizedDescriptionAttribute;
 
             if (attribute != null)
                 result = attribute.Description;          

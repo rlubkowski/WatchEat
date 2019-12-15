@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:WatchEat.Controls"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             xmlns:enums="clr-namespace:WatchEat.Enums"
+             xmlns:validation="clr-namespace:WatchEat.Behaviors.Validation"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             x:Class="WatchEat.Views.EditGoalPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                    <StackLayout>
+                        <Label Text="Your Goal" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="You want to:" FontSize="Medium" />
+                        <controls:EnumPicker x:TypeArguments="enums:GoalType" SelectedItem="{Binding GoalType, Mode=TwoWay}" FontSize="Medium" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:NumericEntry Text="{Binding GoalWeight}" HorizontalOptions="FillAndExpand"  FontSize="Medium" Grid.Column="0" />
+                            <Label Text="kg" FontSize="Medium" Grid.Column="1" VerticalTextAlignment="End" Margin="0,0,0,10" />
+                        </Grid>
+                        <Label Text="In the period of:" FontSize="Medium" />
+                        <controls:NumericEntry Text="{Binding GoalPeriod}" NumericValueFormat="N0" FontSize="Medium" />
+                        <controls:EnumPicker x:TypeArguments="enums:GoalTimePeriod" SelectedItem="{Binding TimePeriod, Mode=TwoWay}" FontSize="Medium" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -29,7 +29,7 @@ namespace WatchEat.Tests.Services
         [Test]
         public void CalculateWeightChangeEstimation_GivenLoseParameters_ReturnsCaloriesRecommendation()
         {
-            var result = _nutritionService.CalculateWeightChangeEstimation(30, 190, 90, Enums.Gender.Male, Enums.ActivityFactor.Sedentary, Enums.TimePeriod.Months, 2, Enums.GoalType.Lose, 9);
+            var result = _nutritionService.CalculateWeightChangeEstimation(30, 190, 90, Enums.Gender.Male, Enums.ActivityLevel.Sedentary, Enums.GoalTimePeriod.Months, 2, Enums.GoalType.Lose, 9);
 
             Assert.AreEqual(true, true);
         }

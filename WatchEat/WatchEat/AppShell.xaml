@@ -7,28 +7,29 @@
        xmlns:fviews="clr-namespace:WatchEat.Views.Food"
        xmlns:aviews="clr-namespace:WatchEat.Views.Activity"
        xmlns:statviews="clr-namespace:WatchEat.Views.Statistics"
+       xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
        Title="WatchEat" mc:Ignorable="d"
        FlyoutBehavior="Disabled"
        FlyoutIsPresented="False"       
        x:Class="WatchEat.AppShell">
 
     <TabBar Style="{StaticResource TabStyle}">
-        <Tab Title="User" Icon="tab_about.png">
-            <ShellContent Title="User Info" ContentTemplate="{DataTemplate local:UserPage}" />
-            <ShellContent Title="Goals" ContentTemplate="{DataTemplate local:GoalsPage}" />
+        <Tab Title="{markup:Translate User}" Icon="tab_about.png">
+            <ShellContent Title="{markup:Translate UserInformation}" ContentTemplate="{DataTemplate local:UserPage}" />
+            <ShellContent Title="{markup:Translate Goal}" ContentTemplate="{DataTemplate local:GoalPage}" />
         </Tab>
-        <Tab Title="Journal" Icon="tab_about.png">
+        <Tab Title="{markup:Translate Journal}" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />
-        </Tab>        
-        <Tab Title="Definitions" Icon="tab_about.png">            
-            <ShellContent Title="Foods" ContentTemplate="{DataTemplate fviews:FoodsPage}" />
-            <ShellContent Title="Activities" ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
-        </Tab>        
-        <Tab Title="Statistics" Icon="tab_about.png">
-            <ShellContent Title="Last 7 days" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />
-            <ShellContent Title="Last 30 days" ContentTemplate="{DataTemplate statviews:MonthlyStatisticsPage}" />
         </Tab>
-        <Tab Title="About" Icon="tab_about.png">
+        <Tab Title="{markup:Translate Definitions}" Icon="tab_about.png">
+            <ShellContent Title="{markup:Translate Foods}" ContentTemplate="{DataTemplate fviews:FoodsPage}" />
+            <ShellContent Title="{markup:Translate Activities}" ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
+        </Tab>
+        <Tab Title="{markup:Translate Statistics}" Icon="tab_about.png">
+            <ShellContent Title="{markup:Translate Last7Days}" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />
+            <ShellContent Title="{markup:Translate Last30Days}" ContentTemplate="{DataTemplate statviews:MonthlyStatisticsPage}" />
+        </Tab>
+        <Tab Title="{markup:Translate About}" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>        
     </TabBar>

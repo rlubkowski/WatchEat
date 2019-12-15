@@ -14,19 +14,19 @@ namespace WatchEat.Services
         //If you are moderatetely active(moderate exercise/sports 3-5 days/week) : Calorie-Calculation = BMR x 1.55
         //If you are very active(hard exercise/sports 6-7 days a week) : Calorie-Calculation = BMR x 1.725
         //If you are extra active(very hard exercise/sports & physical job or 2x training) : Calorie-Calculation = BMR x 1.9
-        public decimal GetDailyCaloriesEstimation(decimal bmr, ActivityFactor activityFactor)
+        public decimal GetDailyCaloriesEstimation(decimal bmr, ActivityLevel activityFactor)
         {
             switch (activityFactor)
             {
-                case ActivityFactor.Sedentary:
+                case ActivityLevel.Sedentary:
                     return bmr * 1.2m;
-                case ActivityFactor.LightlyActive:
+                case ActivityLevel.LightlyActive:
                     return bmr * 1.375m;
-                case ActivityFactor.ModeratetelyActive:
+                case ActivityLevel.ModeratetelyActive:
                     return bmr * 1.55m;
-                case ActivityFactor.VeryActive:
+                case ActivityLevel.VeryActive:
                     return bmr * 1.725m;
-                case ActivityFactor.ExtraActive:
+                case ActivityLevel.ExtraActive:
                     return bmr * 1.9m;
                 default: return 0;
             }
@@ -94,23 +94,23 @@ namespace WatchEat.Services
             return 0;
         }
 
-        private int WeightChangePeriodToDays(TimePeriod timePeriod, int periodNumber)
+        private int WeightChangePeriodToDays(GoalTimePeriod timePeriod, int periodNumber)
         {
             switch (timePeriod)
             {
-                case TimePeriod.Days:
+                case GoalTimePeriod.Days:
                     return periodNumber;
-                case TimePeriod.Weeks:
+                case GoalTimePeriod.Weeks:
                     return periodNumber * 7;
-                case TimePeriod.Months:
+                case GoalTimePeriod.Months:
                     return Convert.ToInt32(periodNumber * 30.4);
-                case TimePeriod.Years:
+                case GoalTimePeriod.Years:
                     return periodNumber * 365;
                 default: return 0;
             }
         }
 
-        public WeightChangeEstimationResult CalculateWeightChangeEstimation(int age, decimal height, decimal weight, Gender gender, ActivityFactor activityFactor, TimePeriod timePeriod, int periodNumber, GoalType goalType, decimal weightLoseGain, bool imperialUnits = false)
+        public WeightChangeEstimationResult CalculateWeightChangeEstimation(int age, decimal height, decimal weight, Gender gender, ActivityLevel activityFactor, GoalTimePeriod timePeriod, int periodNumber, GoalType goalType, decimal weightLoseGain, bool imperialUnits = false)
         {
             if (imperialUnits)
             {

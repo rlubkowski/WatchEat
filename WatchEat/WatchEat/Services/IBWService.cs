@@ -77,6 +77,7 @@ namespace WatchEat.Services
 			return 0;
 		}
 
+		//Lemmens formula:
 		//Ideal Body Weight(kg) = 22 x height^2 (meter)
 		public decimal CalculateLemmens(decimal height, bool imperialUnits = false)
 		{
@@ -109,7 +110,7 @@ namespace WatchEat.Services
 			return 0;
 		}
 
-		//Robinson Formula
+		//Robinson formula:
 		//Men: Ideal Body Weight(kg) = 52 kg + 1.9 kg per inch over 5 feet.
 		//Women: Ideal Body Weight(kg) = 49 kg + 1.7 kg per inch over 5 feet.
 		public decimal CalculateRobinson(decimal height, Gender gender, bool imperialUnits = false)

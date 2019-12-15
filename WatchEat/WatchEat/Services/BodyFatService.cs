@@ -36,6 +36,7 @@ namespace WatchEat.Services
 
         public BodyFatLevel GetBodyFatLevel(decimal bodyFat, int age, Gender gender)
         {
+            bodyFat = bodyFat / 100;
             if (age >= 20 && age < 40)
             {
                 if (gender == Gender.Female)

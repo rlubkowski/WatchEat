@@ -1,6 +1,6 @@
 ﻿namespace WatchEat.Enums
 {
-    public enum NutritionStatus
+    public enum NutritionStatus : int
     {
         Underweight,        //Below 18.5
         NormalWeight,       //18.5–24.9

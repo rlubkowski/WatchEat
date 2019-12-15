@@ -51,5 +51,15 @@
         {
             return ounces / 0.033814m;
         }
+
+        public static decimal MililitersToLiters(decimal mililiters)
+        {
+            return mililiters / 1000.0m;
+        }
+
+        public static decimal LitersToMililiters(decimal liters)
+        {
+            return liters * 1000.0m;
+        }
     }
 }
