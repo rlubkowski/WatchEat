@@ -32,6 +32,7 @@ namespace WatchEat.ViewModels.EventSelection
         public ICommand Save => new AsyncCommand(async () =>
         {
             await DataStore.JournalEntries.Update(Entry);
+            MessagingCenter.Send(this, CommandNames.JournalEntryUpdated, Entry);
             await Navigation.PopModalAsync();
         });
 

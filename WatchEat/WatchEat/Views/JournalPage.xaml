@@ -228,17 +228,17 @@
                         <RowDefinition Height="79" />
                         <RowDefinition Height="29" />
                         <RowDefinition Height="29" />                        
-                    </Grid.RowDefinitions>                    
-                    <controls:CaloriesInfo Burned="12" Consumed="125" Recommended="457" Grid.Row="0" />
+                    </Grid.RowDefinitions>
+                    <controls:CaloriesInfo Burned="{Binding BurnedCalories}" Consumed="{Binding ConsumedCalories}" Recommended="{Binding RecommendedCalories}" Grid.Row="0" />
                     <Grid Grid.Row="1" RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <controls:InfoAgregator Text="{markup:Translate Carbs}" Value="12" Grid.Column="0" />
-                        <controls:InfoAgregator Text="{markup:Translate Protein}" Value="12" Grid.Column="1" />
-                        <controls:InfoAgregator Text="{markup:Translate Fat}" Value="0" Grid.Column="2" />
+                        <controls:InfoAgregator Text="{markup:Translate Carbs}" Value="{Binding TotalCarbs}" Grid.Column="0" />
+                        <controls:InfoAgregator Text="{markup:Translate Protein}" Value="{Binding TotalProtein}" Grid.Column="1" />
+                        <controls:InfoAgregator Text="{markup:Translate Fat}" Value="{Binding TotalFat}" Grid.Column="2" />
                     </Grid>
                     <Grid Grid.Row="2" RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
@@ -246,9 +246,9 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <controls:InfoAgregator Text="{markup:Translate Fiber}" Value="0" Grid.Column="0" />
-                        <controls:InfoAgregator Text="{markup:Translate Water}" Value="0" Grid.Column="1" />
-                        <controls:InfoAgregator Text="{markup:Translate Salt}" Value="0" Grid.Column="2" />
+                        <controls:InfoAgregator Text="{markup:Translate Fiber}" Value="{Binding TotalFiber}" Grid.Column="0" />
+                        <controls:InfoAgregator Text="{markup:Translate WaterL}" Value="{Binding TotalWater}" Grid.Column="1" />
+                        <controls:InfoAgregator Text="{markup:Translate Salt}" Value="{Binding TotalSalt}" Grid.Column="2" />
                     </Grid>
                 </Grid>
         </Grid>

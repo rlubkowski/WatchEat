@@ -19,5 +19,7 @@
         public const string UserGoalUpdated = nameof(UserGoalUpdated);
 
         public const string JournalEntryRemoved = nameof(JournalEntryRemoved);
+
+        public const string JournalEntryUpdated = nameof(JournalEntryUpdated);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Adapters;
@@ -8,7 +9,6 @@ using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Models.Database;
-using WatchEat.Resources;
 using WatchEat.Services.Interfaces;
 using WatchEat.ViewModels.EventSelection;
 using WatchEat.Views.EventSelection;
@@ -31,23 +31,107 @@ namespace WatchEat.ViewModels
 
         protected IUserSettings UserSettings => DependencyService.Get<IUserSettings>();
 
+        protected INutritionService NutritionService => DependencyService.Get<INutritionService>();
+
         private void OnEntriesChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            switch (e.Action)
+            UpdateTotals(sender as SortableObservableCollection<JournalEntry>);
+        }
+
+        decimal _totalCarbs = 0;
+        public decimal TotalCarbs 
+        {
+            get => _totalCarbs;
+            set { SetProperty(ref _totalCarbs, value); }
+        }
+
+        decimal _totalProtein = 0;
+        public decimal TotalProtein
+        {
+            get => _totalProtein;
+            set { SetProperty(ref _totalProtein, value); }
+        }
+
+        decimal _totalFat = 0;
+        public decimal TotalFat
+        {
+            get => _totalFat;
+            set { SetProperty(ref _totalFat, value); }
+        }
+
+        decimal _totalFiber = 0;
+        public decimal TotalFiber
+        {
+            get => _totalFiber;
+            set { SetProperty(ref _totalFiber, value); }
+        }
+
+        decimal _totalWater = 0;
+        public decimal TotalWater
+        {
+            get => _totalWater;
+            set { SetProperty(ref _totalWater, value); }
+        }
+
+        decimal _totalSalt = 0;
+        public decimal TotalSalt
+        {
+            get => _totalSalt;
+            set { SetProperty(ref _totalSalt, value); }
+        }
+
+        decimal _burnedCalories = 0;
+        public decimal BurnedCalories
+        {
+            get => _burnedCalories;
+            set { SetProperty(ref _burnedCalories, value); }
+        }
+
+        decimal _consumedCalories = 0;
+        public decimal ConsumedCalories
+        {
+            get => _consumedCalories;
+            set { SetProperty(ref _consumedCalories, value); }
+        }
+
+        decimal _recommendedCalories = 0;
+        public decimal RecommendedCalories
+        {
+            get => _recommendedCalories;
+            set { SetProperty(ref _recommendedCalories, value); }
+        }
+
+        private void UpdateTotals(IEnumerable<JournalEntry> entries)
+        {   
+            ConsumedCalories = 0;
+            BurnedCalories = 0;
+            TotalSalt = 0;
+            TotalWater = 0;
+            TotalFiber = 0;
+            TotalFat = 0;
+            TotalProtein = 0;
+            TotalCarbs = 0;
+            foreach (var entry in entries)
             {
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Move:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Replace:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Reset:
-                    break;
-                default:
-                    break;
+                switch (entry.EntryType)
+                {
+                    case JournalEntryType.Activity:
+                        BurnedCalories += entry.Calories;
+                        break;
+                    case JournalEntryType.Food:
+                        TotalSalt += entry.Salt;
+                        ConsumedCalories += entry.Calories;
+                        TotalFiber += entry.Fiber;
+                        TotalFat += entry.Fat;
+                        TotalProtein += entry.Protein;
+                        TotalCarbs += entry.Carbs;
+                        break;
+                    case JournalEntryType.Water:
+                        TotalWater += entry.Amount;
+                        break;
+                }
             }
+            TotalWater = Math.Round(UnitConverter.MililitersToLiters(TotalWater), 2);
         }
 
         public ICommand Navigate => new AsyncCommand(async (direction) =>
@@ -94,6 +178,7 @@ namespace WatchEat.ViewModels
         protected override void OnChildPageDisappearing(object sender, EventArgs e)
         {            
             MessagingCenter.Unsubscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryRemoved);
+            MessagingCenter.Unsubscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryUpdated);
             base.OnChildPageDisappearing(sender, e);
         }
 
@@ -102,6 +187,15 @@ namespace WatchEat.ViewModels
             MessagingCenter.Subscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryRemoved, (obj, item) =>
             {
                 Entries.Remove(item);
+                if (item.EntryType == JournalEntryType.Weight)
+                {
+                    UpdateDailyCaloriesRecommendation();
+                }
+            });
+
+            MessagingCenter.Subscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryUpdated, (obj, item) =>
+            {
+                UpdateTotals(Entries);
             });
         }
         
@@ -125,6 +219,8 @@ namespace WatchEat.ViewModels
             MessagingCenter.Subscribe<WeightViewModel, WeightEntryModel>(this, CommandNames.AddWeightEntry, async (obj, item) =>
             {
                 await HandleAddEntryEvent(item);
+                UserSettings.UpdateUserWeight(item.Weight);
+                UpdateDailyCaloriesRecommendation();
             });
         }
 
@@ -133,6 +229,25 @@ namespace WatchEat.ViewModels
             var jEntry = entry.ToJournalEntry();
             Entries.Add(jEntry);
             await DataStore.JournalEntries.Insert(jEntry);
+        }
+
+        private void UpdateDailyCaloriesRecommendation()
+        {
+            if (UserSettings.AppReadyToUse)
+            {
+                var goal = UserSettings.GetUserGoal();
+                var user = UserSettings.GetUserInformation();
+                var estimations = NutritionService.CalculateWeightChangeEstimation(user.Age, user.Height, user.Weight, user.Gender,
+                                                                        user.ActivityLevel, goal.GoalTimePeriod, goal.GoalPeriod, goal.GoalType, goal.LoseGainWeight);
+                if (goal.GoalType == GoalType.Maintain)
+                {
+                    RecommendedCalories = estimations.MaintainCalories;
+                }
+                else
+                {
+                    RecommendedCalories = estimations.IsSafe ? estimations.ReachCalories : estimations.MaintainCalories;
+                }
+            }
         }
 
         private void UnsubscribeEventSelection()
@@ -161,6 +276,7 @@ namespace WatchEat.ViewModels
         {
             await base.InitializeAsync(navigation);
             await LoadDayActivitiesAsync(SelectedDay);
+            UpdateDailyCaloriesRecommendation();
         }
     }
 }
