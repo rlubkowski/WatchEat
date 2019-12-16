@@ -14,23 +14,23 @@
        x:Class="WatchEat.AppShell">
 
     <TabBar Style="{StaticResource TabStyle}">
-        <Tab Title="{markup:Translate User}" Icon="tab_about.png">
+        <Tab Title="{markup:Translate User}" Icon="user.png">
             <ShellContent Title="{markup:Translate UserInformation}" ContentTemplate="{DataTemplate local:UserPage}" />
             <ShellContent Title="{markup:Translate Goal}" ContentTemplate="{DataTemplate local:GoalPage}" />
         </Tab>
-        <Tab Title="{markup:Translate Journal}" Icon="tab_about.png">
+        <Tab Title="{markup:Translate Journal}" Icon="journal.png">
             <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />
         </Tab>
-        <Tab Title="{markup:Translate Definitions}" Icon="tab_about.png">
+        <Tab Title="{markup:Translate Definitions}" Icon="definitions.png">
             <ShellContent Title="{markup:Translate Foods}" ContentTemplate="{DataTemplate fviews:FoodsPage}" />
             <ShellContent Title="{markup:Translate Activities}" ContentTemplate="{DataTemplate aviews:ActivitiesPage}" />
         </Tab>
-        <Tab Title="{markup:Translate Statistics}" Icon="tab_about.png">
+        <Tab Title="{markup:Translate Statistics}" Icon="statistics.png">
             <ShellContent Title="{markup:Translate Last7Days}" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />
             <ShellContent Title="{markup:Translate Last30Days}" ContentTemplate="{DataTemplate statviews:MonthlyStatisticsPage}" />
             <ShellContent Title="{markup:Translate Last12Months}" ContentTemplate="{DataTemplate statviews:YearlyStatisticsPage}" />
         </Tab>
-        <Tab Title="{markup:Translate About}" Icon="tab_about.png">
+        <Tab Title="{markup:Translate About}" Icon="about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>        
     </TabBar>
