@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Class="WatchEat.Views.Food.FoodsPage"
-             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions">
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             Title="{Binding Title}">
 
     <ContentPage.Resources>
         <Style TargetType="ContentView">
@@ -24,12 +25,17 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            <CollectionView EmptyView="{markup:Translate NoItemsToDisplay}" 
-                            SelectionChangedCommand="{Binding FoodSelected}" 
+            <CollectionView SelectionChangedCommand="{Binding FoodSelected}" 
                             SelectionMode="Single" 
                             ItemsSource="{Binding Foods}" 
                             SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference FoodsCollection}}"
                             x:Name="FoodsCollection">
+                <CollectionView.EmptyView>
+                    <Grid BackgroundColor="{StaticResource TernaryColor}">
+                        <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" Text="{markup:Translate NoItemsToDisplay}" />
+                    </Grid>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView Padding="5">

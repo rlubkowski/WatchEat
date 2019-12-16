@@ -5,6 +5,7 @@ using System.Windows.Input;
 using WatchEat.Controls;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using WatchEat.Views.Activity;
 using Xamarin.Forms;
 
@@ -15,6 +16,7 @@ namespace WatchEat.ViewModels.Activity
         public ActivitiesViewModel()
         {
             Activities = new ObservableCollection<ActivityEntry>();
+            Title = AppResource.Activities;
         }
 
         public ObservableCollection<ActivityEntry> Activities { get; private set; }

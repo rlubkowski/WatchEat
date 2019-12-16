@@ -5,6 +5,7 @@ using System.Windows.Input;
 using WatchEat.Controls;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using WatchEat.Views.Food;
 using Xamarin.Forms;
 
@@ -15,6 +16,7 @@ namespace WatchEat.ViewModels.Food
         public FoodsViewModel()
         {
             Foods = new ObservableCollection<FoodEntry>();
+            Title = AppResource.Foods;
         }
 
         public ObservableCollection<FoodEntry> Foods { get; private set; }

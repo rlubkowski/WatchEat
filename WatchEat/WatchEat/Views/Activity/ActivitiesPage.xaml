@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" Title="{Binding Title}"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.Activity.ActivitiesPage">
     <ContentPage.Resources>
@@ -24,12 +24,17 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            <CollectionView EmptyView="{markup:Translate NoItemsToDisplay}" 
-                            SelectionChangedCommand="{Binding ActivitySelected}" 
+            <CollectionView SelectionChangedCommand="{Binding ActivitySelected}" 
                             SelectionMode="Single" 
                             ItemsSource="{Binding Activities}" 
                             SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ActivitiesCollection}}"
                             x:Name="ActivitiesCollection">
+                <CollectionView.EmptyView>
+                    <Grid BackgroundColor="{StaticResource TernaryColor}">
+                        <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" Text="{markup:Translate NoItemsToDisplay}" />
+                    </Grid>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView Padding="5">
