@@ -58,11 +58,11 @@ namespace WatchEat.ViewModels.Food
 
         public async override Task InitializeAsync(INavigation navigation)
         {
-            await base.InitializeAsync(navigation);            
-
-            foreach (var product in await DataStore.FoodEntries.Get())
+            await base.InitializeAsync(navigation);
+            Foods.Clear();
+            foreach (var food in await DataStore.FoodEntries.Get())
             {
-                Foods.Add(product);
+                Foods.Add(food);
             }
         }
     }

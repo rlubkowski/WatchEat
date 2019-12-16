@@ -59,7 +59,7 @@ namespace WatchEat.ViewModels.Activity
         public async override Task InitializeAsync(INavigation navigation)
         {
             await base.InitializeAsync(navigation);
-
+            Activities.Clear();
             foreach (var activity in await DataStore.ActivityEntries.Get())
             {
                 Activities.Add(activity);

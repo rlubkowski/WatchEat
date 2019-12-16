@@ -9,14 +9,13 @@ namespace WatchEat.Views.Food
     {
         public FoodsPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            BindingContext = new FoodsViewModel();
         }        
 
         protected override async void OnAppearing()
         {
-            var viewModel = new FoodsViewModel();
-            await viewModel.InitializeAsync(Navigation);
-            BindingContext = viewModel;
+            await (BindingContext as FoodsViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }
