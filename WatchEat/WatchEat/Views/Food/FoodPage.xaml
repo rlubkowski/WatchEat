@@ -4,30 +4,34 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
-             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:controls="clr-namespace:WatchEat.Controls"
              x:Class="WatchEat.Views.Food.FoodPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{locale:Translate Cancel}"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="{locale:Translate Save}"  Command="{Binding Save}" />
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
-                <Label Text="{locale:Translate Name}" FontSize="Medium" />
-                <Entry Text="{Binding Path=Food.Name}" FontSize="Small" />
-                <Label Text="{locale:Translate Calories}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Calories}" FontSize="Small"/>
-                <Label Text="{locale:Translate Carbs}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Carbs}" FontSize="Small"/>
-                <Label Text="{locale:Translate Protein}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Protein}" FontSize="Small"/>
-                <Label Text="{locale:Translate Fat}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Fat}" FontSize="Small"/>
-                <Label Text="{locale:Translate Fiber}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Fiber}" FontSize="Small"/>
-                <Label Text="{locale:Translate Salt}" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Food.Salt}" FontSize="Small"/>
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                    <StackLayout>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Name}" FontSize="Medium" />
+                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Path=Food.Name}" FontSize="Small" />
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Calories}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Calories}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Carbs}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Carbs}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Protein}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Protein}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Fat}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Fat}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Fiber}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Fiber}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Salt}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Salt}" FontSize="Small"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

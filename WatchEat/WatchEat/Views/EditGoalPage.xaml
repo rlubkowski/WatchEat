@@ -26,13 +26,13 @@
                     <StackLayout>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate YourGoal}" FontAttributes="Bold" FontSize="Medium" />
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate YouWantTo}" FontSize="Medium" />
-                        <controls:EnumPicker x:TypeArguments="enums:GoalType" SelectedItem="{Binding GoalType, Mode=TwoWay}" FontSize="Medium" />
+                        <controls:EnumPicker TextColor="{StaticResource CustomBlack}" x:TypeArguments="enums:GoalType" SelectedItem="{Binding GoalType, Mode=TwoWay}" FontSize="Medium" />
                         <Grid IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <controls:NumericEntry Text="{Binding LoseGainWeight}" HorizontalOptions="FillAndExpand"  FontSize="Medium" Grid.Column="0" >
+                            <controls:NumericEntry TextColor="{StaticResource CustomBlack}" Text="{Binding LoseGainWeight}" HorizontalOptions="FillAndExpand"  FontSize="Medium" Grid.Column="0" >
                                 <controls:NumericEntry.Behaviors>
                                     <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsGoalWeightValid, Mode=OneWayToSource}" />
                                 </controls:NumericEntry.Behaviors>
@@ -40,12 +40,12 @@
                             <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate kg}" FontSize="Medium" Grid.Column="1" VerticalTextAlignment="End" Margin="0,0,0,10" />
                         </Grid>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" Text="{markup:Translate InThePeriodOf}" FontSize="Medium" />
-                        <controls:NumericEntry IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" Text="{Binding GoalPeriod}" NumericValueFormat="N0" FontSize="Medium" >
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" Text="{Binding GoalPeriod}" NumericValueFormat="N0" FontSize="Medium" >
                             <controls:NumericEntry.Behaviors>
                                 <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsGoalPeriodValid, Mode=OneWayToSource}" />
                             </controls:NumericEntry.Behaviors>
                         </controls:NumericEntry>
-                        <controls:EnumPicker IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" x:TypeArguments="enums:GoalTimePeriod" SelectedItem="{Binding GoalTimePeriod, Mode=TwoWay}" FontSize="Medium" />
+                        <controls:EnumPicker TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" x:TypeArguments="enums:GoalTimePeriod" SelectedItem="{Binding GoalTimePeriod, Mode=TwoWay}" FontSize="Medium" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -5,18 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Name="PageRef"
              xmlns:controls="clr-namespace:WatchEat.Controls"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.Activity.ActivityPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="Save"  Command="{Binding Save}" />
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
-                <Label Text="Name" FontSize="Medium" />
-                <Entry Text="{Binding Path=Activity.Name}" FontSize="Small" />
-                <Label Text="Calories" FontSize="Medium" />
-                <controls:NumericEntry NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                    <StackLayout>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Name}" FontSize="Medium" />
+                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Path=Activity.Name}" FontSize="Small" />
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Calories}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -169,6 +169,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm remove.
+        /// </summary>
+        internal static string ConfirmRemove {
+            get {
+                return ResourceManager.GetString("ConfirmRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily Calories Recommendation [cal].
         /// </summary>
         internal static string DailyCaloriesRecommendation {
@@ -228,6 +237,24 @@ namespace WatchEat.Resources {
         internal static string Definitions {
             get {
                 return ResourceManager.GetString("Definitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove selected item?.
+        /// </summary>
+        internal static string DoYouWantToRemoveSelectedItem {
+            get {
+                return ResourceManager.GetString("DoYouWantToRemoveSelectedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Activity.
+        /// </summary>
+        internal static string EditActivity {
+            get {
+                return ResourceManager.GetString("EditActivity", resourceCulture);
             }
         }
         
@@ -520,11 +547,29 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Activity.
+        /// </summary>
+        internal static string NewActivity {
+            get {
+                return ResourceManager.GetString("NewActivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Food.
         /// </summary>
         internal static string NewFood {
             get {
                 return ResourceManager.GetString("NewFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -777,6 +822,15 @@ namespace WatchEat.Resources {
         internal static string WeightKg {
             get {
                 return ResourceManager.GetString("WeightKg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

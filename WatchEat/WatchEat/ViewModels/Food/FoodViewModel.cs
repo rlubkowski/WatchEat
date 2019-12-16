@@ -52,7 +52,7 @@ namespace WatchEat.ViewModels.Food
 
         public ICommand Remove => new AsyncCommand(async () =>
         {
-            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
+            if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
             {
                 MessagingCenter.Send(this, CommandNames.RemoveFood, Food);
             }

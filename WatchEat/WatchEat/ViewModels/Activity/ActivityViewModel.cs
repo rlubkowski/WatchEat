@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Activity
@@ -9,14 +10,14 @@ namespace WatchEat.ViewModels.Activity
     {
         public ActivityViewModel()
         {
-            Title = "New Activity";
+            Title = AppResource.NewActivity;
             IsEditView = false;
             Activity = new ActivityEntry();
         }
 
         public ActivityViewModel(ActivityEntry activity)
         {
-            Title = "Edit Activity";
+            Title = AppResource.EditActivity;
             IsEditView = true;
             Activity = activity;
         }
@@ -50,7 +51,7 @@ namespace WatchEat.ViewModels.Activity
 
         public ICommand Remove => new AsyncCommand(async () =>
         {
-            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected activity?", "Yes", "No"))
+            if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
             {
                 MessagingCenter.Send(this, CommandNames.RemoveActivity, Activity);
             }

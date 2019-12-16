@@ -1,4 +1,5 @@
-﻿using WatchEat.ViewModels.Activity;
+﻿using WatchEat.Resources;
+using WatchEat.ViewModels.Activity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,7 +27,7 @@ namespace WatchEat.Views.Activity
             if (viewModel.IsEditView)
             {
                 var toolbarItem = new ToolbarItem();
-                toolbarItem.Text = "Remove";
+                toolbarItem.Text = AppResource.Remove;
                 toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(ActivityViewModel.Remove)));
                 PageRef.ToolbarItems.Add(toolbarItem);
             }

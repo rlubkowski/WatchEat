@@ -153,6 +153,9 @@
   <data name="Carbs" xml:space="preserve">
     <value>Carbs</value>
   </data>
+  <data name="ConfirmRemove" xml:space="preserve">
+    <value>Confirm remove</value>
+  </data>
   <data name="DailyCaloriesRecommendation" xml:space="preserve">
     <value>Daily Calories Recommendation [cal]</value>
   </data>
@@ -173,6 +176,12 @@
   </data>
   <data name="Definitions" xml:space="preserve">
     <value>Definitions</value>
+  </data>
+  <data name="DoYouWantToRemoveSelectedItem" xml:space="preserve">
+    <value>Are you sure you want to remove selected item?</value>
+  </data>
+  <data name="EditActivity" xml:space="preserve">
+    <value>Edit Activity</value>
   </data>
   <data name="EditFood" xml:space="preserve">
     <value>Edit Food</value>
@@ -270,8 +279,14 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NewActivity" xml:space="preserve">
+    <value>New Activity</value>
+  </data>
   <data name="NewFood" xml:space="preserve">
     <value>New Food</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="NoActivitiesThisDay" xml:space="preserve">
     <value>No activities this day!</value>
@@ -356,6 +371,9 @@
   </data>
   <data name="WeightKg" xml:space="preserve">
     <value>Weight [kg]</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="YourCurrentWeightSuffix" xml:space="preserve">
     <value>your current weight.</value>
