@@ -10,6 +10,7 @@ namespace WatchEat.Views
         public EditGoalPage()
         {
             InitializeComponent();
+            BindingContext = new EditGoalViewModel();
         }
 
         protected override async void OnAppearing()

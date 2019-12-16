@@ -7,7 +7,10 @@ namespace WatchEat.Services.Interfaces
         void UpdateUserWeight(decimal weight);
         UserInfoModel GetUserInformation();
         void UpdateUserInformation(UserInfoModel userInfoModel);
-        UserGoalModel GetUserGoals();
+        UserGoalModel GetUserGoal();
         void UpdateUserGoals(UserGoalModel userGoalsModel);
+        bool IsUserInfoDefined { get; }
+        bool IsUserGoalDefined { get; }
+        bool AppReadyToUse { get; }
     }
 }

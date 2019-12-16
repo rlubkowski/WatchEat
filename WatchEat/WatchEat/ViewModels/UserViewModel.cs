@@ -179,6 +179,13 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _dailyWater, value); }
         }
 
+        bool _readyToUse = false;
+        public bool ReadyToUse 
+        {
+            get => _readyToUse;
+            set { SetProperty(ref _readyToUse, value); }
+        }
+
         public ICommand Update => new AsyncCommand(async () =>
         {
             var page = new StyledNavigationPage(new EditUserPage());
@@ -210,6 +217,7 @@ namespace WatchEat.ViewModels
             HarrisBenedictNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesHarrisBenedict));
             MifflinStJeorNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesMifflinStJeor));
             DailyWater = Math.Round(UnitConverter.MililitersToLiters(NutritionService.CalculateDailyWaterIntake(Weight)), 1);
+            ReadyToUse = UserSettings.AppReadyToUse;
         }
 
         protected override void OnChildPageAppearing(object sender, EventArgs e)

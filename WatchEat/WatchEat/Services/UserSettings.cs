@@ -18,9 +18,17 @@ namespace WatchEat.Services
         const string GOAL_TIME_PERIOD = nameof(GOAL_TIME_PERIOD);
         const string GOAL_PERIOD = nameof(GOAL_PERIOD);
         const string GOAL_LOSE_GAIN = nameof(GOAL_LOSE_GAIN);
+
+        const string USER_INFO_DEFINED = nameof(USER_INFO_DEFINED);
+        const string GOAL_INFO_DEFINED = nameof(GOAL_INFO_DEFINED);
+
+        public bool IsUserInfoDefined => Settings.GetValueOrDefault(USER_INFO_DEFINED, false);
+        public bool IsUserGoalDefined => Settings.GetValueOrDefault(GOAL_INFO_DEFINED, false);
+        public bool AppReadyToUse => IsUserGoalDefined && IsUserInfoDefined;
+
         private ISettings Settings => CrossSettings.Current;
 
-        public UserGoalModel GetUserGoals()
+        public UserGoalModel GetUserGoal()
         {
             GoalType goalType = default(GoalType);
             GoalTimePeriod goalTimePeriod = default(GoalTimePeriod);
@@ -54,6 +62,7 @@ namespace WatchEat.Services
             Settings.AddOrUpdateValue(GOAL_TIME_PERIOD, (int)userGoalsModel.GoalTimePeriod);
             Settings.AddOrUpdateValue(GOAL_PERIOD, userGoalsModel.GoalPeriod);
             Settings.AddOrUpdateValue(GOAL_LOSE_GAIN, userGoalsModel.LoseGainWeight);
+            Settings.AddOrUpdateValue(GOAL_INFO_DEFINED, true);
         }
 
         public void UpdateUserInformation(UserInfoModel userInfoModel)
@@ -63,6 +72,7 @@ namespace WatchEat.Services
             Settings.AddOrUpdateValue(USER_AGE, userInfoModel.Age);
             Settings.AddOrUpdateValue(USER_ACTIVITY, (int)userInfoModel.ActivityLevel);
             Settings.AddOrUpdateValue(USER_GENDER, (int)userInfoModel.Gender);
+            Settings.AddOrUpdateValue(USER_INFO_DEFINED, true);
         }
 
         public void UpdateUserWeight(decimal weight)

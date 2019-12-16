@@ -18,6 +18,6 @@
 
         public const string UserInfoUpdated = nameof(UserInfoUpdated);
 
-        public const string UserGoalsUpdated = nameof(UserGoalsUpdated);
+        public const string UserGoalUpdated = nameof(UserGoalUpdated);
     }
 }

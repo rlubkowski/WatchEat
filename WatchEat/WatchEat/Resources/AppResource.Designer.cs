@@ -214,6 +214,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Goal.
+        /// </summary>
+        internal static string EditGoal {
+            get {
+                return ResourceManager.GetString("EditGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit User Information.
         /// </summary>
         internal static string EditUserInformation {
@@ -385,11 +394,29 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In the period of:.
+        /// </summary>
+        internal static string InThePeriodOf {
+            get {
+                return ResourceManager.GetString("InThePeriodOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journal.
         /// </summary>
         internal static string Journal {
             get {
                 return ResourceManager.GetString("Journal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kg.
+        /// </summary>
+        internal static string kg {
+            get {
+                return ResourceManager.GetString("kg", resourceCulture);
             }
         }
         
@@ -507,6 +534,15 @@ namespace WatchEat.Resources {
         internal static string Overweight {
             get {
                 return ResourceManager.GetString("Overweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please update user information and goal before you start using the application!.
+        /// </summary>
+        internal static string PleaseUpdateBeforeUse {
+            get {
+                return ResourceManager.GetString("PleaseUpdateBeforeUse", resourceCulture);
             }
         }
         
@@ -705,6 +741,33 @@ namespace WatchEat.Resources {
         internal static string WeightKg {
             get {
                 return ResourceManager.GetString("WeightKg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to your current weight..
+        /// </summary>
+        internal static string YourCurrentWeightSuffix {
+            get {
+                return ResourceManager.GetString("YourCurrentWeightSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Goal.
+        /// </summary>
+        internal static string YourGoal {
+            get {
+                return ResourceManager.GetString("YourGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You want to:.
+        /// </summary>
+        internal static string YouWantTo {
+            get {
+                return ResourceManager.GetString("YouWantTo", resourceCulture);
             }
         }
     }

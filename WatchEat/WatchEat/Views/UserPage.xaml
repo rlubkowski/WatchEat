@@ -10,6 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:EnumToTranslateStringConverter x:Key="EnumToTranslateStringConverter" />
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -17,45 +18,48 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="{StaticResource PrimaryColor}">                
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+            <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame IsVisible="{Binding ReadyToUse, Converter={StaticResource NegateBooleanConverter}}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" Text="{markup:Translate PleaseUpdateBeforeUse}" />                    
+                </Frame>
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate Gender}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Gender, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate Age}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Age}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate WeightKg}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Weight}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate HeightCm}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding Height}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate ActivityLevel}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding ActivityLevel, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BodyMassIndex}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMI}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BMIFactor, Converter={StaticResource EnumToTranslateStringConverter}}" />
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate IdealBodyWeight}" />
                         <StackLayout Padding="0" Orientation="Horizontal">
@@ -84,13 +88,13 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BodyFatEstimate}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding BodyFat}" />
                     </StackLayout>
-                </Frame>           
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                </Frame>
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BasalMetabolicRate}" />
                         <StackLayout Padding="0" Orientation="Horizontal">
@@ -103,7 +107,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyCaloriesRecommendation}" />
                         <StackLayout Padding="0" Orientation="Horizontal">
@@ -116,7 +120,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyNutritionRecommendation}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate BMRHarrisBenedictFormula}" />
@@ -213,7 +217,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout Padding="0">
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{markup:Translate DailyWaterRecommendation}" />
                         <Label TextColor="{StaticResource CustomBlack}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" Text="{Binding DailyWater}" />

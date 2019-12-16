@@ -168,6 +168,9 @@
   <data name="EditFood" xml:space="preserve">
     <value>Edit Food</value>
   </data>
+  <data name="EditGoal" xml:space="preserve">
+    <value>Edit Goal</value>
+  </data>
   <data name="EditUserInformation" xml:space="preserve">
     <value>Edit User Information</value>
   </data>
@@ -225,8 +228,14 @@
   <data name="IdealBodyWeight" xml:space="preserve">
     <value>(IBW) Ideal Body Weight [kg]</value>
   </data>
+  <data name="InThePeriodOf" xml:space="preserve">
+    <value>In the period of:</value>
+  </data>
   <data name="Journal" xml:space="preserve">
     <value>Journal</value>
+  </data>
+  <data name="kg" xml:space="preserve">
+    <value>kg</value>
   </data>
   <data name="Last30Days" xml:space="preserve">
     <value>Last 30 days</value>
@@ -266,6 +275,9 @@
   </data>
   <data name="Overweight" xml:space="preserve">
     <value>Overweight</value>
+  </data>
+  <data name="PleaseUpdateBeforeUse" xml:space="preserve">
+    <value>Please update user information and goal before you start using the application!</value>
   </data>
   <data name="Protein" xml:space="preserve">
     <value>Protein</value>
@@ -332,5 +344,14 @@
   </data>
   <data name="WeightKg" xml:space="preserve">
     <value>Weight [kg]</value>
+  </data>
+  <data name="YourCurrentWeightSuffix" xml:space="preserve">
+    <value>your current weight.</value>
+  </data>
+  <data name="YourGoal" xml:space="preserve">
+    <value>Your Goal</value>
+  </data>
+  <data name="YouWantTo" xml:space="preserve">
+    <value>You want to:</value>
   </data>
 </root>

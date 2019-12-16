@@ -4,13 +4,41 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Title="Goal"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
+             Title="{Binding Title}"
              x:Class="WatchEat.Views.GoalPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:EnumToTranslateStringConverter x:Key="EnumToTranslateStringConverter" />
+            <converters:GoalTypeToVisibilityConverter x:Key="GoalTypeToVisibilityConverter" />
+            <x:Boolean x:Key="BoolTrue">true</x:Boolean>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{markup:Translate Update}"  Command="{Binding Update}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate YourGoal}" FontAttributes="Bold" FontSize="Medium" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate YouWantTo}" FontSize="Medium" />
+                            <Label TextColor="{StaticResource CustomBlack}" FontAttributes="Bold" FontSize="Medium" Text="{Binding GoalType, Converter={StaticResource EnumToTranslateStringConverter}}" />
+                            <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}, ConverterParameter={StaticResource BoolTrue}}"  FontSize="Medium" Text="{markup:Translate YourCurrentWeightSuffix}" />
+                            <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" FontSize="Medium" Text="{Binding LoseGainWeight}" />
+                            <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" FontSize="Medium" Text="{markup:Translate kg}" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding GoalType, Converter={StaticResource GoalTypeToVisibilityConverter}}" Orientation="Horizontal">
+                            <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate InThePeriodOf}" FontSize="Medium" />
+                            <Label TextColor="{StaticResource CustomBlack}" Text="{Binding GoalPeriod}" FontSize="Medium" />
+                            <Label TextColor="{StaticResource CustomBlack}" Text="{Binding GoalTimePeriod, Converter={StaticResource EnumToTranslateStringConverter}}" FontSize="Medium" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
