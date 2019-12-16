@@ -3,6 +3,7 @@ using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
 using WatchEat.Resources;
+using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
@@ -30,21 +31,18 @@ namespace WatchEat.ViewModels.EventSelection
         
         public ICommand Save => new AsyncCommand(async () =>
         {
-            //if (IsEditView)
-            //{
-            //    MessagingCenter.Send(this, CommandNames.EditFood, Food);
-            //}
-            //else
-            //{
-            //    MessagingCenter.Send(this, CommandNames.AddFood, Food);
-            //}
-
+            await DataStore.JournalEntries.Update(Entry);
             await Navigation.PopModalAsync();
         });
 
         public ICommand Remove => new AsyncCommand(async () =>
         {
-            await Navigation.PopModalAsync();
+            if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
+            {
+                await DataStore.JournalEntries.Delete(Entry);
+                MessagingCenter.Send(this, CommandNames.JournalEntryRemoved, Entry);
+                await Navigation.PopModalAsync();
+            }
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

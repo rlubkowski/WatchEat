@@ -11,8 +11,7 @@
              xmlns:controls="clr-namespace:WatchEat.Controls"             
              Shell.NavBarIsVisible="False" mc:Ignorable="d"
              x:Name="PageReference" x:Class="WatchEat.Views.JournalPage">
-    <ContentPage.Resources>
-        
+    <ContentPage.Resources>        
             <Style TargetType="ContentView">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -27,8 +26,6 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-        
-
         <ResourceDictionary>
             <converter:DateToStringConverter x:Key="DateToStringConverter" />
             <converter:DateToTimeStringConverter x:Key="DateToTimeStringConverter" />            
@@ -59,22 +56,16 @@
                                     </Grid.RowDefinitions>
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" />
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Carbs}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="2" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" Grid.Row="2" Grid.Column="1" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Carbs}" Grid.Row="2" Grid.Column="3" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Protein}" LineBreakMode="TailTruncation" Grid.Row="3" Grid.Column="0" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Fat}" LineBreakMode="TailTruncation" Grid.Row="3" Grid.Column="2" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Protein}" Grid.Row="3" Grid.Column="1" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fat}" Grid.Row="3" Grid.Column="3" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Fiber}" LineBreakMode="TailTruncation" Grid.Row="4" Grid.Column="0" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" Text="{markup:Translate Salt}" LineBreakMode="TailTruncation" Grid.Row="4" Grid.Column="2" />
-
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Fiber}" Grid.Row="4" Grid.Column="1" />
                                     <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Salt}" Grid.Row="4" Grid.Column="3" />
                                 </Grid>
@@ -108,10 +99,8 @@
                                         <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" 
                                                Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
                                         <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" 
-                                               Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
-                                        
-                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />
-                                        
+                                               Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />                                        
+                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />                                        
                                         <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" Grid.Row="2" Grid.Column="1" />                                        
                                     </Grid>
                                 </Frame>
@@ -142,13 +131,11 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" 
-                                               Text="Weight Entry" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                                               Text="{markup:Translate WeightEntry}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
                                         <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" 
                                                Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
-
-                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Calories}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />
-
-                                        <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Calories}" Grid.Row="2" Grid.Column="1" />
+                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate Weight}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />
+                                        <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Weight}" Grid.Row="2" Grid.Column="1" />
                                     </Grid>
                                 </Frame>
                             </Grid>
@@ -157,7 +144,38 @@
                 </ContentView>
             </DataTemplate>
             <DataTemplate x:Key="waterCellTemplate">
-                <Label Text="Water Entry" />                
+                <ContentView Padding="5">
+                    <Frame Style="{StaticResource BackgroundFrame}" Padding="5" HeightRequest="150">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="FillAndExpand" Aspect="AspectFit" Grid.Column="0" Source="{markup:ImageResource Water.png}"  />
+                            <Grid Grid.Column="1" ColumnSpacing="0" RowSpacing="0">
+                                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="True" BackgroundColor="{StaticResource PrimaryColor}" Margin="3" Padding="0">
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" 
+                                               Text="{markup:Translate WaterEntry}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold, Italic" 
+                                               Text="{Binding Date,Converter={StaticResource DateToTimeStringConverter}}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                        <Label TextColor="{StaticResource CustomWhite}" Margin="5,0,0,0" VerticalTextAlignment="Center" Text="{markup:Translate WaterMl}" LineBreakMode="TailTruncation" Grid.Row="2" Grid.Column="0" />
+                                        <Label TextColor="{StaticResource CustomWhite}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Amount}" Grid.Row="2" Grid.Column="1" />
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </ContentView>       
             </DataTemplate>
             <tmplsel:JournalEntryDataTemplateSelector x:Key="EntryTemplateSelector"
                                                       ActivityTemplate="{StaticResource trainingCellTemplate}" 
@@ -211,15 +229,15 @@
                         <RowDefinition Height="29" />
                         <RowDefinition Height="29" />                        
                     </Grid.RowDefinitions>                    
-                    <controls:CaloriesInfo Grid.Row="0" />
+                    <controls:CaloriesInfo Burned="12" Consumed="125" Recommended="457" Grid.Row="0" />
                     <Grid Grid.Row="1" RowSpacing="0" ColumnSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <controls:InfoAgregator Text="{markup:Translate Carbs}" Value="0" Grid.Column="0" />
-                        <controls:InfoAgregator Text="{markup:Translate Protein}" Value="0" Grid.Column="1" />
+                        <controls:InfoAgregator Text="{markup:Translate Carbs}" Value="12" Grid.Column="0" />
+                        <controls:InfoAgregator Text="{markup:Translate Protein}" Value="12" Grid.Column="1" />
                         <controls:InfoAgregator Text="{markup:Translate Fat}" Value="0" Grid.Column="2" />
                     </Grid>
                     <Grid Grid.Row="2" RowSpacing="0" ColumnSpacing="0">

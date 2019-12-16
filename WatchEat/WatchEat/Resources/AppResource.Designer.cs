@@ -970,6 +970,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Water [ml].
+        /// </summary>
+        internal static string WaterMl {
+            get {
+                return ResourceManager.GetString("WaterMl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weight.
         /// </summary>
         internal static string Weight {

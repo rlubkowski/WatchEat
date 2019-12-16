@@ -16,7 +16,7 @@ using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
-    public class JournalViewModel : BaseViewModel
+    public class JournalViewModel : ViewModelWithChildPages
     {
         public JournalViewModel()
         {
@@ -86,25 +86,25 @@ namespace WatchEat.ViewModels
         public ICommand EntrySelected => new AsyncCommand(async (entry) =>
         {
             var journalEntry = entry as JournalEntry;
-            await Navigation.PushModalAsync(new StyledNavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
+            var page = new StyledNavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry)));
+            HandleChildPageEvents(page);
+            await Navigation.PushModalAsync(page);
         });
 
-        public ICommand EditEntry => new AsyncCommand(async (entry) =>
-        {
-            var journalEntry = entry as JournalEntry;
-            await Navigation.PushModalAsync(new StyledNavigationPage(new JournalEntryEditPage(new JournalEntryEditViewModel(journalEntry))));
-        });
+        protected override void OnChildPageDisappearing(object sender, EventArgs e)
+        {            
+            MessagingCenter.Unsubscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryRemoved);
+            base.OnChildPageDisappearing(sender, e);
+        }
 
-        public ICommand RemoveEntry => new AsyncCommand(async (entry) =>
+        protected override void OnChildPageAppearing(object sender, EventArgs e)
         {
-            if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
+            MessagingCenter.Subscribe<JournalEntryEditViewModel, JournalEntry>(this, CommandNames.JournalEntryRemoved, (obj, item) =>
             {
-                var journalEntry = entry as JournalEntry;
-                Entries.Remove(journalEntry);
-                await DataStore.JournalEntries.Delete(journalEntry);
-            }
-        });
-
+                Entries.Remove(item);
+            });
+        }
+        
         private void SubscribeEventSelection()
         {
             MessagingCenter.Subscribe<FoodSelectionViewModel, SelectionModel<FoodEntry>>(this, CommandNames.FoodSelected, async (obj, item) =>

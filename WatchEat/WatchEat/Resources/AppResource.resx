@@ -420,6 +420,9 @@
   <data name="WaterEntry" xml:space="preserve">
     <value>Water Entry</value>
   </data>
+  <data name="WaterMl" xml:space="preserve">
+    <value>Water [ml]</value>
+  </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
   </data>
