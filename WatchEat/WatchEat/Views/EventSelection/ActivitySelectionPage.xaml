@@ -7,7 +7,7 @@
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              x:Class="WatchEat.Views.EventSelection.ActivitySelectionPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />        
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid BackgroundColor="{StaticResource PrimaryColor}">

@@ -9,6 +9,7 @@ using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Models.Database;
 using WatchEat.Resources;
+using WatchEat.Services.Interfaces;
 using WatchEat.ViewModels.EventSelection;
 using WatchEat.Views.EventSelection;
 using Xamarin.Forms;
@@ -27,6 +28,8 @@ namespace WatchEat.ViewModels
             };
             Entries.CollectionChanged += OnEntriesChanged;
         }
+
+        protected IUserSettings UserSettings => DependencyService.Get<IUserSettings>();
 
         private void OnEntriesChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
