@@ -37,7 +37,7 @@ namespace WatchEat.Services
             goalType = (GoalType)Settings.GetValueOrDefault(GOAL_TYPE, (int)goalType);
             goalTimePeriod = (GoalTimePeriod)Settings.GetValueOrDefault(GOAL_TIME_PERIOD, (int)goalTimePeriod);
             goalPeriod = Settings.GetValueOrDefault(GOAL_PERIOD, goalPeriod);
-            loseGainWeitgh = Settings.GetValueOrDefault(GOAL_LOSE_GAIN,loseGainWeitgh);
+            loseGainWeitgh = Settings.GetValueOrDefault(GOAL_LOSE_GAIN, loseGainWeitgh);
             return new UserGoalModel(goalType, goalTimePeriod, goalPeriod, loseGainWeitgh);
         }
 

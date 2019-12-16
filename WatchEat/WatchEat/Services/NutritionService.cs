@@ -125,7 +125,12 @@ namespace WatchEat.Services
             var totalGoalDays = WeightChangePeriodToDays(timePeriod, periodNumber);
             var totalCalories = UnitConverter.KilogramsToPounds(weightLoseGain) * 3500;
 
-            var dailyCaloriesChange = totalCalories / totalGoalDays;
+            decimal dailyCaloriesChange = 0m;
+
+            if (goalType != GoalType.Maintain)
+            {
+                dailyCaloriesChange = totalCalories / totalGoalDays;
+            }
 
             if (dailyCaloriesChange > 3500m)
             {

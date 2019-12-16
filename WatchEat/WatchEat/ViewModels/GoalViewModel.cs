@@ -92,13 +92,15 @@ namespace WatchEat.ViewModels
             GoalPeriod = userGoalModel.GoalPeriod;
             LoseGainWeight = userGoalModel.LoseGainWeight;
             ReadyToUse = UserSettings.AppReadyToUse;
-            var userInfo = UserSettings.GetUserInformation();
-            var estimations = NutritionService.CalculateWeightChangeEstimation(userInfo.Age, userInfo.Height, userInfo.Weight, userInfo.Gender, 
-                                                                               userInfo.ActivityLevel, GoalTimePeriod, GoalPeriod, GoalType, LoseGainWeight);
-            IsSafe = estimations.IsSafe;
-            CaloriesToMaintain = estimations.MaintainCalories;
-            CaloriesToReach = estimations.ReachCalories;
-            ReadyToUse = UserSettings.AppReadyToUse;
+            if (ReadyToUse)
+            {
+                var userInfo = UserSettings.GetUserInformation();
+                var estimations = NutritionService.CalculateWeightChangeEstimation(userInfo.Age, userInfo.Height, userInfo.Weight, userInfo.Gender,
+                                                                                   userInfo.ActivityLevel, GoalTimePeriod, GoalPeriod, GoalType, LoseGainWeight);
+                IsSafe = estimations.IsSafe;
+                CaloriesToMaintain = estimations.MaintainCalories;
+                CaloriesToReach = estimations.ReachCalories;
+            }
         }
 
         protected override void OnChildPageAppearing(object sender, EventArgs e)

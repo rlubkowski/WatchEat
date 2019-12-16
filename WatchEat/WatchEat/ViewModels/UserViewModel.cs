@@ -195,29 +195,32 @@ namespace WatchEat.ViewModels
 
         private void UpdateUserInformation(UserInfoModel userInfoModel)
         {
-            ActivityLevel = userInfoModel.ActivityLevel;
-            Age = userInfoModel.Age;
-            Gender = userInfoModel.Gender;
-            Height = userInfoModel.Height;
-            Weight = userInfoModel.Weight;
-            IBWBroca = Math.Round(IBWService.CalculateBroca(Height, Gender));
-            IBWDevine = Math.Round(IBWService.CalculateDevine(Height, Gender));
-            IBWHamwi = Math.Round(IBWService.CalculateHamwi(Height, Gender));
-            IBWLemmens =  Math.Round(IBWService.CalculateLemmens(Height));
-            IBWRobinson = Math.Round(IBWService.CalculateRobinson(Height, Gender));
-            IBWMiller = Math.Round(IBWService.CalculateMiller(Height, Gender));
-            var bmiResult = BMIService.Calculate(Weight, Height);
-            BMI = Math.Round(bmiResult.BMIValue, 1);
-            BMIFactor = bmiResult.BMIFactor;
-            BodyFat = Math.Round(BodyFatService.EstimateBodyFatPercentage(BMI, Age, Gender), 2);
-            BMRHarrisBenedict = Math.Round(NutritionService.BMRHarrisBenedict(Weight, Height, Age, Gender));
-            BMRMifflinStJeor = Math.Round(NutritionService.BMRMifflinStJeor(Weight, Height, Age, Gender));
-            CaloriesHarrisBenedict = Math.Round(NutritionService.GetDailyCaloriesEstimation(BMRHarrisBenedict, ActivityLevel));
-            CaloriesMifflinStJeor = Math.Round(NutritionService.GetDailyCaloriesEstimation(BMRMifflinStJeor, ActivityLevel));
-            HarrisBenedictNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesHarrisBenedict));
-            MifflinStJeorNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesMifflinStJeor));
-            DailyWater = Math.Round(UnitConverter.MililitersToLiters(NutritionService.CalculateDailyWaterIntake(Weight)), 1);
-            ReadyToUse = UserSettings.AppReadyToUse;
+            if (UserSettings.AppReadyToUse)
+            {
+                ActivityLevel = userInfoModel.ActivityLevel;
+                Age = userInfoModel.Age;
+                Gender = userInfoModel.Gender;
+                Height = userInfoModel.Height;
+                Weight = userInfoModel.Weight;
+                IBWBroca = Math.Round(IBWService.CalculateBroca(Height, Gender));
+                IBWDevine = Math.Round(IBWService.CalculateDevine(Height, Gender));
+                IBWHamwi = Math.Round(IBWService.CalculateHamwi(Height, Gender));
+                IBWLemmens = Math.Round(IBWService.CalculateLemmens(Height));
+                IBWRobinson = Math.Round(IBWService.CalculateRobinson(Height, Gender));
+                IBWMiller = Math.Round(IBWService.CalculateMiller(Height, Gender));
+                var bmiResult = BMIService.Calculate(Weight, Height);
+                BMI = Math.Round(bmiResult.BMIValue, 1);
+                BMIFactor = bmiResult.BMIFactor;
+                BodyFat = Math.Round(BodyFatService.EstimateBodyFatPercentage(BMI, Age, Gender), 2);
+                BMRHarrisBenedict = Math.Round(NutritionService.BMRHarrisBenedict(Weight, Height, Age, Gender));
+                BMRMifflinStJeor = Math.Round(NutritionService.BMRMifflinStJeor(Weight, Height, Age, Gender));
+                CaloriesHarrisBenedict = Math.Round(NutritionService.GetDailyCaloriesEstimation(BMRHarrisBenedict, ActivityLevel));
+                CaloriesMifflinStJeor = Math.Round(NutritionService.GetDailyCaloriesEstimation(BMRMifflinStJeor, ActivityLevel));
+                HarrisBenedictNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesHarrisBenedict));
+                MifflinStJeorNutrition = NutritionService.CalculateNutritionRecommendation(Convert.ToInt32(CaloriesMifflinStJeor));
+                DailyWater = Math.Round(UnitConverter.MililitersToLiters(NutritionService.CalculateDailyWaterIntake(Weight)), 1);
+                ReadyToUse = UserSettings.AppReadyToUse;
+            }
         }
 
         protected override void OnChildPageAppearing(object sender, EventArgs e)

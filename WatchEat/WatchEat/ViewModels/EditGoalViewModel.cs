@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using WatchEat.Enums;
 using WatchEat.Helpers;
+using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Resources;
 using WatchEat.Services.Interfaces;
@@ -28,7 +29,7 @@ namespace WatchEat.ViewModels
                 var userGoal = new UserGoalModel(GoalType, GoalTimePeriod, GoalPeriod, LoseGainWeight);
                 UserSettings.UpdateUserGoals(userGoal);
                 MessagingCenter.Send(this, CommandNames.UserGoalUpdated, userGoal);
-                await Navigation.PopModalAsync();
+                await Navigation.PopModalToRootAsync();
             }
             else
             {
