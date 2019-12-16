@@ -6,6 +6,7 @@ using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
@@ -16,6 +17,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             SelectedDate = dateTime.AppendCurrentTime();            
             Foods = new ObservableCollection<FoodEntry>();
+            Title = AppResource.SelectFood;
         }
 
         DateTime _date;
@@ -52,11 +54,9 @@ namespace WatchEat.ViewModels.EventSelection
 
         public async override Task InitializeAsync(INavigation navigation)
         {
-            foreach (var product in await DataStore.FoodEntries.Get())
-            {
-                Foods.Add(product);
-            }
             await base.InitializeAsync(navigation);
+            Foods.Clear();
+            Foods.AddRange(await DataStore.FoodEntries.Get());
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Margin="2" x:Name="ControlRef" Padding="0"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:converters="clr-namespace:WatchEat.Converters"
              x:Class="WatchEat.Controls.CaloriesInfo">
     <ContentView.Resources>
@@ -23,15 +24,15 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />                    
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small" Text="Calories" />
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Small" Text="{markup:Translate Calories}" />
 
-                <Label Text="Consumed" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Text="{markup:Translate Consumed}" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
                 <Label Margin="0,0,0,3" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Consumed, Converter={StaticResource ValueToStringConverter}}"/>
 
-                <Label Text="Recommended" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Text="{markup:Translate Recommended}" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
                 <Label Margin="0,0,0,3" Grid.Column="1" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Recommended, Converter={StaticResource ValueToStringConverter}}"/>
 
-                <Label Text="Burned" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
+                <Label Text="{markup:Translate Burned}" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" />
                 <Label Margin="0,0,0,3" Grid.Column="2" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Small" BindingContext="{x:Reference ControlRef}" Text="{Binding Burned, Converter={StaticResource ValueToStringConverter}}"/>
             </Grid>
         </Frame>

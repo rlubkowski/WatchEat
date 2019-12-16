@@ -3,6 +3,7 @@ using System.Windows.Input;
 using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
+using WatchEat.Resources;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
@@ -11,7 +12,7 @@ namespace WatchEat.ViewModels.EventSelection
     {
         public WeightViewModel(DateTime dateTime)
         {
-            Title = "New Weight Entry";            
+            Title = AppResource.WeightEntry;            
             SelectedDate = dateTime.AppendCurrentTime();            
         }
 

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using WatchEat.Controls;
 using WatchEat.Helpers;
+using WatchEat.Resources;
 using WatchEat.Views.EventSelection;
 
 namespace WatchEat.ViewModels.EventSelection
@@ -13,6 +14,7 @@ namespace WatchEat.ViewModels.EventSelection
             SelectedDay = selectedDay;
             SubscribeCallback = subscribeCallback;
             UnsubscribeCallback = unsubscribeCallback;
+            Title = AppResource.SelectEvent;
         }
 
         private Action SubscribeCallback { get; set; }

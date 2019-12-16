@@ -97,6 +97,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to (BMR) Basal Metabolic Rate [cal].
         /// </summary>
         internal static string BasalMetabolicRate {
@@ -142,6 +151,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Burned.
+        /// </summary>
+        internal static string Burned {
+            get {
+                return ResourceManager.GetString("Burned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calories.
         /// </summary>
         internal static string Calories {
@@ -174,6 +192,15 @@ namespace WatchEat.Resources {
         internal static string ConfirmRemove {
             get {
                 return ResourceManager.GetString("ConfirmRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consumed.
+        /// </summary>
+        internal static string Consumed {
+            get {
+                return ResourceManager.GetString("Consumed", resourceCulture);
             }
         }
         
@@ -318,6 +345,15 @@ namespace WatchEat.Resources {
         internal static string Fiber {
             get {
                 return ResourceManager.GetString("Fiber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Food.
+        /// </summary>
+        internal static string Food {
+            get {
+                return ResourceManager.GetString("Food", resourceCulture);
             }
         }
         
@@ -655,6 +691,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recommended.
+        /// </summary>
+        internal static string Recommended {
+            get {
+                return ResourceManager.GetString("Recommended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         internal static string Remove {
@@ -691,6 +736,33 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Activity.
+        /// </summary>
+        internal static string SelectActivity {
+            get {
+                return ResourceManager.GetString("SelectActivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Event.
+        /// </summary>
+        internal static string SelectEvent {
+            get {
+                return ResourceManager.GetString("SelectEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Food.
+        /// </summary>
+        internal static string SelectFood {
+            get {
+                return ResourceManager.GetString("SelectFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Severely obese.
         /// </summary>
         internal static string SeverelyObese {
@@ -714,6 +786,24 @@ namespace WatchEat.Resources {
         internal static string Statistics {
             get {
                 return ResourceManager.GetString("Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string Time {
+            get {
+                return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training.
+        /// </summary>
+        internal static string Training {
+            get {
+                return ResourceManager.GetString("Training", resourceCulture);
             }
         }
         
@@ -817,11 +907,38 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Water.
+        /// </summary>
+        internal static string Water {
+            get {
+                return ResourceManager.GetString("Water", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Water Entry.
+        /// </summary>
+        internal static string WaterEntry {
+            get {
+                return ResourceManager.GetString("WaterEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weight.
         /// </summary>
         internal static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight Entry.
+        /// </summary>
+        internal static string WeightEntry {
+            get {
+                return ResourceManager.GetString("WeightEntry", resourceCulture);
             }
         }
         

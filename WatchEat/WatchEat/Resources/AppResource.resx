@@ -129,6 +129,9 @@
   <data name="Age" xml:space="preserve">
     <value>Age</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="BasalMetabolicRate" xml:space="preserve">
     <value>(BMR) Basal Metabolic Rate [cal]</value>
   </data>
@@ -144,6 +147,9 @@
   <data name="BodyMassIndex" xml:space="preserve">
     <value>(BMI) Body Mass Index</value>
   </data>
+  <data name="Burned" xml:space="preserve">
+    <value>Burned</value>
+  </data>
   <data name="Calories" xml:space="preserve">
     <value>Calories</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="ConfirmRemove" xml:space="preserve">
     <value>Confirm remove</value>
+  </data>
+  <data name="Consumed" xml:space="preserve">
+    <value>Consumed</value>
   </data>
   <data name="DailyCaloriesRecommendation" xml:space="preserve">
     <value>Daily Calories Recommendation [cal]</value>
@@ -203,6 +212,9 @@
   </data>
   <data name="Fiber" xml:space="preserve">
     <value>Fiber</value>
+  </data>
+  <data name="Food" xml:space="preserve">
+    <value>Food</value>
   </data>
   <data name="Foods" xml:space="preserve">
     <value>Foods</value>
@@ -315,6 +327,9 @@
   <data name="RangeGrams" xml:space="preserve">
     <value>Grams:</value>
   </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>
@@ -327,6 +342,15 @@
   <data name="Sedentary" xml:space="preserve">
     <value>Sedentary</value>
   </data>
+  <data name="SelectActivity" xml:space="preserve">
+    <value>Select Activity</value>
+  </data>
+  <data name="SelectEvent" xml:space="preserve">
+    <value>Select Event</value>
+  </data>
+  <data name="SelectFood" xml:space="preserve">
+    <value>Select Food</value>
+  </data>
   <data name="SeverelyObese" xml:space="preserve">
     <value>Severely obese</value>
   </data>
@@ -335,6 +359,12 @@
   </data>
   <data name="Statistics" xml:space="preserve">
     <value>Statistics</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Training</value>
   </data>
   <data name="Underfat" xml:space="preserve">
     <value>Underfat</value>
@@ -369,8 +399,17 @@
   <data name="VerySeverelyUnderweight" xml:space="preserve">
     <value>Very severely underweight</value>
   </data>
+  <data name="Water" xml:space="preserve">
+    <value>Water</value>
+  </data>
+  <data name="WaterEntry" xml:space="preserve">
+    <value>Water Entry</value>
+  </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
+  </data>
+  <data name="WeightEntry" xml:space="preserve">
+    <value>Weight Entry</value>
   </data>
   <data name="WeightKg" xml:space="preserve">
     <value>Weight [kg]</value>

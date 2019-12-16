@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Controls;
 using WatchEat.Helpers;
+using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models.Database;
 using WatchEat.Resources;
 using WatchEat.Views.Activity;
@@ -60,10 +61,7 @@ namespace WatchEat.ViewModels.Activity
         {
             await base.InitializeAsync(navigation);
             Activities.Clear();
-            foreach (var activity in await DataStore.ActivityEntries.Get())
-            {
-                Activities.Add(activity);
-            }
+            Activities.AddRange(await DataStore.ActivityEntries.Get());
         }
     }
 }

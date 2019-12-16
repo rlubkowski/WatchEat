@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Adapters;
@@ -9,6 +8,7 @@ using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 using WatchEat.ViewModels.EventSelection;
 using WatchEat.Views.EventSelection;
 using Xamarin.Forms;
@@ -20,7 +20,11 @@ namespace WatchEat.ViewModels
         public JournalViewModel()
         {
             SelectedDay = DateTime.Today;
-            Entries = new ObservableCollection<JournalEntry>();
+            Entries = new SortableObservableCollection<JournalEntry>() 
+            { 
+                SortingSelector = x => x.Date, 
+                Descending = true 
+            };
             Entries.CollectionChanged += OnEntriesChanged;
         }
 
@@ -90,7 +94,7 @@ namespace WatchEat.ViewModels
 
         public ICommand RemoveEntry => new AsyncCommand(async (entry) =>
         {
-            if (await DialogService.DisplayAlert("Confirm Remove", "Do you want to remove selected product?", "Yes", "No"))
+            if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
             {
                 var journalEntry = entry as JournalEntry;
                 Entries.Remove(journalEntry);
@@ -143,8 +147,8 @@ namespace WatchEat.ViewModels
             set => SetProperty(ref _selectedDay, value);
         }
 
-        private ObservableCollection<JournalEntry> _entries;
-        public ObservableCollection<JournalEntry> Entries
+        private SortableObservableCollection<JournalEntry> _entries;
+        public SortableObservableCollection<JournalEntry> Entries
         {
             get => _entries;
             set => SetProperty(ref _entries, value);
