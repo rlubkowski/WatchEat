@@ -21,7 +21,7 @@ namespace WatchEat.Models
             return new JournalEntry
             {
                 Amount = Amount,
-                Name = "Water Enrty",
+                Name = string.Empty,
                 EntryType = Enums.JournalEntryType.Water,
                 Date = Date
             };

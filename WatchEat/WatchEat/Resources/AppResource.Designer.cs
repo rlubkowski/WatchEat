@@ -88,6 +88,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Age.
         /// </summary>
         internal static string Age {
@@ -282,6 +291,15 @@ namespace WatchEat.Resources {
         internal static string EditActivity {
             get {
                 return ResourceManager.GetString("EditActivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Entry.
+        /// </summary>
+        internal static string EditEntry {
+            get {
+                return ResourceManager.GetString("EditEntry", resourceCulture);
             }
         }
         
@@ -880,6 +898,24 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Water amount cannot be negative or zero!.
+        /// </summary>
+        internal static string ValidationWaterAmount {
+            get {
+                return ResourceManager.GetString("ValidationWaterAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight cannot be negative or zero!.
+        /// </summary>
+        internal static string ValidationWeight {
+            get {
+                return ResourceManager.GetString("ValidationWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Very active.
         /// </summary>
         internal static string VeryActive {
@@ -916,6 +952,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Water Amout [ml].
+        /// </summary>
+        internal static string WaterAmount {
+            get {
+                return ResourceManager.GetString("WaterAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Water Entry.
         /// </summary>
         internal static string WaterEntry {
@@ -939,6 +984,15 @@ namespace WatchEat.Resources {
         internal static string WeightEntry {
             get {
                 return ResourceManager.GetString("WeightEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight Entry [kg].
+        /// </summary>
+        internal static string WeightEntryKg {
+            get {
+                return ResourceManager.GetString("WeightEntryKg", resourceCulture);
             }
         }
         

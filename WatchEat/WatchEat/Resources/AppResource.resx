@@ -126,6 +126,9 @@
   <data name="ActivityLevel" xml:space="preserve">
     <value>Activity level</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="Age" xml:space="preserve">
     <value>Age</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="EditActivity" xml:space="preserve">
     <value>Edit Activity</value>
+  </data>
+  <data name="EditEntry" xml:space="preserve">
+    <value>Edit Entry</value>
   </data>
   <data name="EditFood" xml:space="preserve">
     <value>Edit Food</value>
@@ -390,6 +396,12 @@
   <data name="ValidationValuesIncorrect" xml:space="preserve">
     <value>Some of the values are incorrect, please correct them!</value>
   </data>
+  <data name="ValidationWaterAmount" xml:space="preserve">
+    <value>Water amount cannot be negative or zero!</value>
+  </data>
+  <data name="ValidationWeight" xml:space="preserve">
+    <value>Weight cannot be negative or zero!</value>
+  </data>
   <data name="VeryActive" xml:space="preserve">
     <value>Very active</value>
   </data>
@@ -402,6 +414,9 @@
   <data name="Water" xml:space="preserve">
     <value>Water</value>
   </data>
+  <data name="WaterAmount" xml:space="preserve">
+    <value>Water Amout [ml]</value>
+  </data>
   <data name="WaterEntry" xml:space="preserve">
     <value>Water Entry</value>
   </data>
@@ -410,6 +425,9 @@
   </data>
   <data name="WeightEntry" xml:space="preserve">
     <value>Weight Entry</value>
+  </data>
+  <data name="WeightEntryKg" xml:space="preserve">
+    <value>Weight Entry [kg]</value>
   </data>
   <data name="WeightKg" xml:space="preserve">
     <value>Weight [kg]</value>

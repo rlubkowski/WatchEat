@@ -41,10 +41,24 @@ namespace WatchEat.ViewModels.EventSelection
             set { SetProperty(ref _weight, value); }
         }
 
+        bool _isWeightValid = default(bool);
+        public bool IsWeightValid
+        {
+            get => _isWeightValid;
+            set { SetProperty(ref _isWeightValid, value); }
+        }
+
         public ICommand Add => new AsyncCommand(async () =>
         {
-            MessagingCenter.Send(this, CommandNames.AddWeightEntry, new WeightEntryModel(Weight, SelectedDate));
-            await Navigation.PopModalToRootAsync();
+            if (IsWeightValid)
+            {
+                MessagingCenter.Send(this, CommandNames.AddWeightEntry, new WeightEntryModel(Weight, SelectedDate));
+                await Navigation.PopModalToRootAsync();
+            }
+            else
+            {
+                await DialogService.DisplayAlert(AppResource.Validation, AppResource.ValidationWeight, AppResource.Cancel);
+            }
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>

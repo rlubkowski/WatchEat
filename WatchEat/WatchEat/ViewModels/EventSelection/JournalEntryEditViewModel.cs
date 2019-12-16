@@ -2,6 +2,7 @@
 using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
+using WatchEat.Resources;
 
 namespace WatchEat.ViewModels.EventSelection
 {
@@ -10,6 +11,7 @@ namespace WatchEat.ViewModels.EventSelection
         public JournalEntryEditViewModel(JournalEntry entry)
         {
             Entry = entry;
+            Title = AppResource.EditEntry;
         }
 
         public JournalEntry Entry { get; private set; }
@@ -23,6 +25,8 @@ namespace WatchEat.ViewModels.EventSelection
         public bool WaterVisible => Entry != null && Entry.EntryType == JournalEntryType.Water;
 
         public bool CaloriesVisible => Entry != null && (Entry.EntryType == JournalEntryType.Food || Entry.EntryType == JournalEntryType.Activity);
+
+        public bool NameVisible => CaloriesVisible;
         
         public ICommand Save => new AsyncCommand(async () =>
         {
@@ -35,6 +39,11 @@ namespace WatchEat.ViewModels.EventSelection
             //    MessagingCenter.Send(this, CommandNames.AddFood, Food);
             //}
 
+            await Navigation.PopModalAsync();
+        });
+
+        public ICommand Remove => new AsyncCommand(async () =>
+        {
             await Navigation.PopModalAsync();
         });
 

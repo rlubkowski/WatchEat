@@ -3,42 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:locale="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             mc:Ignorable="d" Title="{Binding Title}"
+             xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:controls="clr-namespace:WatchEat.Controls"
              x:Class="WatchEat.Views.EventSelection.JournalEntryEditPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{locale:Translate Cancel}"  Command="{Binding Cancel}" />
-        <ToolbarItem  Text="{locale:Translate Save}"  Command="{Binding Save}" />
+        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
+        <ToolbarItem  Text="{markup:Translate Remove}"  Command="{Binding Remove}" />
+        <ToolbarItem  Text="{markup:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
-                <Label Text="{locale:Translate Name}" FontSize="Medium" />
-                <Entry Text="{Binding Path=Entry.Name}" FontSize="Small" />
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">                    
+                    <StackLayout>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding NameVisible}" Text="{markup:Translate Name}" FontSize="Medium" />
+                        <Entry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding NameVisible}" Text="{Binding Path=Entry.Name}" FontSize="Small" />
 
-                <Label Text="Time" FontSize="Medium"/>
-                <TimePicker Time="{Binding Path=Entry.Time}" />
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Time}" FontSize="Medium"/>
+                        <TimePicker TextColor="{StaticResource CustomBlack}" Time="{Binding Path=Entry.Time}" />
 
-                <Label IsVisible="{Binding CaloriesVisible}" Text="{locale:Translate Calories}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding CaloriesVisible}" NumericValue="{Binding Path=Entry.Calories}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding CaloriesVisible}" Text="{markup:Translate Calories}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding CaloriesVisible}" NumericValue="{Binding Path=Entry.Calories}" FontSize="Small"/>
 
-                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Carbs}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Carbs}" FontSize="Small"/>
-                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Protein}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Protein}" FontSize="Small"/>
-                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Fat}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fat}" FontSize="Small"/>
-                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Fiber}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fiber}" FontSize="Small"/>
-                <Label IsVisible="{Binding FoodVisible}" Text="{locale:Translate Salt}" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Salt}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Carbs}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Carbs}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Protein}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Protein}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Fat}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fat}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Fiber}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fiber}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Salt}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Salt}" FontSize="Small"/>
 
-                <Label IsVisible="{Binding WeightVisible}" Text="Weight" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding WeightVisible}" NumericValue="{Binding Weight}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WeightVisible}" Text="{markup:Translate Weight}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WeightVisible}" NumericValue="{Binding Path=Entry.Weight}" FontSize="Small"/>
 
-                <Label IsVisible="{Binding WaterVisible}" Text="Water Amount" FontSize="Medium" />
-                <controls:NumericEntry IsVisible="{Binding WaterVisible}" NumericValue="{Binding Amount}" FontSize="Small"/>
+                        <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WaterVisible}" Text="{markup:Translate WaterAmount}" FontSize="Medium" />
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WaterVisible}" NumericValue="{Binding Path=Entry.Amount}" FontSize="Small"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

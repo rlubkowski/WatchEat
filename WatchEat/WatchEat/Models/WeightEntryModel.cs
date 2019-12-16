@@ -20,7 +20,7 @@ namespace WatchEat.Models
         {
             return new JournalEntry
             {
-                Name = "Weight entry",
+                Name = string.Empty,
                 Weight = Weight,
                 EntryType = Enums.JournalEntryType.Weight,
                 Date = Date

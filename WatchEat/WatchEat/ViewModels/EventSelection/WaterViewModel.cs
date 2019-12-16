@@ -11,8 +11,8 @@ namespace WatchEat.ViewModels.EventSelection
     public class WaterViewModel : BaseViewModel
     {
         public WaterViewModel(DateTime dateTime)
-        {   
-            Title = AppResource.WaterEntry;            
+        {
+            Title = AppResource.WaterEntry;
             SelectedDate = dateTime.AppendCurrentTime();
         }
 
@@ -41,10 +41,24 @@ namespace WatchEat.ViewModels.EventSelection
             set { SetProperty(ref _amount, value); }
         }
 
+        bool _isWaterValid = default(bool);
+        public bool IsWaterValid
+        {
+            get => _isWaterValid;
+            set { SetProperty(ref _isWaterValid, value); }
+        }
+
         public ICommand Add => new AsyncCommand(async () =>
         {
-            MessagingCenter.Send(this, CommandNames.AddWaterEntry, new WaterEntryModel(Amount, SelectedDate));
-            await Navigation.PopModalToRootAsync();
+            if (IsWaterValid)
+            {
+                MessagingCenter.Send(this, CommandNames.AddWaterEntry, new WaterEntryModel(Amount, SelectedDate));
+                await Navigation.PopModalToRootAsync();
+            }
+            else
+            {
+                await DialogService.DisplayAlert(AppResource.Validation, AppResource.ValidationWaterAmount, AppResource.Cancel);
+            }
         });
 
         public ICommand Cancel => new AsyncCommand(async () =>
