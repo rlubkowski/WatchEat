@@ -22,7 +22,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}">
+                <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">
                     <StackLayout>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate UserInformation}" FontAttributes="Bold" FontSize="Medium" />
                         <StackLayout Orientation="Vertical">

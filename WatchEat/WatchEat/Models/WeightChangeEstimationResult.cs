@@ -2,8 +2,9 @@
 {
     public class WeightChangeEstimationResult
     {
-        public WeightChangeEstimationResult()
+        public WeightChangeEstimationResult(int maintainCalories)
         {
+            MaintainCalories = maintainCalories;
             IsSafe = false;
         }
 

@@ -13,7 +13,7 @@ namespace WatchEat.Services.Interfaces
 
         decimal BMRMifflinStJeor(decimal weight, decimal height, int age, Gender gender, bool imperialUnits = false);
 
-        WeightChangeEstimationResult CalculateWeightChangeEstimation(int age, decimal height, decimal weight, Gender gender, ActivityLevel activityFactor, GoalTimePeriod timePeriod, int periodNumber, GoalType goalType, decimal weightToLoose, bool imperialUnits = false);
+        WeightChangeEstimationResult CalculateWeightChangeEstimation(int age, decimal height, decimal weight, Gender gender, ActivityLevel activityLevel, GoalTimePeriod timePeriod, int periodNumber, GoalType goalType, decimal weightToLoose, bool imperialUnits = false);
 
         decimal CalculateDailyWaterIntake(decimal weight, bool imperialUnits = false);
     }

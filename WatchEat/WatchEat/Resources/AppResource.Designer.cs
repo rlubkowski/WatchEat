@@ -178,6 +178,33 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calories to maintain weight:.
+        /// </summary>
+        internal static string DailyCaloriesToMaintainWeight {
+            get {
+                return ResourceManager.GetString("DailyCaloriesToMaintainWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calories to maintain weight after reaching goal:.
+        /// </summary>
+        internal static string DailyCaloriesToMaintainWeightAfterReaching {
+            get {
+                return ResourceManager.GetString("DailyCaloriesToMaintainWeightAfterReaching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calories to reach goal:.
+        /// </summary>
+        internal static string DailyCaloriesToReachGoal {
+            get {
+                return ResourceManager.GetString("DailyCaloriesToReachGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily Nutrition Recommendation.
         /// </summary>
         internal static string DailyNutritionRecommendation {
@@ -291,6 +318,15 @@ namespace WatchEat.Resources {
         internal static string Goal {
             get {
                 return ResourceManager.GetString("Goal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected goal is not safe to achieve, reevaluate it..
+        /// </summary>
+        internal static string GoalNotSafe {
+            get {
+                return ResourceManager.GetString("GoalNotSafe", resourceCulture);
             }
         }
         

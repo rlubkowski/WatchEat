@@ -156,6 +156,15 @@
   <data name="DailyCaloriesRecommendation" xml:space="preserve">
     <value>Daily Calories Recommendation [cal]</value>
   </data>
+  <data name="DailyCaloriesToMaintainWeight" xml:space="preserve">
+    <value>Calories to maintain weight:</value>
+  </data>
+  <data name="DailyCaloriesToMaintainWeightAfterReaching" xml:space="preserve">
+    <value>Calories to maintain weight after reaching goal:</value>
+  </data>
+  <data name="DailyCaloriesToReachGoal" xml:space="preserve">
+    <value>Calories to reach goal:</value>
+  </data>
   <data name="DailyNutritionRecommendation" xml:space="preserve">
     <value>Daily Nutrition Recommendation</value>
   </data>
@@ -194,6 +203,9 @@
   </data>
   <data name="Goal" xml:space="preserve">
     <value>Goal</value>
+  </data>
+  <data name="GoalNotSafe" xml:space="preserve">
+    <value>Selected goal is not safe to achieve, reevaluate it.</value>
   </data>
   <data name="Healthy" xml:space="preserve">
     <value>Healthy</value>

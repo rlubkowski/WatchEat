@@ -129,7 +129,7 @@ namespace WatchEat.Services
 
             if (dailyCaloriesChange > 3500m)
             {
-                return new WeightChangeEstimationResult();
+                return new WeightChangeEstimationResult(Convert.ToInt32(dailyCalorieNeed));
             }
 
             if (goalType == GoalType.Lose)
@@ -150,7 +150,7 @@ namespace WatchEat.Services
             {
                 return new WeightChangeEstimationResult(Convert.ToInt32(dailyCalorieNeed), Convert.ToInt32(dailyCalorieNeed));
             }
-            return new WeightChangeEstimationResult();
+            return new WeightChangeEstimationResult(Convert.ToInt32(dailyCalorieNeed));
         }
 
         private decimal CalculateFemaleHarrisBenedict(decimal weight, decimal height, int age, bool imperialUnits)

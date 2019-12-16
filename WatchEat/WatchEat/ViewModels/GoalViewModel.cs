@@ -57,6 +57,27 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _readyToUse, value); }
         }
 
+        bool _isSafe = false;
+        public bool IsSafe
+        {
+            get => _isSafe;
+            set { SetProperty(ref _isSafe, value); }
+        }
+
+        int _caloriesToMaintain = 0;
+        public int CaloriesToMaintain
+        {
+            get => _caloriesToMaintain;
+            set { SetProperty(ref _caloriesToMaintain, value); }
+        }
+
+        int _caloriesToReach = 0;
+        public int CaloriesToReach
+        {
+            get => _caloriesToReach;
+            set { SetProperty(ref _caloriesToReach, value); }
+        }
+
         public ICommand Update => new AsyncCommand(async () =>
         {
             var page = new StyledNavigationPage(new EditGoalPage());
@@ -70,6 +91,13 @@ namespace WatchEat.ViewModels
             GoalTimePeriod = userGoalModel.GoalTimePeriod;
             GoalPeriod = userGoalModel.GoalPeriod;
             LoseGainWeight = userGoalModel.LoseGainWeight;
+            ReadyToUse = UserSettings.AppReadyToUse;
+            var userInfo = UserSettings.GetUserInformation();
+            var estimations = NutritionService.CalculateWeightChangeEstimation(userInfo.Age, userInfo.Height, userInfo.Weight, userInfo.Gender, 
+                                                                               userInfo.ActivityLevel, GoalTimePeriod, GoalPeriod, GoalType, LoseGainWeight);
+            IsSafe = estimations.IsSafe;
+            CaloriesToMaintain = estimations.MaintainCalories;
+            CaloriesToReach = estimations.ReachCalories;
             ReadyToUse = UserSettings.AppReadyToUse;
         }
 

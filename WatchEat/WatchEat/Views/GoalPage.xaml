@@ -12,6 +12,7 @@
         <ResourceDictionary>
             <converters:EnumToTranslateStringConverter x:Key="EnumToTranslateStringConverter" />
             <converters:GoalTypeToVisibilityConverter x:Key="GoalTypeToVisibilityConverter" />
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
             <x:Boolean x:Key="BoolTrue">true</x:Boolean>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -21,7 +22,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
-                <Frame HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                <Frame IsVisible="{Binding ReadyToUse, Converter={StaticResource NegateBooleanConverter}}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <Label TextColor="{StaticResource CustomBlack}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" Text="{markup:Translate PleaseUpdateBeforeUse}" />
+                </Frame>
+                <Frame VerticalOptions="Center" IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
                     <StackLayout>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate YourGoal}" FontAttributes="Bold" FontSize="Medium" />
                         <StackLayout Orientation="Horizontal">
@@ -35,6 +39,41 @@
                             <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate InThePeriodOf}" FontSize="Medium" />
                             <Label TextColor="{StaticResource CustomBlack}" Text="{Binding GoalPeriod}" FontSize="Medium" />
                             <Label TextColor="{StaticResource CustomBlack}" Text="{Binding GoalTimePeriod, Converter={StaticResource EnumToTranslateStringConverter}}" FontSize="Medium" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame VerticalOptions="Center" IsVisible="{Binding ReadyToUse}" HasShadow="True" Style="{StaticResource BackgroundFrame}" Margin="5">
+                    <StackLayout>
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate DailyCaloriesRecommendation}" FontAttributes="Bold" FontSize="Medium" />
+                        <StackLayout IsVisible="{Binding IsSafe, Converter={StaticResource NegateBooleanConverter}}">
+                            <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate GoalNotSafe}" FontSize="Medium" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate DailyCaloriesToMaintainWeight}" FontSize="Medium" Grid.Column="0" />
+                                <Label TextColor="{StaticResource CustomBlack}" VerticalOptions="End" Text="{Binding CaloriesToMaintain}" FontAttributes="Bold" FontSize="Medium" Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding IsSafe}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate DailyCaloriesToReachGoal}" FontSize="Medium" Grid.Column="0" />
+                                <Label TextColor="{StaticResource CustomBlack}" VerticalOptions="End" Text="{Binding CaloriesToReach}" FontAttributes="Bold" FontSize="Medium" Grid.Column="1" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate DailyCaloriesToMaintainWeightAfterReaching}" FontSize="Medium" Grid.Column="0" />
+                                <Label TextColor="{StaticResource CustomBlack}" VerticalOptions="End" Text="{Binding CaloriesToMaintain}" FontAttributes="Bold" FontSize="Medium" Grid.Column="1" />
+                            </Grid>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
