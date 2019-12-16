@@ -2,12 +2,10 @@
 {
     public static class CommandNames
     {
-        public const string AddFood = nameof(AddFood);
-        public const string EditFood = nameof(EditFood);
+        public const string AddFood = nameof(AddFood);        
         public const string RemoveFood = nameof(RemoveFood);
 
-        public const string AddActivity = nameof(AddActivity);
-        public const string EditActivity = nameof(EditActivity);
+        public const string AddActivity = nameof(AddActivity);        
         public const string RemoveActivity = nameof(RemoveActivity);
 
         public const string AddWaterEntry = nameof(AddWaterEntry);

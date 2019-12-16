@@ -772,6 +772,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name and calories cannot be empty or zero!.
+        /// </summary>
+        internal static string ValidationNameCalories {
+            get {
+                return ResourceManager.GetString("ValidationNameCalories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Some of the values are incorrect, please correct them!.
         /// </summary>
         internal static string ValidationValuesIncorrect {

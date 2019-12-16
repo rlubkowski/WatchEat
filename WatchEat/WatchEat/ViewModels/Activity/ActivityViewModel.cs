@@ -31,14 +31,40 @@ namespace WatchEat.ViewModels.Activity
 
         public bool IsEditView { get; private set; }
 
+        bool _isNameValid;
+        public bool IsNameValid
+        {
+            get => _isNameValid;
+            set { SetProperty(ref _isNameValid, value); }
+        }
+
+        bool _isCaloriesValid;
+        public bool IsCaloriesValid
+        {
+            get => _isCaloriesValid;
+            set { SetProperty(ref _isCaloriesValid, value); }
+        }
+
+        public bool IsValid
+        {
+            get => IsCaloriesValid && IsNameValid;
+        }
+
         public ICommand Save => new AsyncCommand(async () =>
         {
+            if (!IsValid)
+            {
+                await DialogService.DisplayAlert(AppResource.Validation, AppResource.ValidationNameCalories, AppResource.Cancel);
+                return;
+            }
+
             if (IsEditView)
             {
-                MessagingCenter.Send(this, CommandNames.EditActivity, Activity);
+                await DataStore.ActivityEntries.Update(Activity);
             }
             else
             {
+                await DataStore.ActivityEntries.Insert(Activity);
                 MessagingCenter.Send(this, CommandNames.AddActivity, Activity);
             }
             await Navigation.PopModalAsync();
@@ -53,6 +79,7 @@ namespace WatchEat.ViewModels.Activity
         {
             if (await DialogService.DisplayAlert(AppResource.ConfirmRemove, AppResource.DoYouWantToRemoveSelectedItem, AppResource.Yes, AppResource.No))
             {
+                await DataStore.ActivityEntries.Delete(Activity);
                 MessagingCenter.Send(this, CommandNames.RemoveActivity, Activity);
             }
             await Navigation.PopModalAsync();

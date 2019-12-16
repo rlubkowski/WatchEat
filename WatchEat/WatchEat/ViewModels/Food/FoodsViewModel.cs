@@ -38,28 +38,20 @@ namespace WatchEat.ViewModels.Food
 
         protected override void OnChildPageAppearing(object sender, EventArgs e)
         {
-            MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood, async (obj, item) =>
+            MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood, (obj, item) =>
             {
                 Foods.Add(item);
-                await DataStore.FoodEntries.Insert(item);
             });
 
-            MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.EditFood, async (obj, item) =>
-            {
-                await DataStore.FoodEntries.Update(item);
-            });
-
-            MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.RemoveFood, async (obj, item) =>
+            MessagingCenter.Subscribe<FoodViewModel, FoodEntry>(this, CommandNames.RemoveFood, (obj, item) =>
             {
                 Foods.Remove(item);
-                await DataStore.FoodEntries.Delete(item);
             });
         }
 
         protected override void OnChildPageDisappearing(object sender, EventArgs e)
         {
-            MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood);
-            MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.EditFood);
+            MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.AddFood);            
             MessagingCenter.Unsubscribe<FoodViewModel, FoodEntry>(this, CommandNames.RemoveFood);
             base.OnChildPageDisappearing(sender, e);
         }

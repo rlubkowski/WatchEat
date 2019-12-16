@@ -29,7 +29,7 @@ namespace WatchEat.Views.Activity
                 var toolbarItem = new ToolbarItem();
                 toolbarItem.Text = AppResource.Remove;
                 toolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding(nameof(ActivityViewModel.Remove)));
-                PageRef.ToolbarItems.Add(toolbarItem);
+                PageReference.ToolbarItems.Add(toolbarItem);
             }
             else
             {

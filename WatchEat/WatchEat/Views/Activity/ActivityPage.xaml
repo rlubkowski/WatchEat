@@ -3,23 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" x:Name="PageRef"
+             mc:Ignorable="d" x:Name="PageReference"
              xmlns:controls="clr-namespace:WatchEat.Controls"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
+             xmlns:validation="clr-namespace:WatchEat.Behaviors.Validation"
              x:Class="WatchEat.Views.Activity.ActivityPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
-        <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}" />
+        <ToolbarItem Text="{markup:Translate Cancel}" Command="{Binding Cancel}" />
+        <ToolbarItem Text="{markup:Translate Save}" Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
                 <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">
                     <StackLayout>
-                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Name}" FontSize="Medium" />
-                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Path=Activity.Name}" FontSize="Small" />
+                        <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Name}" FontSize="Medium"/>
+                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Path=Activity.Name}" FontSize="Small" >
+                            <Entry.Behaviors>
+                                <validation:EntryNotEmptyValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsNameValid, Mode=OneWayToSource}" />
+                            </Entry.Behaviors>
+                        </Entry>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Calories}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Activity.Calories}" FontSize="Small"/>
+                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Activity.Calories}" FontSize="Small">
+                            <controls:NumericEntry.Behaviors>
+                                <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsCaloriesValid, Mode=OneWayToSource}" />
+                            </controls:NumericEntry.Behaviors>
+                        </controls:NumericEntry>
                     </StackLayout>
                 </Frame>
             </StackLayout>

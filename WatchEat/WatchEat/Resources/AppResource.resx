@@ -354,6 +354,9 @@
   <data name="Validation" xml:space="preserve">
     <value>Validation</value>
   </data>
+  <data name="ValidationNameCalories" xml:space="preserve">
+    <value>Name and calories cannot be empty or zero!</value>
+  </data>
   <data name="ValidationValuesIncorrect" xml:space="preserve">
     <value>Some of the values are incorrect, please correct them!</value>
   </data>

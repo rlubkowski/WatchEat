@@ -38,29 +38,21 @@ namespace WatchEat.ViewModels.Activity
 
         protected override void OnChildPageDisappearing(object sender, EventArgs e)
         {
-            MessagingCenter.Unsubscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.AddActivity);
-            MessagingCenter.Unsubscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.EditActivity);
+            MessagingCenter.Unsubscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.AddActivity);            
             MessagingCenter.Unsubscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.RemoveActivity);
             base.OnChildPageDisappearing(sender, e);
         }
 
         protected override void OnChildPageAppearing(object sender, EventArgs e)
         {
-            MessagingCenter.Subscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.AddActivity, async (obj, item) =>
+            MessagingCenter.Subscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.AddActivity, (obj, item) =>
             {
                 Activities.Add(item);
-                await DataStore.ActivityEntries.Insert(item);
             });
 
-            MessagingCenter.Subscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.EditActivity, async (obj, item) =>
+            MessagingCenter.Subscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.RemoveActivity, (obj, item) =>
             {
-                await DataStore.ActivityEntries.Update(item);
-            });
-
-            MessagingCenter.Subscribe<ActivityViewModel, ActivityEntry>(this, CommandNames.RemoveActivity, async (obj, item) =>
-            {
-                Activities.Remove(item);
-                await DataStore.ActivityEntries.Delete(item);
+                Activities.Remove(item);                
             });
         }
 
