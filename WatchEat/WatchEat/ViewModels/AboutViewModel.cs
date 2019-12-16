@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-
+using WatchEat.Resources;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
@@ -9,11 +9,11 @@ namespace WatchEat.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = AppResource.About;
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            ContactMe = new Command(() => Device.OpenUri(new Uri($"mailto:roman@lubkowski.net")));
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand ContactMe { get; }
     }
 }

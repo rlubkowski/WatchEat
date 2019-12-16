@@ -169,6 +169,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Burned Calories.
+        /// </summary>
+        internal static string BurnedCalories {
+            get {
+                return ResourceManager.GetString("BurnedCalories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calories.
         /// </summary>
         internal static string Calories {
@@ -210,6 +219,24 @@ namespace WatchEat.Resources {
         internal static string Consumed {
             get {
                 return ResourceManager.GetString("Consumed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consumed Calories.
+        /// </summary>
+        internal static string ConsumedCalories {
+            get {
+                return ResourceManager.GetString("ConsumedCalories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact Author.
+        /// </summary>
+        internal static string ContactAuthor {
+            get {
+                return ResourceManager.GetString("ContactAuthor", resourceCulture);
             }
         }
         
@@ -385,6 +412,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WatchEat is a personal food trainer application made by Roman Łubkowski..
+        /// </summary>
+        internal static string FoodTrainerAppInfo {
+            get {
+                return ResourceManager.GetString("FoodTrainerAppInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
         internal static string Gender {
@@ -534,6 +570,15 @@ namespace WatchEat.Resources {
         internal static string kg {
             get {
                 return ResourceManager.GetString("kg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 12 Months.
+        /// </summary>
+        internal static string Last12Months {
+            get {
+                return ResourceManager.GetString("Last12Months", resourceCulture);
             }
         }
         
@@ -808,6 +853,15 @@ namespace WatchEat.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This application has been written in C# using Xamarin.Forms technology..
+        /// </summary>
+        internal static string TechAppInfo {
+            get {
+                return ResourceManager.GetString("TechAppInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time.
         /// </summary>
         internal static string Time {
@@ -939,6 +993,15 @@ namespace WatchEat.Resources {
         internal static string VerySeverelyUnderweight {
             get {
                 return ResourceManager.GetString("VerySeverelyUnderweight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WatchEat.
+        /// </summary>
+        internal static string WatchEat {
+            get {
+                return ResourceManager.GetString("WatchEat", resourceCulture);
             }
         }
         

@@ -153,6 +153,9 @@
   <data name="Burned" xml:space="preserve">
     <value>Burned</value>
   </data>
+  <data name="BurnedCalories" xml:space="preserve">
+    <value>Burned Calories</value>
+  </data>
   <data name="Calories" xml:space="preserve">
     <value>Calories</value>
   </data>
@@ -167,6 +170,12 @@
   </data>
   <data name="Consumed" xml:space="preserve">
     <value>Consumed</value>
+  </data>
+  <data name="ConsumedCalories" xml:space="preserve">
+    <value>Consumed Calories</value>
+  </data>
+  <data name="ContactAuthor" xml:space="preserve">
+    <value>Contact Author</value>
   </data>
   <data name="DailyCaloriesRecommendation" xml:space="preserve">
     <value>Daily Calories Recommendation [cal]</value>
@@ -225,6 +234,9 @@
   <data name="Foods" xml:space="preserve">
     <value>Foods</value>
   </data>
+  <data name="FoodTrainerAppInfo" xml:space="preserve">
+    <value>WatchEat is a personal food trainer application made by Roman Łubkowski.</value>
+  </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
   </data>
@@ -275,6 +287,9 @@
   </data>
   <data name="kg" xml:space="preserve">
     <value>kg</value>
+  </data>
+  <data name="Last12Months" xml:space="preserve">
+    <value>Last 12 Months</value>
   </data>
   <data name="Last30Days" xml:space="preserve">
     <value>Last 30 days</value>
@@ -366,6 +381,9 @@
   <data name="Statistics" xml:space="preserve">
     <value>Statistics</value>
   </data>
+  <data name="TechAppInfo" xml:space="preserve">
+    <value>This application has been written in C# using Xamarin.Forms technology.</value>
+  </data>
   <data name="Time" xml:space="preserve">
     <value>Time</value>
   </data>
@@ -410,6 +428,9 @@
   </data>
   <data name="VerySeverelyUnderweight" xml:space="preserve">
     <value>Very severely underweight</value>
+  </data>
+  <data name="WatchEat" xml:space="preserve">
+    <value>WatchEat</value>
   </data>
   <data name="Water" xml:space="preserve">
     <value>Water</value>

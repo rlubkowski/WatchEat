@@ -10,17 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace WatchEat.Views.Statistics
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WeeklyStatisticsPage : ContentPage
+    public partial class YearlyStatisticsPage : ContentPage
     {
-        public WeeklyStatisticsPage()
+        public YearlyStatisticsPage()
         {
             InitializeComponent();
-            BindingContext = new WeeklyStatisticsViewModel();
+            BindingContext = new YearlyStatisticsViewModel();
         }
 
         protected override async void OnAppearing()
         {
-            await (BindingContext as WeeklyStatisticsViewModel).InitializeAsync(Navigation);
+            await (BindingContext as YearlyStatisticsViewModel).InitializeAsync(Navigation);
             base.OnAppearing();
         }
     }

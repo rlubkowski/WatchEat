@@ -28,6 +28,7 @@
         <Tab Title="{markup:Translate Statistics}" Icon="tab_about.png">
             <ShellContent Title="{markup:Translate Last7Days}" ContentTemplate="{DataTemplate statviews:WeeklyStatisticsPage}" />
             <ShellContent Title="{markup:Translate Last30Days}" ContentTemplate="{DataTemplate statviews:MonthlyStatisticsPage}" />
+            <ShellContent Title="{markup:Translate Last12Months}" ContentTemplate="{DataTemplate statviews:YearlyStatisticsPage}" />
         </Tab>
         <Tab Title="{markup:Translate About}" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />

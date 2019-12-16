@@ -152,11 +152,11 @@ namespace WatchEat.ViewModels
             IsBusy = false;
         });
 
-        private async Task LoadDayActivitiesAsync(DateTime dateTime)
+        private async Task LoadDayActivitiesAsync(DateTime selectedDay)
         {
             Entries.Clear();
-            var tommorow = dateTime.AddDays(1);
-            var entries = await DataStore.JournalEntries.Get(x => x.Date >= dateTime && x.Date < tommorow, x => x.Date);
+            var nextDay = selectedDay.AddDays(1);
+            var entries = await DataStore.JournalEntries.Get(x => x.Date >= selectedDay && x.Date < nextDay, x => x.Date);
             Entries.AddRange(entries);
         }
 

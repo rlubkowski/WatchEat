@@ -6,7 +6,7 @@
              mc:Ignorable="d" Title="{Binding Title}"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
-             x:Class="WatchEat.Views.Statistics.WeeklyStatisticsPage">
+             x:Class="WatchEat.Views.Statistics.YearlyStatisticsPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
