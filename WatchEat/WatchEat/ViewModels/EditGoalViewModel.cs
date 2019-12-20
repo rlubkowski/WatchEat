@@ -6,11 +6,12 @@ using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Resources;
 using WatchEat.Services.Interfaces;
+using WatchEat.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
-    public class EditGoalViewModel : BaseViewModel
+    public class EditGoalViewModel : BaseViewModel, IValid
     {
         public EditGoalViewModel()
         {
@@ -77,23 +78,9 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _loseGainWeight, value); }
         }
 
-        bool _isGoalPeriodValid = false;
-        public bool IsGoalPeriodValid
-        {
-            get => _isGoalPeriodValid;
-            set { SetProperty(ref _isGoalPeriodValid, value); }
-        }
-
-        bool _isGoalWeightValid = false;
-        public bool IsGoalWeightValid
-        {
-            get => _isGoalWeightValid;
-            set { SetProperty(ref _isGoalWeightValid, value); }
-        }
-
         public bool IsValid
         {
-            get => GoalType != GoalType.Maintain ? IsGoalWeightValid && IsGoalPeriodValid : true;
+            get => GoalType != GoalType.Maintain ? GoalPeriod > 0 && LoseGainWeight > 0 : true;
         }
     }
 }

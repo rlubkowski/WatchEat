@@ -40,7 +40,7 @@
                             <Image HorizontalOptions="FillAndExpand" Aspect="AspectFit" Grid.Column="0" Source="{markup:ImageResource Food.png}"  />                            
                             <Grid Grid.Column="1" ColumnSpacing="0" RowSpacing="0">                                
                                 <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="True" BackgroundColor="{StaticResource PrimaryColor}" Margin="3" Padding="0">
-                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="3*" />
                                         <ColumnDefinition Width="2*" />

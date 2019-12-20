@@ -1,15 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Enums;
 using WatchEat.Helpers;
 using WatchEat.Models;
 using WatchEat.Resources;
 using WatchEat.Services.Interfaces;
+using WatchEat.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels
 {
-    public class EditUserViewModel : BaseViewModel
+    public class EditUserViewModel : BaseViewModel, IValid
     {
         public EditUserViewModel()
         {
@@ -25,7 +27,7 @@ namespace WatchEat.ViewModels
         {
             if (IsValid)
             {
-                var userInfo = new UserInfoModel(Age, Height, Weight, Gender, ActivityLevel);
+                var userInfo = new UserInfoModel((int)Math.Round(Age), (int)Math.Round(Height), Weight, Gender, ActivityLevel);
                 UserSettings.UpdateUserInformation(userInfo);
                 MessagingCenter.Send(this, CommandNames.UserInfoUpdated, userInfo);
                 await Navigation.PopModalAsync();
@@ -49,7 +51,7 @@ namespace WatchEat.ViewModels
             await base.InitializeAsync(navigation);
         }
 
-        public bool IsValid { get => IsAgeValid && IsWeightValid && IsHeightValid; }
+        public bool IsValid { get => Age > 0  && Weight > 0 && Height > 0; }
 
         ActivityLevel _activityLevel;
         public ActivityLevel ActivityLevel
@@ -65,25 +67,11 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _gender, value); }
         }    
 
-        bool _isAgeValid = false;
-        public bool IsAgeValid
-        {
-            get => _isAgeValid;
-            set { SetProperty(ref _isAgeValid, value); }
-        }
-
-        int _age = 0;
-        public int Age 
+        decimal _age = 0;
+        public decimal Age 
         {
             get => _age;
             set { SetProperty(ref _age, value); } 
-        }
-
-        bool _isWeightValid = false;
-        public bool IsWeightValid
-        {
-            get => _isWeightValid;
-            set { SetProperty(ref _isWeightValid, value); }
         }
 
         decimal _weight = 0;
@@ -93,15 +81,8 @@ namespace WatchEat.ViewModels
             set { SetProperty(ref _weight, value); }
         }
 
-        bool _isHeightValid = false;
-        public bool IsHeightValid
-        {
-            get => _isHeightValid;
-            set { SetProperty(ref _isHeightValid, value); }
-        }
-
-        int _heigth = 0;
-        public int Height 
+        decimal _heigth = 0;
+        public decimal Height 
         {
             get => _heigth;
             set { SetProperty(ref _heigth, value); }

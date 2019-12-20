@@ -4,11 +4,12 @@ using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Resources;
+using WatchEat.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class WaterViewModel : BaseViewModel
+    public class WaterViewModel : BaseViewModel, IValid
     {
         public WaterViewModel(DateTime dateTime)
         {
@@ -34,23 +35,16 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        decimal _amount = default(decimal);
+        decimal _amount = 0;
         public decimal Amount
         {
             get => _amount;
             set { SetProperty(ref _amount, value); }
         }
 
-        bool _isWaterValid = default(bool);
-        public bool IsWaterValid
-        {
-            get => _isWaterValid;
-            set { SetProperty(ref _isWaterValid, value); }
-        }
-
         public ICommand Add => new AsyncCommand(async () =>
         {
-            if (IsWaterValid)
+            if (IsValid)
             {
                 MessagingCenter.Send(this, CommandNames.AddWaterEntry, new WaterEntryModel(Amount, SelectedDate));
                 await Navigation.PopModalToRootAsync();
@@ -65,5 +59,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             await Navigation.PopModalAsync();
         });
+
+        public bool IsValid => Amount > 0;
     }
 }

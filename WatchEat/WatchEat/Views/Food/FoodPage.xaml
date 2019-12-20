@@ -3,42 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" x:Name="PageReference"
+             mc:Ignorable="d" x:Name="FoodPageRef"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:controls="clr-namespace:WatchEat.Controls"
-             xmlns:validation="clr-namespace:WatchEat.Behaviors.Validation"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
              x:Class="WatchEat.Views.Food.FoodPage" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
         <ToolbarItem Text="{markup:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DecimalConverter x:Key="DecimalConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
                 <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">
                     <StackLayout>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Name}" FontSize="Medium"/>
-                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Path=Food.Name}" FontSize="Small" >
-                            <Entry.Behaviors>
-                                <validation:EntryNotEmptyValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsNameValid, Mode=OneWayToSource}" />
-                            </Entry.Behaviors>
-                        </Entry>
+                        <Entry TextColor="{StaticResource CustomBlack}" Text="{Binding Name}" FontSize="Small" />
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Calories}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Calories}" FontSize="Small">
-                            <controls:NumericEntry.Behaviors>
-                                <validation:NumericNonNegativeValidationBehavior IsValid="{Binding Source={x:Reference PageReference}, BindingContext.IsCaloriesValid, Mode=OneWayToSource}" />
-                            </controls:NumericEntry.Behaviors>
-                        </controls:NumericEntry>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="False" TextColor="{StaticResource CustomBlack}" Text="{Binding Calories, Converter={StaticResource DecimalConverter}}" FontSize="Small" />                        
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Carbs}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Carbs}" FontSize="Small"/>
+                        <controls:NumericInput AllowFraction="True" AllowNegative="False" TextColor="{StaticResource CustomBlack}" Text="{Binding Carbs, Converter={StaticResource DecimalConverter}}" FontSize="Small" />
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Protein}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Protein}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" Text="{Binding Protein, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Fat}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Fat}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" Text="{Binding Fat, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Fiber}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Fiber}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" Text="{Binding Fiber, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Salt}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" NumericValue="{Binding Path=Food.Salt}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" Text="{Binding Salt, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -4,11 +4,12 @@ using WatchEat.Helpers;
 using WatchEat.Helpers.MethodExtensions;
 using WatchEat.Models;
 using WatchEat.Resources;
+using WatchEat.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.EventSelection
 {
-    public class WeightViewModel : BaseViewModel
+    public class WeightViewModel : BaseViewModel, IValid
     {
         public WeightViewModel(DateTime dateTime)
         {
@@ -34,23 +35,16 @@ namespace WatchEat.ViewModels.EventSelection
             }
         }
 
-        decimal _weight = default(decimal);
+        decimal _weight = 0;
         public decimal Weight 
         {
             get => _weight;
             set { SetProperty(ref _weight, value); }
         }
 
-        bool _isWeightValid = default(bool);
-        public bool IsWeightValid
-        {
-            get => _isWeightValid;
-            set { SetProperty(ref _isWeightValid, value); }
-        }
-
         public ICommand Add => new AsyncCommand(async () =>
         {
-            if (IsWeightValid)
+            if (IsValid)
             {
                 MessagingCenter.Send(this, CommandNames.AddWeightEntry, new WeightEntryModel(Weight, SelectedDate));
                 await Navigation.PopModalToRootAsync();
@@ -65,5 +59,7 @@ namespace WatchEat.ViewModels.EventSelection
         {
             await Navigation.PopModalAsync();
         });
+
+        public bool IsValid => Weight > 0;
     }
 }

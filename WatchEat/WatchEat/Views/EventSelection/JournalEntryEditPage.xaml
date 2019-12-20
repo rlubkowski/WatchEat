@@ -6,42 +6,48 @@
              mc:Ignorable="d" Title="{Binding Title}"
              xmlns:markup="clr-namespace:WatchEat.Helpers.MarkupExtensions"
              xmlns:controls="clr-namespace:WatchEat.Controls"
+             xmlns:converters="clr-namespace:WatchEat.Converters"
              x:Class="WatchEat.Views.EventSelection.JournalEntryEditPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{markup:Translate Cancel}"  Command="{Binding Cancel}" />
         <ToolbarItem  Text="{markup:Translate Remove}"  Command="{Binding Remove}" />
         <ToolbarItem  Text="{markup:Translate Save}"  Command="{Binding Save}" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DecimalConverter x:Key="DecimalConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15" BackgroundColor="{StaticResource PrimaryColor}">
                 <Frame VerticalOptions="Center" HasShadow="True" Style="{StaticResource BackgroundFrame}">                    
                     <StackLayout>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding NameVisible}" Text="{markup:Translate Name}" FontSize="Medium" />
-                        <Entry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding NameVisible}" Text="{Binding Path=Entry.Name}" FontSize="Small" />
+                        <Entry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding NameVisible}" Text="{Binding Name}" FontSize="Small" />
 
                         <Label TextColor="{StaticResource CustomBlack}" Text="{markup:Translate Time}" FontSize="Medium"/>
-                        <TimePicker TextColor="{StaticResource CustomBlack}" Time="{Binding Path=Entry.Time}" />
+                        <TimePicker TextColor="{StaticResource CustomBlack}" Time="{Binding Time}" />
 
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding CaloriesVisible}" Text="{markup:Translate Calories}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding CaloriesVisible}" NumericValue="{Binding Path=Entry.Calories}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="False" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding CaloriesVisible}" Text="{Binding Calories, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
 
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Carbs}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Carbs}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{Binding Carbs, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Protein}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Protein}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{Binding Protein, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Fat}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fat}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{Binding Fat, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Fiber}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Fiber}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{Binding Fiber, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{markup:Translate Salt}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" NumericValue="{Binding Path=Entry.Salt}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding FoodVisible}" Text="{Binding Salt, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
 
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WeightVisible}" Text="{markup:Translate Weight}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WeightVisible}" NumericValue="{Binding Path=Entry.Weight}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WeightVisible}" Text="{Binding Weight, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
 
                         <Label TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WaterVisible}" Text="{markup:Translate WaterAmount}" FontSize="Medium" />
-                        <controls:NumericEntry TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WaterVisible}" NumericValue="{Binding Path=Entry.Amount}" FontSize="Small"/>
+                        <controls:NumericInput AllowNegative="False" AllowFraction="True" TextColor="{StaticResource CustomBlack}" IsVisible="{Binding WaterVisible}" Text="{Binding Amount, Converter={StaticResource DecimalConverter}}" FontSize="Small"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

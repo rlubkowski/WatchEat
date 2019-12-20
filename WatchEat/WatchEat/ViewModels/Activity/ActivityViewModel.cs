@@ -2,11 +2,12 @@
 using WatchEat.Helpers;
 using WatchEat.Models.Database;
 using WatchEat.Resources;
+using WatchEat.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace WatchEat.ViewModels.Activity
 {
-    public class ActivityViewModel : BaseViewModel
+    public class ActivityViewModel : BaseViewModel, IValid
     {
         public ActivityViewModel()
         {
@@ -20,6 +21,8 @@ namespace WatchEat.ViewModels.Activity
             Title = AppResource.EditActivity;
             IsEditView = true;
             Activity = activity;
+            Name = Activity.Name;
+            Calories = Activity.Calories;
         }
 
         ActivityEntry _activity;
@@ -29,29 +32,32 @@ namespace WatchEat.ViewModels.Activity
             set { SetProperty(ref _activity, value); }
         }
 
+        string _name = string.Empty;
+        public string Name
+        {
+            get => _name;
+            set { SetProperty(ref _name, value); }
+        }
+
+        decimal _calories = 0;
+        public decimal Calories
+        {
+            get => _calories;
+            set { SetProperty(ref _calories, value); }
+        }
+
         public bool IsEditView { get; private set; }
-
-        bool _isNameValid;
-        public bool IsNameValid
-        {
-            get => _isNameValid;
-            set { SetProperty(ref _isNameValid, value); }
-        }
-
-        bool _isCaloriesValid;
-        public bool IsCaloriesValid
-        {
-            get => _isCaloriesValid;
-            set { SetProperty(ref _isCaloriesValid, value); }
-        }
 
         public bool IsValid
         {
-            get => IsCaloriesValid && IsNameValid;
+            get => Activity != null && !string.IsNullOrWhiteSpace(Activity.Name) && Activity.Calories > 0;
         }
 
         public ICommand Save => new AsyncCommand(async () =>
         {
+            Activity.Name = Name;
+            Activity.Calories = Calories;
+
             if (!IsValid)
             {
                 await DialogService.DisplayAlert(AppResource.Validation, AppResource.ValidationNameCalories, AppResource.Cancel);
