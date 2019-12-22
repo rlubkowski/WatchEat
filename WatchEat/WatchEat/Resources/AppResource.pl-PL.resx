@@ -337,7 +337,7 @@
     <value>Nadwaga</value>
   </data>
   <data name="PleaseUpdateBeforeUse" xml:space="preserve">
-    <value>Proszę zaktualizuj informacje o użytkowniku i zdefiniuj cele przed rozpoczęciem korzystania z aplikacji!</value>
+    <value>Proszę zaktualizuj informacje o użytkowniku i zdefiniuj cel przed rozpoczęciem korzystania z aplikacji!</value>
   </data>
   <data name="Protein" xml:space="preserve">
     <value>Proteiny</value>
@@ -367,7 +367,7 @@
     <value>Wybierz Aktywność</value>
   </data>
   <data name="SelectEvent" xml:space="preserve">
-    <value>Wybierz Wydarzenie</value>
+    <value>Wybierz Zdarzenie</value>
   </data>
   <data name="SelectFood" xml:space="preserve">
     <value>Wybierz Posiłek</value>
@@ -403,7 +403,7 @@
     <value>Użytkownik</value>
   </data>
   <data name="UserInformation" xml:space="preserve">
-    <value>Informacje o użytkowniku</value>
+    <value>O Użytkowniku</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>Walidacja</value>
