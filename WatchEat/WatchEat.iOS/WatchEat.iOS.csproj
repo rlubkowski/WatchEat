@@ -59,6 +59,9 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContainerShadowEffect.cs" />
     <Compile Include="LabelShadowEffect.cs" />
@@ -112,6 +115,18 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\splash.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\splash@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\splash@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -144,21 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\about%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default-Portrait.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default-Portrait%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\definitions.png" />
@@ -195,5 +195,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\user%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash%403x.png" />
   </ItemGroup>
 </Project>

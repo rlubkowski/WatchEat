@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WatchEat.Controls;
