@@ -10,7 +10,7 @@
         <ToolbarItem Text="{markup:Translate Back}"  Command="{Binding Cancel}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{StaticResource PrimaryColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
