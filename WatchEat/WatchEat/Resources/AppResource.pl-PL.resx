@@ -195,6 +195,9 @@
   <data name="DailyWaterRecommendation" xml:space="preserve">
     <value>Zalecana dzienna ilość wody [l]</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dni</value>
+  </data>
   <data name="Definitions" xml:space="preserve">
     <value>Definicje</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="FoodTrainerAppInfo" xml:space="preserve">
     <value>WatchEat jest aplikacją swtorzoną przez Romana Łubkowskiego, która służy jako trener żywienia.</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Przybrać</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Płeć</value>
@@ -300,6 +306,12 @@
   <data name="LightlyActive" xml:space="preserve">
     <value>Bardzo aktywny</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Utracić</value>
+  </data>
+  <data name="Maintain" xml:space="preserve">
+    <value>Utrzymać</value>
+  </data>
   <data name="Male" xml:space="preserve">
     <value>Mężczyzna</value>
   </data>
@@ -308,6 +320,9 @@
   </data>
   <data name="ModeratetelyActive" xml:space="preserve">
     <value>Umiarkowana aktywność</value>
+  </data>
+  <data name="Months" xml:space="preserve">
+    <value>Miesięcy</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
@@ -447,6 +462,9 @@
   <data name="WaterMl" xml:space="preserve">
     <value>Woda [ml]</value>
   </data>
+  <data name="Weeks" xml:space="preserve">
+    <value>Tygodni</value>
+  </data>
   <data name="Weight" xml:space="preserve">
     <value>Waga</value>
   </data>
@@ -459,11 +477,14 @@
   <data name="WeightKg" xml:space="preserve">
     <value>Waga [kg]</value>
   </data>
+  <data name="Years" xml:space="preserve">
+    <value>Lat</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Tak</value>
   </data>
   <data name="YourCurrentWeightSuffix" xml:space="preserve">
-    <value>Twojej aktualnej wagi.</value>
+    <value>swoją aktualną wagę.</value>
   </data>
   <data name="YourGoal" xml:space="preserve">
     <value>Twój cel</value>

@@ -195,6 +195,9 @@
   <data name="DailyWaterRecommendation" xml:space="preserve">
     <value>Daily Water Recommendation [l]</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
   <data name="Definitions" xml:space="preserve">
     <value>Definitions</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="FoodTrainerAppInfo" xml:space="preserve">
     <value>WatchEat is a personal food trainer application made by Roman Łubkowski.</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Gain</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
@@ -300,6 +306,12 @@
   <data name="LightlyActive" xml:space="preserve">
     <value>Lightly active</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Lose</value>
+  </data>
+  <data name="Maintain" xml:space="preserve">
+    <value>Maintain</value>
+  </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>
   </data>
@@ -308,6 +320,9 @@
   </data>
   <data name="ModeratetelyActive" xml:space="preserve">
     <value>Moderatetely active</value>
+  </data>
+  <data name="Months" xml:space="preserve">
+    <value>Months</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -447,6 +462,9 @@
   <data name="WaterMl" xml:space="preserve">
     <value>Water [ml]</value>
   </data>
+  <data name="Weeks" xml:space="preserve">
+    <value>Weeks</value>
+  </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
   </data>
@@ -458,6 +476,9 @@
   </data>
   <data name="WeightKg" xml:space="preserve">
     <value>Weight [kg]</value>
+  </data>
+  <data name="Years" xml:space="preserve">
+    <value>Years</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
