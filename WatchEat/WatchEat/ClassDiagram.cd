@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WatchEat.ViewModels.JournalViewModel">
+    <Position X="3.5" Y="4" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UCAaQEAIAEIQICFgBAAAAoBAIDQAAAAhgQIQAgISAAA=</HashCode>
+      <FileName>ViewModels\JournalViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.UserViewModel">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UDYD0ACIbCgRiACQJMgAIBRQICALBghDABhAAAoAQAQ=</HashCode>
+      <FileName>ViewModels\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAQAAAAUAAIEAAAQBAgAEAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Abstract\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.Abstract.StatisticViewModel" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABBAEAAgAAAAAAAAAAAQgESADAgAICAmQIAAAACQAA=</HashCode>
+      <FileName>ViewModels\Abstract\StatisticViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.ViewModelWithChildPages" Collapsed="true">
+    <Position X="8.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Abstract\ViewModelWithChildPages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Activity.ActivitiesViewModel" Collapsed="true">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAAAAAQCAAAAAAAAAAAAAAAAAABAAAAAIAAAAA=</HashCode>
+      <FileName>ViewModels\Activity\ActivitiesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Activity.ActivityViewModel" Collapsed="true">
+    <Position X="11.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIIAAQAAAAAAAAAgABAQAABAAAAAAAAIAAGAAAAA=</HashCode>
+      <FileName>ViewModels\Activity\ActivityViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.ActivitySelectionViewModel" Collapsed="true">
+    <Position X="8.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAADAAAAQAAAAAAABAQAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>ViewModels\EventSelection\ActivitySelectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.EventSelectionViewModel" Collapsed="true">
+    <Position X="11.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAQAAUAAAAAAAAAIAAABAAACABCAAAACAAAAI=</HashCode>
+      <FileName>ViewModels\EventSelection\EventSelectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.FoodSelectionViewModel" Collapsed="true">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACEAAAQAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EventSelection\FoodSelectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.JournalEntryEditViewModel" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABRIIAAwAAgAAAAAAiARIWDADAAAIAAmABAACAAQQA=</HashCode>
+      <FileName>ViewModels\EventSelection\JournalEntryEditViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.WaterViewModel" Collapsed="true">
+    <Position X="13.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAQAAAAAAABAwAAACAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EventSelection\WaterViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.EventSelection.WeightViewModel" Collapsed="true">
+    <Position X="13.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIDAAAAQAAAAAAABAwAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EventSelection\WeightViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.Food.FoodsViewModel" Collapsed="true">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAAAAQAAAAAAAAAAAAACAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Food\FoodsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Food.FoodViewModel" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAIIAAwAAAAAABAAgABAUCABAAAIAAmAIAAiAAQAA=</HashCode>
+      <FileName>ViewModels\Food\FoodViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Statistics.MonthlyStatisticsViewModel" Collapsed="true">
+    <Position X="6" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Statistics\MonthlyStatisticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Statistics.WeeklyStatisticsViewModel" Collapsed="true">
+    <Position X="13.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Statistics\WeeklyStatisticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.Statistics.YearlyStatisticsViewModel" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Statistics\YearlyStatisticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.AboutViewModel" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.ViewModels.EditGoalViewModel" Collapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cAAAQIABQAAAAAAAAAiAAAECAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EditGoalViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.EditUserViewModel" Collapsed="true">
+    <Position X="6.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAABEIAATAAAAACABEgAAAAAICAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\EditUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.ViewModels.GoalViewModel" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cAQBQAAJAAAYAAAAABSAAAFCAAAAIEADAAAABAAAAAI=</HashCode>
+      <FileName>ViewModels\GoalViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.TemplateSelectors.JournalEntryDataTemplateSelector" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAgAAACAAQAgAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateSelectors\JournalEntryDataTemplateSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.Services.UserSettings" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAYABABBAAQAAgCAACACEAkEAAAAFAQBA=</HashCode>
+      <FileName>Services\UserSettings.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.Repository&lt;T&gt;" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAgEAAgAAAIABAAAAEAAAAAAEAEAAAAQIAAAAAAAA=</HashCode>
+      <FileName>Services\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.NutritionService" Collapsed="true">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgIAAAAAAABAAIAAAAAQAAAIAAAAAAAAAAABACAA=</HashCode>
+      <FileName>Services\NutritionService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.IBWService" Collapsed="true">
+    <Position X="2" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAQAEAAAAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Services\IBWService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.DialogService" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DialogService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.DataStore" Collapsed="true">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAQAAAAAAQAAAEAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Services\DataStore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.BodyFatService" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Services\BodyFatService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Services.BMIService" Collapsed="true">
+    <Position X="1" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\BMIService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Models.WeightEntryModel" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAABABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\WeightEntryModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WatchEat.Models.WeightChangeEstimationResult" Collapsed="true">
+    <Position X="13.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Models\WeightChangeEstimationResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.Views.AboutPage">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AboutPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WatchEat.Views.EditGoalPage">
+    <Position X="7.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\EditGoalPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

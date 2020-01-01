@@ -298,13 +298,13 @@
     <value>Ostatnie  12 miesięcy</value>
   </data>
   <data name="Last30Days" xml:space="preserve">
-    <value>Osttanie 30 dni</value>
+    <value>Ostanie 30 dni</value>
   </data>
   <data name="Last7Days" xml:space="preserve">
     <value>Ostatnie 7 dni</value>
   </data>
   <data name="LightlyActive" xml:space="preserve">
-    <value>Bardzo aktywny</value>
+    <value>s</value>
   </data>
   <data name="Lose" xml:space="preserve">
     <value>Utracić</value>
